@@ -4,6 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 600px;
+        height: 600px;
+        margin-top: 150px;
+        border: 3px solid rgb(30, 30, 70);
+        border-radius: 10px;
+        /* display: flex;
+        align-items: flex-end; */
+      }
+      .num {
+        width: 150px;
+        height: 90px;
+        /* border-radius: 10px; */
+        border: 3px solid rgb(30, 30, 70);
+      }
+      span {
+        display: flex;
+      }
+      span.high {
+        margin-top: 230px;
+      }
+      div.space {
+        width: 300px;
+        height: 90px;
+        border: 3px solid rgb(30, 30, 70);
+      }
+      div.dot {
+        width: 150px;
+        height: 90px;
+        /* border-radius: 10px; */
+        border: 3px solid rgb(30, 30, 70);
+        /* font-weight: bold; */
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <span class="high">
+        <div class="num">7</div>
+        <div class="num">8</div>
+        <div class="num">9</div>
+      </span>
+      <span class="mid">
+        <div class="num">4</div>
+        <div class="num">5</div>
+        <div class="num">6</div>
+      </span>
+      <span class="low">
+        <div class="num">1</div>
+        <div class="num">2</div>
+        <div class="num">3</div>
+      </span>
+      <span>
+        <div class="space"></div>
+        <div class="dot">.</div>
+      </span>
+    </div>
+  </body>
 </html>
