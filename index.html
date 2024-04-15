@@ -17,15 +17,22 @@
         justify-content: center;
       }
       .container {
-        width: 530px;
+        width: 520px;
         height: 520px;
         margin-top: 150px;
-        padding-left: 12px;
+        padding-left: 10px;
         border: 3px solid rgb(30, 30, 70);
         border-radius: 10px;
         background-color: rgb(246, 214, 219);
-        /* display: flex;
-        align-items: flex-end; */
+        box-shadow: inset;
+      }
+      div.display {
+        width: 480px;
+        height: 110px;
+        margin: 25px 20px 0 8px;
+        border: 3px solid rgb(30, 30, 70);
+        border-radius: 10px;
+        background-color: rgb(251, 235, 238);
       }
       .num {
         width: 110px;
@@ -37,12 +44,13 @@
         font-size: 40px;
         font-weight: 1000;
         background-color: rgb(252, 168, 181);
+        text-align: center;
       }
       span {
         display: flex;
       }
       span.highest {
-        margin-top: 160px;
+        margin-top: 30px;
       }
       div.zero {
         width: 229px;
@@ -77,12 +85,16 @@
       div.addition,
       div.subtract,
       div.module {
-        background-color: rgb(219, 98, 114);
+        background-color: rgb(194, 131, 140);
+      }
+      div.delete {
+        background-color: rgb(164, 89, 101);
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <div class="display"></div>
       <span class="highest">
         <div class="num clear">AC</div>
         <div class="num module">%</div>
