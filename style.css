@@ -38,6 +38,7 @@ div.display {
   font-weight: 1000;
   background-color: rgb(252, 168, 181);
   text-align: center;
+  font-family: sans-serif;
 }
 span {
   display: flex;
