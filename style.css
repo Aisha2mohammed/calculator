@@ -46,41 +46,20 @@ span {
 span.highest {
   margin-top: 30px;
 }
-div.zero {
-  width: 229px;
-  height: 70px;
-  border: 3px solid rgb(30, 30, 70);
-  border-radius: 10px;
-  background-color: rgb(252, 168, 181);
-  margin-top: 6px;
-  margin-left: 10px;
-  font-size: 40px;
-  font-weight: 1000;
-}
-div.dot {
-  width: 110px;
-  height: 70px;
-  border-radius: 10px;
-  border: 3px solid rgb(30, 30, 70);
-  background-color: rgb(252, 168, 181);
-  margin-top: 6px;
-  margin-left: 10px;
-  font-size: 40px;
-  font-weight: 1000;
-}
-div.sign {
+
+button.sign {
   background-color: rgb(219, 204, 206);
 }
-div.clear {
+button.clear {
   background-color: rgb(219, 204, 206);
 }
-div.product,
-div.division,
-div.addition,
-div.subtract,
-div.module {
-  background-color: rgb(194, 131, 140);
+button.product,
+button.division,
+button.addition,
+button.subtract,
+button.module {
+  background-color: rgb(184, 123, 132);
 }
-div.delete {
+button.delete {
   background-color: rgb(164, 89, 101);
 }

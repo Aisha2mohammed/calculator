@@ -10,39 +10,39 @@
     <div class="container">
       <div class="display"></div>
       <span class="highest">
-        <div class="num clear">AC</div>
-        <div class="num module">%</div>
-        <div class="num product">*</div>
-        <div class="num delete">x</div>
+        <button class="num clear">AC</button>
+        <button class="num module">%</button>
+        <button class="num product">*</button>
+        <button class="num delete">x</button>
       </span>
       <span class="high">
-        <div class="num">7</div>
-        <div class="num">8</div>
-        <div class="num">9</div>
-        <div class="num division">/</div>
+        <button class="num">7</button>
+        <button class="num">8</butt>
+        <button class="num">9</button>
+        <button class="num division">/</button>
       </span>
       <span class="mid">
-        <div class="num">4</div>
-        <div class="num">5</div>
-        <div class="num">6</div>
-        <div class="num addition">+</div>
+        <button class="num">4</button>
+        <button class="num">5</button>
+        <button class="num">6</button>
+        <button class="num addition">+</button>
       </span>
       <span class="low">
-        <div class="num">1</div>
-        <div class="num">2</div>
-        <div class="num">3</div>
-        <div class="num subtract">-</div>
+        <button class="num">1</button>
+        <button class="num">2</button>
+        <button class="num">3</button>
+        <button class="num subtract">-</button>
       </span>
       <span>
         <div class="num">0</div>
         <div class="num">.</div>
         <div class="num">+/-</div>
-        <div class="num sign">=</div>
+        <button class="num sign">=</button>
       </span>
     </div>
     <script>
-      const numbers = document.querySelection('.num');
-      const display = document.querySelection('.display');
+      const numbers = document.querySelectorAll('.num');
+      const display = document.querySelector('.display');
 
       let firstNum;
       let secNum;
