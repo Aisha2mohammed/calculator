@@ -41,13 +41,13 @@
       </span>
     </div>
     <script>
-      const number = document.querySelection('.num');
+      const numbers = document.querySelection('.num');
       const display = document.querySelection('.display');
 
       let firstNum;
       let secNum;
       let operator;
-
+      numbers.addEventListener("click",operate);
 
       function addition(a,b,c){
         const para = document.createElement("p");
@@ -72,6 +72,8 @@
 
     }
     function operate(x,y,z){
+      const para = document.createElement("p");
+      
       module(x,y,z);
       division (x,y,z);
 
@@ -82,6 +84,14 @@
       addition(x,y,z);
 
     }
+    function display(numbers){
+      for(const number of numbers){
+         firstNum = number;
+         operator = number;
+         secNum   = number;
+      };
+operate(firstNum,operator,secNum);
+    };
     </script>
   </body>
 </html>
