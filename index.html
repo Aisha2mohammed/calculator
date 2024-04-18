@@ -53,6 +53,8 @@
       let i=0;
       let arr1;
       let firstNum;
+      let f1;
+      let val = '';
       let secNum;
       let operator;
       let Target;
@@ -163,73 +165,84 @@
           arr =[...array];
           // let arr = array.join('');
           console.log(arr);
-          let val = '';
         //  let f1= a[0];
 
-        // while(i<=array.length){
-        //   if(isNumber(array[i])){
-        //   let f2 = array[i];
-        //   console.log(f2);
-        //   if(isNumber(array[i-1])){
-        //     val = f1;
-        //     val = val.concat(f2);
+        while(i<=array.length){
+          console.log(val);
+          if(isNumber(array[i])){
+          let f1 = array[i];
+                   val = f1;
+          console.log(f1);
+          // if(isNumber(array[i-1])){
+          //   val = f1;
+          //   val = val.concat(f2);
 
-        //   }7
-        //   console.log(val);
-        //   //   if(isNumber(array[i-1])){
-        //   // arr1 = array.join('');
-        //   // console.log(arr1);
-        //   //   }
-        //     // secNum = number[i + 2];
-        //     // console.log(arr1);
-        //     }
-        //   else{
-        //     operator = numbers[i];
-        //   }
-        //   i++
-        // };
+          // }
+          // console.log(val);
+          //   if(isNumber(array[i-1])){
+          // arr1 = array.join('');
+          // console.log(arr1);
+          //   }
+            // secNum = number[i + 2];
+            // console.log(arr1);
+            }
+          else{
+            operator = numbers[i];
+          }
+
+          i++
+        };
       function isNumber(character){
         return /[0-9]/.test(character)
       }
     
-// operate(firstNum,operator,secNum);
+operate(val,operator,f1);
     };
 
-    //   function addition(a,b,c){
-    //     const para = document.createElement("p");
-    //   }
-    //   function subtract(a,b,c){
-    //     const para = document.createElement("p");
+      function addition(a,b,c){
+        const para = document.createElement("p");
+      }
+      function subtract(a,b,c){
+        const para = document.createElement("p");
 
-    //   }
-    //   function product(a,b,c) {
-    //     const para = document.createElement("p");
-
-
-    //   }
-    //  function division(a,b,c) {
-    //   const para = document.createElement("p");
+      }
+      function product(a,b,c) {
+        const para = document.createElement("p");
 
 
-    //   } 
-    //  function module(a,b,c){
-    //   const para = document.createElement("p");
+      }
+     function division(a,b,c) {
+      const para = document.createElement("p");
 
 
-    // }
-    // function operate(x,y,z){
-    //   const para = document.createElement("p");
-      
-    //   module(x,y,z);
-    //   division (x,y,z);
+      } 
+     function module(a,b,c){
+      const para = document.createElement("p");
 
-    //   product(x,y,z);
 
-    //   product(x,y,z);
+    }
+    function operate(val,operator,f1){
+      // const para = document.createElement("p");
+      if(operator == '+')
+      add(val,operator,f1);
 
-    //   addition(x,y,z);
+      if(operator == '-')
+      minus(val,operator,f1);
 
-    // }
+
+      if(operator =='*')
+      pro(val,operator,f1)
+
+
+      if(operator =='%')
+      mod(val,operator,f1)
+
+
+      if(operator == '/')
+      div(val,operator,f1);
+
+
+    }
    
     </script>
   </body>
