@@ -47,20 +47,20 @@
       const number = document.querySelectorAll('.num');
       // const display = document.querySelector('.display');
       const span = document.querySelector('span');
+      const  equa_button = document.querySelector('#equal'); 
       
       let variable ;
       let array=[];
-      let i=0;
-      let arr1;
+      // let i=0;
       let firstNum;
-      let f1;
-      let val = '';
+      // let f1;
+      let arr =[];
       let secNum;
       let operator;
       let Target;
       container.addEventListener("click",event =>{
             Target = event.target;
-            console.log(Target);
+            // console.log(Target);
             switch(Target.id){
               case "add":
                   span.textContent = '+';
@@ -159,69 +159,44 @@
             }
       });
 
+
       function display(numbers){
         array.push(numbers);
           console.log(array)
-      let result =   operate(firstNum,operator,secNum);
-      console.log(result);
+          for(let i = 0; i<array.length/3 ; i ++){
+             for(let j =0; j<array.length; i ++){
+               firstNum = array[0];
+               operator = array[1];
+               secNum  = array[2];
+         };
+               
+         result = operate(firstNum, operator, secNum);
+         console.log(result);
+         span.textContent = result;
 
-      array.unshift(result);
-         console.log(array);
-
-        while(i<=array.length){
-          console.log(val);
-          if(isNumber(array[i])){
-          let f1 = array[i];
-                   val = f1;
-          console.log(f1);
-
-          // if(isNumber(array[i-1])){
-          //   val = f1;
-          //   val = val.concat(f2);
-
-          // }
-          // console.log(val);
-          //   if(isNumber(array[i-1])){
-          // arr1 = array.join('');
-          // console.log(arr1);
-          //   }
-            // secNum = number[i + 2];
-            // console.log(arr1);
-            }
-          else{
-            operator = numbers[i];
-          }
-
-          i++
-        };
-      function isNumber(character){
-        return /[0-9]/.test(character)
+               if(array.length > 0 )
+                 array.unshift(result);
+               else
+                 span.textContent = result;
+         }; 
       }
-    
-operate(val,operator,f1);
-    };
+     
+        //   for(let i = 0 ; i < array.length ; i ++){
+        //     console.log(array[i] +=array[i]);
+        //   }
+          // console.log(operate(firstNum,operator,secNum));
+            // console.log(result);
 
-      function add(a,c){
-        return a + c;
-      }
-      function minus(a,c){
-       return  a - c;
-      }
-      function pro(a,c) {
-      return a * c;
+          //   array.unshift(result);
+          //   console.log(array);
+          // for(let i = 0 ; i > array.length ; i ++){
+            // firstNum = array.shift();
+            // operator = array.shift();
+            // secNum   = array.shift();
 
-      }
-     function div(a,c) {
-      if( c ==! 0)
-      return a /c;
-      else 
-      return undefined;
-      } 
-     function mod(a,c){
-       return a % c;
-
-    }
-    function operate(val,operator,f1){
+          
+            
+          function operate(val,operator,f1){
       // const para = document.createElement("p");
       if(operator == '+')
       add(val,f1);
@@ -243,6 +218,104 @@ operate(val,operator,f1);
 
 
     }
+
+    function add(a,c){
+        return a + c;
+      }
+      function minus(a,c){
+       return  a - c;
+      }
+      function pro(a,c) {
+      return a * c;
+
+      }
+     function div(a,c) {
+      if( c ==! 0)
+      return a /c;
+      else 
+      return undefined;
+      } 
+     function mod(a,c){
+       return a % c;
+
+    }
+
+
+        // while(i<=array.length){
+        //   console.log(val);
+        //   if(isNumber(array[i])){
+        //   let f1 = array[i];
+        //            val = f1;
+        //   console.log(f1);
+
+          // if(isNumber(array[i-1])){
+          //   val = f1;
+          //   val = val.concat(f2);
+
+          // }
+          // console.log(val);
+          //   if(isNumber(array[i-1])){
+          // arr1 = array.join('');
+          // console.log(arr1);
+          //   }
+            // secNum = number[i + 2];
+            // console.log(arr1);
+//             }
+//           else{
+//             operator = numbers[i];
+//           }
+
+//           i++
+//         };
+//       function isNumber(character){
+//         return /[0-9]/.test(character)
+//       }
+    
+// operate(val,operator,f1);
+    
+
+    //   function add(a,c){
+    //     return a + c;
+    //   }
+    //   function minus(a,c){
+    //    return  a - c;
+    //   }
+    //   function pro(a,c) {
+    //   return a * c;
+
+    //   }
+    //  function div(a,c) {
+    //   if( c ==! 0)
+    //   return a /c;
+    //   else 
+    //   return undefined;
+    //   } 
+    //  function mod(a,c){
+    //    return a % c;
+
+    // }
+    // function operate(val,operator,f1){
+    //   // const para = document.createElement("p");
+    //   if(operator == '+')
+    //   add(val,f1);
+
+    //   if(operator == '-')
+    //   minus(val,f1);
+
+
+    //   if(operator =='*')
+    //   pro(val,f1)
+
+
+    //   if(operator =='%')
+    //   mod(val,f1)
+
+
+    //   if(operator == '/')
+    //   div(val,f1);
+
+
+    // }
    
     </script>
   </body>
