@@ -46,7 +46,7 @@
       const container = document.querySelector('.container');
       const number = document.querySelectorAll('.num');
       // const display = document.querySelector('.display');
-      const span = document.createElement('span');
+      const span = document.querySelector('span');
       
       let variable ;
       let array=[];
@@ -60,6 +60,7 @@
       let Target;
       container.addEventListener("click",event =>{
             Target = event.target;
+            console.log(Target);
             switch(Target.id){
               case "add":
                   span.textContent = '+';
@@ -162,7 +163,7 @@
           array.push(numbers);
 
           console.log(array);
-          arr =[...array];
+          arr =[array];
           // let arr = array.join('');
           console.log(arr);
         //  let f1= a[0];
@@ -173,6 +174,7 @@
           let f1 = array[i];
                    val = f1;
           console.log(f1);
+
           // if(isNumber(array[i-1])){
           //   val = f1;
           //   val = val.concat(f2);
@@ -199,47 +201,45 @@
 operate(val,operator,f1);
     };
 
-      function addition(a,b,c){
-        const para = document.createElement("p");
+      function add(a,c){
+        return a + c;
       }
-      function subtract(a,b,c){
-        const para = document.createElement("p");
-
+      function minus(a,c){
+       return  a - c;
       }
-      function product(a,b,c) {
-        const para = document.createElement("p");
-
+      function pro(a,c) {
+      return a * c;
 
       }
-     function division(a,b,c) {
-      const para = document.createElement("p");
-
-
+     function div(a,c) {
+      if( c ==! 0)
+      return a /c;
+      else 
+      return undefined;
       } 
-     function module(a,b,c){
-      const para = document.createElement("p");
-
+     function mod(a,c){
+       return a % c;
 
     }
     function operate(val,operator,f1){
       // const para = document.createElement("p");
       if(operator == '+')
-      add(val,operator,f1);
+      add(val,f1);
 
       if(operator == '-')
-      minus(val,operator,f1);
+      minus(val,f1);
 
 
       if(operator =='*')
-      pro(val,operator,f1)
+      pro(val,f1)
 
 
       if(operator =='%')
-      mod(val,operator,f1)
+      mod(val,f1)
 
 
       if(operator == '/')
-      div(val,operator,f1);
+      div(val,f1);
 
 
     }
