@@ -1,12 +1,16 @@
 const container = document.querySelector(".container");
 const buttons = document.querySelectorAll("button");
 // const display = document.querySelector('.display');
-const span = document.querySelector("span");
+
+const span = document.querySelector(".span1");
+// const span2 = document.querySelector(".span2");
+
 const equal_button = document.querySelector("#equal");
 
 let array = [];
 let arr = [];
-let num, concat, variable, firstNum, result, secNum, operator, Target;
+let concat = "";
+let num, variable, firstNum, result, secNum, operator, Target;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // Target = event.target;
@@ -24,7 +28,7 @@ buttons.forEach((button) => {
     ) {
       let val = button.id;
       variable = parseInt(val, 10);
-      span.textContent = variable;
+      // span.textContent = variable;
       display(variable);
     } else if (
       button.id == "minus" ||
@@ -38,6 +42,7 @@ buttons.forEach((button) => {
     } else if (button.id == "AC") {
       span.textContent = "";
     }
+
     //  else if (button.id == "point") {
     //   let val = button.id;
     //   variable = parseInt(val, 10);
@@ -48,15 +53,29 @@ buttons.forEach((button) => {
 });
 function display(numbers) {
   array.push(numbers);
-  console.log(array);
+  let m;
 
-  for (let k = 0; k < array.length; i++) {
-    if (isNumber(array[i])) {
-      num = array[i];
-      if (isNumber(array[i - 1])) concat = num.concat(array[i - 1]);
+  // console.log(array);
+  m = array[0].toString();
+  span.textContent = m;
+  for (let k = 1; k < array.length; k++) {
+    if (typeof array[k] === "number") {
+      num = array[k];
+      m += num.toString();
+      console.log(m);
+      span.textContent = m;
+    } else {
+      operator = array[k];
+      secNum = array[k + 1];
+
+      // span1.textContent = "";
+      span.textContent = secNum;
     }
   }
 }
+// span.textContent = m;
+// span.textContent = secNum;
+equal_button.addEventListener("click", () => operate(m, operator, secNum));
 
 function operate(val, operator, f1) {
   if (operator == "+") add(val, f1);
