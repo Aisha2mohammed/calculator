@@ -60,14 +60,15 @@ function display(numbers) {
     if (typeof array[k] === "number") {
       num = array[k];
       m += num.toString();
-      console.log(m);
       span.textContent = m;
       firstNum = parseInt(m, 10);
+      console.log(firstNum);
     } else {
       operator = array[k];
       n = array[k + 1];
       span.textContent = n;
       secNum = parseInt(n, 10);
+      console.log(secNum);
     }
   }
 }
