@@ -10,7 +10,7 @@ const equal_button = document.querySelector("#equal");
 let array = [];
 let arr = [];
 let concat = "";
-let num, variable, firstNum, result, secNum, operator, Target;
+let num, m, n, variable, firstNum, result, secNum, operator, Target;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // Target = event.target;
@@ -53,8 +53,6 @@ buttons.forEach((button) => {
 });
 function display(numbers) {
   array.push(numbers);
-  let m;
-
   // console.log(array);
   m = array[0].toString();
   span.textContent = m;
@@ -64,18 +62,19 @@ function display(numbers) {
       m += num.toString();
       console.log(m);
       span.textContent = m;
+      firstNum = parseInt(m, 10);
     } else {
       operator = array[k];
-      secNum = array[k + 1];
-
-      // span1.textContent = "";
-      span.textContent = secNum;
+      n = array[k + 1];
+      span.textContent = n;
+      secNum = parseInt(n, 10);
     }
   }
 }
-// span.textContent = m;
-// span.textContent = secNum;
-equal_button.addEventListener("click", () => operate(m, operator, secNum));
+
+equal_button.addEventListener("click", () =>
+  operate(firstNum, operator, secNum)
+);
 
 function operate(val, operator, f1) {
   if (operator == "+") add(val, f1);
