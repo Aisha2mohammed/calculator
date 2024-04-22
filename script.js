@@ -4,14 +4,9 @@ const buttons = document.querySelectorAll("button");
 const span = document.querySelector("span");
 const equal_button = document.querySelector("#equal");
 
-let variable;
 let array = [];
-let firstNum;
 let arr = [];
-let result;
-let secNum;
-let operator;
-let Target;
+let num, concat, variable, firstNum, result, secNum, operator, Target;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // Target = event.target;
