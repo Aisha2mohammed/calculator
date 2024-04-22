@@ -62,60 +62,7 @@ function display(numbers) {
     }
   }
 }
-// container.addEventListener("click", (event) => {
-//   Target = event.target;
-//   switch (Target.id) {
-//     case "add":
-//       span.textContent = "+";
-//       variable = "+";
-//       display(variable);
-//       break;
-//     case "minus":
-//       span.textContent = "-";
-//       variable = "-";
-//       display(variable);
 
-//       break;
-//     case "mod":
-//       span.textContent = "%";
-//       variable = "%";
-//       display(variable);
-
-//       break;
-
-//     case "pro":
-//       span.textContent = "*";
-//       variable = "*";
-//       display(variable);
-
-//       break;
-//     case "div":
-//       span.textContent = "/";
-//       variable = "/";
-//       display(variable);
-//       break;
-
-//       break;
-//     case "one":
-//       span.textContent = "1";
-//       variable = 1;
-//       display(variable);
-//       break;
-
-//     case "two":
-//       span.textContent = "2";
-//       variable = 2;
-//       display(variable);
-//       break;
-//     case "three":
-//       span.textContent = "3";
-//       variable = 3;
-//       display(variable);
-//       break;
-//     case "four":
-//       span.textContent = "4";
-//       variable = 4;
-//       display(variable);
 //       break;
 //     case "five":
 //       span.textContent = "5";
