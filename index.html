@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css"></link>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -18,212 +20,30 @@
         <button id="del" class="num delete">x</button>
       </span>
       <span class="high">
-        <button id="seven"  class="num">7</button>
-        <button id="eight"  class="num">8</butt>
-        <button id="nine"  class="num">9</button>
+        <button id="7"  class="num">7</button>
+        <button id="8"  class="num">8</butt>
+        <button id="9"  class="num">9</button>
         <button id="div"  class="num division">/</button>
       </span>
       <span class="mid">
-        <button id="four" class="num">4</button>
-        <button id="five" class="num">5</button>
-        <button id="six" class="num">6</button>
+        <button id="4" class="num">4</button>
+        <button id="5" class="num">5</button>
+        <button id="6" class="num">6</button>
         <button id="add" class="num  addition">+</button>
       </span>
       <span class="low">
-        <button id="one"  class="num">1</button>
-        <button id="two"  class="num">2</button>
-        <button id="three"  class="num">3</button>
+        <button id="1"  class="num">1</button>
+        <button id="2"  class="num">2</button>
+        <button id="3"  class="num">3</button>
         <button id="minus"  class="num subtract">-</button>
       </span>
       <span>
-        <button id="zero"  class="num" >0</button>
+        <button id="0"  class="num" >0</button>
         <button id="point"  class="num">.</button>
         <button id="plus_minus"   class="num">+/-</button>
         <button id="equal"   class="num  sign">=</button>
       </span>
     </div>
-    <script>
-      const container = document.querySelector('.container');
-      const number = document.querySelectorAll('.num');
-      // const display = document.querySelector('.display');
-      const span = document.querySelector('span');
-      const  equa_button = document.querySelector('#equal'); 
-      
-      let variable ;
-      let array=[];
-      // let i=0;
-      let firstNum;
-      // let f1;
-      let arr =[];
-      let secNum;
-      let operator;
-      let Target;
-      container.addEventListener("click",event =>{
-            Target = event.target;
-            // console.log(Target);
-            switch(Target.id){
-              case "add":
-                  span.textContent = '+';
-                  variable = '+';
-                  display(variable);
-                  break;
-                case "minus":
-                  span.textContent = '-';
-                  variable = '-';
-                  display(variable);
-
-                  break;
-                case 'mod':
-                  span.textContent = '%';
-                  variable = '%';
-                  display(variable);
-
-                  break;
-
-                case 'pro':
-                  span.textContent = '*';
-                  variable =  '*';
-                  display(variable);
-
-                  break;
-                case 'div':
-                  span.textContent = '/';
-                  variable = '/';
-                  display(variable);
-                  break;
-
-                  break;
-                  case 'one':
-                  span.textContent = '1';
-                   variable= 1;
-                  display(variable);
-                  break;
-
-                  case 'two':
-                  span.textContent = '2';
-                  variable = 2;    
-                  display(variable);
-                  break;
-                  case 'three':
-                  span.textContent = '3';
-                  variable = 3;    
-                  display(variable);
-                  break;
-                  case 'four':
-                  span.textContent = '4';
-                  variable = 4;    
-                  display(variable);
-                  break;
-                  case 'five':
-                  span.textContent = '5';
-                  variable = 5;
-                  display(variable);
-                  break;
-                  case 'six':
-                  span.textContent = '6';
-                  variable = 6;
-                  display(variable);
-                  break;
-                  case 'seven':
-                  span.textContent = '7';
-                  variable = 7;
-                  display(variable);
-                  break;
-
-                  case 'eight':
-                  span.textContent = '8';
-                  variable = 8;
-                  display(variable);
-                  break;
-                  case 'nine':
-                  span.textContent = '9';
-                  variable = 9;
-                  display(variable);
-                  break;
-                  case 'zero':
-                  span.textContent = '0';
-                  variable = 0;
-                  display(variable);
-                  break;
-                  case 'point':
-                  span.textContent = '.';
-                  variable = '.' ;
-                  display(variable);
-                  break;
-                  // case 'plus_minus':
-                  // span.textContent = '.';
-                  // variable = . ;
-                  // display(variable);
-                  // break;
-
-            }
-      });
-
-
-      function display(numbers){
-        array.push(numbers);
-          console.log(array)
-          for(let i = 0; i<array.length/3 ; i ++){
-             for(let j =0; j<array.length; i ++){
-               firstNum = array[0];
-               operator = array[1];
-               secNum  = array[2];
-         };
-               
-         result = operate(firstNum, operator, secNum);
-         console.log(result);
-         span.textContent = result;
-
-               if(array.length > 0 )
-                 array.unshift(result);
-               else
-                 span.textContent = result;
-         }; 
-      }      
-          
-       function operate(val,operator,f1){
-      if(operator == '+')
-      add(val,f1);
-
-      if(operator == '-')
-      minus(val,f1);
-
-
-      if(operator =='*')
-      pro(val,f1)
-
-
-      if(operator =='%')
-      mod(val,f1)
-
-
-      if(operator == '/')
-      div(val,f1);
-
-
-    }
-
-    function add(a,c){
-        return a + c;
-      }
-      function minus(a,c){
-       return  a - c;
-      }
-      function pro(a,c) {
-      return a * c;
-
-      }
-     function div(a,c) {
-      if( c ==! 0)
-      return a /c;
-      else 
-      return undefined;
-      } 
-     function mod(a,c){
-       return a % c;
-
-    }
-   
-    </script>
+    
   </body>
 </html>
