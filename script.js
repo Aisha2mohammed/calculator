@@ -189,6 +189,6 @@ function mod(storeNum) {
   return result;
 }
 
-function isNumber(character) {
-  return /0-9/.test(character);
-}
+// function isNumber(character) {
+//   return /0-9/.test(character);
+// }
