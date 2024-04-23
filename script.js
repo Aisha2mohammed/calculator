@@ -43,8 +43,6 @@ buttons.forEach((button) => {
       variable = parseInt(val, 10);
       storeNum = storeVar(variable);
       console.log(storeNum);
-
-      display(storeNum);
     }
     if (
       button.id == "minus" ||
@@ -56,7 +54,6 @@ buttons.forEach((button) => {
       op = button.id;
       storeOpr = storeOp(op);
       console.log(storeOpr);
-      display(storeOpr);
     }
     if (button.id == "AC") {
       span.textContent = "";
@@ -68,6 +65,7 @@ buttons.forEach((button) => {
     //   span.textContent = variable;
     //   display(variable);
     // }
+    display(storeNum, storeOpr);
   });
   function storeVar(variable) {
     array.push(variable);
