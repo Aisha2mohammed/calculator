@@ -121,6 +121,41 @@ function mod(storeNum) {
   return result;
 }
 
+function operate(storeNum, storeOpr) {
+  if (storeOpr == "add") return add(storeNum);
+
+  if (storeOpr == "minus") return minus(storeNum);
+
+  if (storeOpr == "pro") return pro(storeNum);
+
+  if (storeOpr == "mod") return mod(storeNum);
+
+  if (storeOpr == "div") return div(storeNum);
+}
+
+function add(storeNum) {
+  result = storeNum[0] + storeNum[1];
+  return result;
+}
+function minus(storeNum) {
+  result = storeNum[0] - storeNum[1];
+  return result;
+}
+function pro(storeNum) {
+  result = storeNum[0] * storeNum[1];
+  return result;
+}
+function div(storeNum) {
+  if (storeNum[1] == !0) {
+    result = storeNum[0] / storeNum[1];
+    return result;
+  } else return undefined;
+}
+function mod(storeNum) {
+  result = storeNum[0] % storeNum[1];
+  return result;
+}
+
 function isNumber(character) {
   return /0-9/.test(character);
 }
