@@ -40,7 +40,7 @@ buttons.forEach((button) => {
       let val = button.id;
       span.textContent = val;
       // variable = parseInt(val, 10);
-
+      variable = parseInt(val, 10);
       storeNum = storeVar(val);
       console.log(storeNum);
 
@@ -80,43 +80,7 @@ buttons.forEach((button) => {
 });
 function display(storeNum, storeOpr) {
   equal_button.addEventListener("click", () => operate(storeNum, storeOpr));
-  // array.push(numbers);
-  // console.log(array);
-  // m = array[0].toString();
-  // span.textContent = m;
-  // console.log(m);
-
-  // for (let k = 1; k < array.length; k++) {
-  //   // while(array.length % 3 ==0)
-  //   if (typeof array[k] === "number") {
-
-  //   num = array[k];
-  //   m += num.toString();
-  //   span.textContent = m;
-  //   // firstNum = parseInt(m, 10);
-  //   firstNum = parseInt(m, 10);
-  //   // firstNum = parseInt(m, 10);
-  //   console.log(firstNum);
-  // } else {
-  //   span.textContent = "";
-  // operator = array[k];
-  // n = parseInt(array[k + 1]);
-  // span.textContent = n;
-  // secNum = parseInt(n, 10);
-  // console.log(operator);
-  // console.log(secNum);
-  // k++;
-  //   aisha = array.forEach((val) => {
-  //     if (typeof val === "number") {
-  //       number = val;
-  //     } else {
-  //       operator = val;
-  //     }
-  //   });
 }
-// equal_button.addEventListener("click", () =>
-//   operate(firstNum, operator, secNum)
-// );
 
 function operate(storeNum, storeOpr) {
   if (storeOpr == "add") add(storeNum);
@@ -153,6 +117,6 @@ function mod(storeNum) {
   return result;
 }
 
-// function isNumber(character) {
-//   return /0-9/.test(character);
-// }
+function isNumber(character) {
+  return /0-9/.test(character);
+}
