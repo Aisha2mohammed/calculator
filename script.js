@@ -11,8 +11,8 @@ let array = [];
 let arr = [];
 let concat,
   y = "";
-let num,
-  m,
+let storeNum,
+  storeOpr,
   i,
   n,
   variable,
@@ -40,7 +40,8 @@ buttons.forEach((button) => {
       let val = button.id;
       variable = parseInt(val, 10);
       // span.textContent = variable;
-      storeVar(variable);
+      storeNum = storeVar(variable);
+      display(storeNum);
     }
     if (
       button.id == "minus" ||
@@ -50,7 +51,8 @@ buttons.forEach((button) => {
       button.id == "mod"
     ) {
       operator = button.id;
-      storeOp(operator);
+      storeOpr = storeOp(op);
+      display(storeOpr);
     }
     if (button.id == "AC") {
       span.textContent = "";
@@ -63,79 +65,88 @@ buttons.forEach((button) => {
     //   display(variable);
     // }
   });
+  function storeVar(variable) {
+    return array.push(variable);
+  }
+  function storeOp(op) {
+    return (operator = op);
+  }
 });
-function display(numbers) {
-  array.push(numbers);
+function display(storeNum, storeOpr) {
+  equal_button.addEventListener("click", () => operate(storeNum, storeOpr));
+  // array.push(numbers);
   // console.log(array);
   // m = array[0].toString();
   // span.textContent = m;
   // console.log(m);
 
-  for (let k = 1; k < array.length; k++) {
-    // while(array.length % 3 ==0)
-    if (typeof array[k] === "number") {
-  
-    //   num = array[k];
-    //   m += num.toString();
-    //   span.textContent = m;
-    //   // firstNum = parseInt(m, 10);
-    //   firstNum = parseInt(m, 10);
-    //   // firstNum = parseInt(m, 10);
-    //   console.log(firstNum);
-    // } else {
-    //   span.textContent = "";
-    // operator = array[k];
-    // n = parseInt(array[k + 1]);
-    // span.textContent = n;
-    // secNum = parseInt(n, 10);
-    // console.log(operator);
-    // console.log(secNum);
-    // k++;
-    //   aisha = array.forEach((val) => {
-    //     if (typeof val === "number") {
-    //       number = val;
-    //     } else {
-    //       operator = val;
-    //     }
-    //   });
-  }
-  // equal_button.addEventListener("click", () =>
-  //   operate(firstNum, operator, secNum)
-  // );
+  // for (let k = 1; k < array.length; k++) {
+  //   // while(array.length % 3 ==0)
+  //   if (typeof array[k] === "number") {
+
+  //   num = array[k];
+  //   m += num.toString();
+  //   span.textContent = m;
+  //   // firstNum = parseInt(m, 10);
+  //   firstNum = parseInt(m, 10);
+  //   // firstNum = parseInt(m, 10);
+  //   console.log(firstNum);
+  // } else {
+  //   span.textContent = "";
+  // operator = array[k];
+  // n = parseInt(array[k + 1]);
+  // span.textContent = n;
+  // secNum = parseInt(n, 10);
+  // console.log(operator);
+  // console.log(secNum);
+  // k++;
+  //   aisha = array.forEach((val) => {
+  //     if (typeof val === "number") {
+  //       number = val;
+  //     } else {
+  //       operator = val;
+  //     }
+  //   });
 }
-equal_button.addEventListener("click", () =>
-  operate(firstNum, operator, secNum)
-);
+// equal_button.addEventListener("click", () =>
+//   operate(firstNum, operator, secNum)
+// );
 
-function operate(val, operator, f1) {
-  if (operator == "+") add(val, f1);
+function operate(storeNum, storeOpr) {
+  if (storeOpr == "add") add(storeNum);
 
-  if (operator == "-") minus(val, f1);
+  if (storeOpr == "minus") minus(storeNum);
 
-  if (operator == "*") pro(val, f1);
+  if (storeOpr == "pro") pro(storeNum);
 
-  if (operator == "%") mod(val, f1);
+  if (storeOpr == "mod") mod(storeNum);
 
-  if (operator == "/") div(val, f1);
+  if (storeOpr == "div") div(storeNum);
 }
 
-function add(a, c) {
-  return a + c;
+function add(storeNum) {
+  result = storeNum[0] + storeNum[1];
+  return result;
 }
-function minus(a, c) {
-  return a - c;
+function minus(storeNum) {
+  result = storeNum[0] - storeNum[1];
+  return result;
 }
-function pro(a, c) {
-  return a * c;
+function pro(storeNum) {
+  result = storeNum[0] * storeNum[1];
+  return result;
 }
-function div(a, c) {
-  if (c == !0) return a / c;
-  else return undefined;
+function div(storeNum) {
+  if (storeNum[1] == !0) {
+    result = storeNum[0] / storeNum[1];
+    return result;
+  } else return undefined;
 }
-function mod(a, c) {
-  return a % c;
+function mod(storeNum) {
+  result = storeNum[0] % storeNum[1];
+  return result;
 }
 
-function isNumber(character) {
-  return /0-9/.test(character);
-}
+// function isNumber(character) {
+//   return /0-9/.test(character);
+// }
