@@ -9,8 +9,19 @@ const equal_button = document.querySelector("#equal");
 
 let array = [];
 let arr = [];
-let concat = "";
-let num, m, n, variable, firstNum, result, secNum, operator, Target;
+let concat,
+  y = "";
+let num,
+  m,
+  i,
+  n,
+  variable,
+  firstNum,
+  result,
+  secNum,
+  operator,
+  nextIndex,
+  Target;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // Target = event.target;
@@ -56,26 +67,40 @@ function display(numbers) {
   // console.log(array);
   m = array[0].toString();
   span.textContent = m;
+  console.log(m);
+
   for (let k = 1; k < array.length; k++) {
+    // while(array.length % 3 ==0)
     if (typeof array[k] === "number") {
-      num = array[k];
-      m += num.toString();
-      span.textContent = m;
-      firstNum = parseInt(m, 10);
-      console.log(firstNum);
-    } else {
-      operator = array[k];
-      n = array[k + 1];
-      span.textContent = n;
-      secNum = parseInt(n, 10);
-      console.log(secNum);
+      //   num = array[k];
+      //   m += num.toString();
+      //   span.textContent = m;
+      //   // firstNum = parseInt(m, 10);
+      //   firstNum = parseInt(m, 10);
+      //   // firstNum = parseInt(m, 10);
+      //   console.log(firstNum);
+      // } else {
+      //   span.textContent = "";
+      // operator = array[k];
+      // n = parseInt(array[k + 1]);
+      // span.textContent = n;
+      // secNum = parseInt(n, 10);
+      // console.log(operator);
+      // console.log(secNum);
+      // k++;
+      //   aisha = array.forEach((val) => {
+      //     if (typeof val === "number") {
+      //       number = val;
+      //     } else {
+      //       operator = val;
+      //     }
+      //   });
     }
   }
+  equal_button.addEventListener("click", () =>
+    operate(firstNum, operator, secNum)
+  );
 }
-
-equal_button.addEventListener("click", () =>
-  operate(firstNum, operator, secNum)
-);
 
 function operate(val, operator, f1) {
   if (operator == "+") add(val, f1);
