@@ -38,9 +38,12 @@ buttons.forEach((button) => {
       )
     ) {
       let val = button.id;
-      variable = parseInt(val, 10);
-      // span.textContent = variable;
-      storeNum = storeVar(variable);
+      span.textContent = val;
+      // variable = parseInt(val, 10);
+
+      storeNum = storeVar(val);
+      console.log(storeNum);
+
       display(storeNum);
     }
     if (
@@ -50,8 +53,9 @@ buttons.forEach((button) => {
       button.id == "pro" ||
       button.id == "mod"
     ) {
-      operator = button.id;
+      op = button.id;
       storeOpr = storeOp(op);
+      console.log(storeOpr);
       display(storeOpr);
     }
     if (button.id == "AC") {
@@ -66,7 +70,9 @@ buttons.forEach((button) => {
     // }
   });
   function storeVar(variable) {
-    return array.push(variable);
+    arr = array.push(variable);
+    console.log(arr);
+    return arr;
   }
   function storeOp(op) {
     return (operator = op);
