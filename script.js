@@ -11,7 +11,7 @@ let array = [];
 let arr = [];
 let concat,
   y = "";
-let result = 0;
+let result;
 let storeNum,
   storeOpr,
   i,
@@ -49,7 +49,9 @@ buttons.forEach((button) => {
       let val = button.id;
       array.push(val);
       firstNum = array[0];
-      for (let i = 1; i < array.length; i++) {
+      span.textContent = firstNum;
+      console.log(firstNum);
+      for (let i = 0; i < array.length; i++) {
         if (typeof array[i] === "number") {
           firstNum += array[i];
 
@@ -153,25 +155,37 @@ function operate(storeNum, storeOpr) {
 }
 
 function add(storeNum) {
-  result = storeNum[0] + storeNum[1];
+  for (let k = 0; k < storeNum.length; k++) {
+    result += storeNum[k];
+  }
   return result;
 }
 function minus(storeNum) {
-  result = storeNum[0] - storeNum[1];
+  for (let k = 0; k < storeNum.length; k++) {
+    result -= storeNum[k];
+  }
   return result;
 }
 function pro(storeNum) {
-  result = storeNum[0] * storeNum[1];
+  result = 1;
+  for (let k = 0; k < storeNum.length; k++) {
+    result *= storeNum[k];
+  }
   return result;
 }
 function div(storeNum) {
-  if (storeNum[1] == !0) {
-    result = storeNum[0] / storeNum[1];
-    return result;
-  } else return undefined;
+  result = "";
+  for (let k = 0; k < storeNum.length; k++) {
+    // if (storeNum[k+1] == !0)
+    result /= storeNum[k];
+  }
+  return result;
+  //  else return undefined;
 }
 function mod(storeNum) {
-  result = storeNum[0] % storeNum[1];
+  for (let k = 0; k < storeNum.length; k++) {
+    result %= storeNum[k];
+  }
   return result;
 }
 
