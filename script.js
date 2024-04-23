@@ -19,6 +19,7 @@ let storeNum,
   firstNum,
   result,
   secNum,
+  last,
   operator,
   nextIndex,
   Target;
@@ -39,9 +40,8 @@ buttons.forEach((button) => {
     ) {
       let val = button.id;
       span.textContent = val;
-      // variable = parseInt(val, 10);
       variable = parseInt(val, 10);
-      storeNum = storeVar(val);
+      storeNum = storeVar(variable);
       console.log(storeNum);
 
       display(storeNum);
@@ -70,28 +70,32 @@ buttons.forEach((button) => {
     // }
   });
   function storeVar(variable) {
-    arr = array.push(variable);
-    console.log(arr);
-    return arr;
+    array.push(variable);
+    console.log(array);
+    return array;
   }
   function storeOp(op) {
     return (operator = op);
   }
 });
 function display(storeNum, storeOpr) {
-  equal_button.addEventListener("click", () => operate(storeNum, storeOpr));
+  equal_button.addEventListener("click", () => {
+    last = operate(storeNum, storeOpr);
+    console.log(last);
+    span.textContent = last;
+  });
 }
 
 function operate(storeNum, storeOpr) {
-  if (storeOpr == "add") add(storeNum);
+  if (storeOpr == "add") return add(storeNum);
 
-  if (storeOpr == "minus") minus(storeNum);
+  if (storeOpr == "minus") return minus(storeNum);
 
-  if (storeOpr == "pro") pro(storeNum);
+  if (storeOpr == "pro") return pro(storeNum);
 
-  if (storeOpr == "mod") mod(storeNum);
+  if (storeOpr == "mod") return mod(storeNum);
 
-  if (storeOpr == "div") div(storeNum);
+  if (storeOpr == "div") return div(storeNum);
 }
 
 function add(storeNum) {
