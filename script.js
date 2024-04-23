@@ -40,8 +40,9 @@ buttons.forEach((button) => {
       let val = button.id;
       variable = parseInt(val, 10);
       // span.textContent = variable;
-      display(variable);
-    } else if (
+      storeVar(variable);
+    }
+    if (
       button.id == "minus" ||
       button.id == "add" ||
       button.id == "div" ||
@@ -49,8 +50,9 @@ buttons.forEach((button) => {
       button.id == "mod"
     ) {
       operator = button.id;
-      display(operator);
-    } else if (button.id == "AC") {
+      storeOp(operator);
+    }
+    if (button.id == "AC") {
       span.textContent = "";
     }
 
@@ -72,19 +74,7 @@ function display(numbers) {
   for (let k = 1; k < array.length; k++) {
     // while(array.length % 3 ==0)
     if (typeof array[k] === "number") {
-      if (i == array.length / array.length) {
-        firstNum = array[i];
-        span.textContent = firstNum;
-        console.log(firstNum);
-      } else {
-        secNum = array[i];
-        span.textContent = secNum;
-        console.log(secNum);
-      }
-    } else {
-      operator = array[i];
-      console.log(operator);
-    }
+  
     //   num = array[k];
     //   m += num.toString();
     //   span.textContent = m;
