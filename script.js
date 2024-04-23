@@ -11,13 +11,13 @@ let array = [];
 let arr = [];
 let concat,
   y = "";
+let result = 0;
 let storeNum,
   storeOpr,
   i,
   n,
   variable,
   firstNum,
-  result,
   secNum,
   last,
   operator,
@@ -57,6 +57,7 @@ buttons.forEach((button) => {
     }
     if (button.id == "AC") {
       span.textContent = "";
+      array = [];
     }
 
     //  else if (button.id == "point") {
