@@ -25,27 +25,6 @@ let storeNum,
   Target;
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    // Target = event.target;
-    // if (
-    //   button.id == "0" ||
-    //   button.id == "1" ||
-    //   button.id == "2" ||
-    //   button.id == "3" ||
-    //   button.id == "4" ||
-    //   button.id == "5" ||
-    //   button.id == "6" ||
-    //   button.id == "7" ||
-    //   button.id == "8" ||
-    //   button.id == "9" ||
-    //   button.id == "minus" ||
-    //   button.id == "add" ||
-    //   button.id == "div" ||
-    //   button.id == "pro" ||
-    //   button.id == "mod" ||
-    //   button.id == "AC" ||
-    //   button.id == "del" ||
-    //   button.id == "equal"
-    // ) {
     let val = button.id;
     array.push(val);
     console.log(array);
