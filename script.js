@@ -54,9 +54,9 @@ buttons.forEach((button) => {
     console.log(firstNum);
     if (array.length > 3) {
       for (let i = 1; i < array.length; i++) {
-        arr = parseInt(array[i], 10);
-        if (typeof arr[i] === "number") {
-          firstNum += arr[i];
+        if (isNaN(parseInt(array[i]))) {
+          firstNum += array[i];
+          console.log(firstNum);
 
           span.textContent = firstNum;
           variable = parseInt(firstNum, 10);
@@ -99,7 +99,7 @@ buttons.forEach((button) => {
       }
 
       if (
-        button.id == "minus" ||
+        (!(button.id == "equal") && button.id == "minus") ||
         button.id == "add" ||
         button.id == "div" ||
         button.id == "pro" ||
@@ -114,7 +114,6 @@ buttons.forEach((button) => {
         array = [];
       }
     }
-
     //  else if (button.id == "point") {
     //   let val = button.id;
     //   variable = parseInt(val, 10);
