@@ -26,46 +26,61 @@ let storeNum,
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     // Target = event.target;
-    if (
-      button.id == "0" ||
-      button.id == "1" ||
-      button.id == "2" ||
-      button.id == "3" ||
-      button.id == "4" ||
-      button.id == "5" ||
-      button.id == "6" ||
-      button.id == "7" ||
-      button.id == "8" ||
-      button.id == "9" ||
-      button.id == "minus" ||
-      button.id == "add" ||
-      button.id == "div" ||
-      button.id == "pro" ||
-      button.id == "mod" ||
-      button.id == "AC" ||
-      button.id == "del" ||
-      button.id == "equal"
-    ) {
-      let val = button.id;
-      array.push(val);
-      firstNum = array[0];
-      span.textContent = firstNum;
-      console.log(firstNum);
-      for (let i = 0; i < array.length; i++) {
-        if (typeof array[i] === "number") {
-          firstNum += array[i];
+    // if (
+    //   button.id == "0" ||
+    //   button.id == "1" ||
+    //   button.id == "2" ||
+    //   button.id == "3" ||
+    //   button.id == "4" ||
+    //   button.id == "5" ||
+    //   button.id == "6" ||
+    //   button.id == "7" ||
+    //   button.id == "8" ||
+    //   button.id == "9" ||
+    //   button.id == "minus" ||
+    //   button.id == "add" ||
+    //   button.id == "div" ||
+    //   button.id == "pro" ||
+    //   button.id == "mod" ||
+    //   button.id == "AC" ||
+    //   button.id == "del" ||
+    //   button.id == "equal"
+    // ) {
+    let val = button.id;
+    array.push(val);
+    console.log(array);
+    firstNum = array[0];
+    span.textContent = firstNum;
+    console.log(firstNum);
+    if (array.length > 3) {
+      for (let i = 1; i < array.length; i++) {
+        arr = parseInt(array[i], 10);
+        if (typeof arr[i] === "number") {
+          firstNum += arr[i];
 
           span.textContent = firstNum;
           variable = parseInt(firstNum, 10);
           storeNum = storeVar(variable);
           console.log(storeNum);
         } else {
+          if (button.id == "equal") {
+            equal_button.addEventListener("click", () => {
+              last = operate(storeNum, storeOpr);
+              console.log(last);
+              span.textContent = last;
+            });
+          }
+          if (button.id == "AC") {
+            span.textContent = "";
+            array = [];
+          }
           op = button.id;
           storeOpr = storeOp(op);
           console.log(storeOpr);
         }
       }
     }
+
     // if (
     //   button.id == "minus" ||
     //   button.id == "add" ||
@@ -77,10 +92,10 @@ buttons.forEach((button) => {
     //   storeOpr = storeOp(op);
     //   console.log(storeOpr);
     // }
-    if (button.id == "AC") {
-      span.textContent = "";
-      array = [];
-    }
+    // if (button.id == "AC") {
+    //   span.textContent = "";
+    //   array = [];
+    // }
 
     //  else if (button.id == "point") {
     //   let val = button.id;
@@ -142,52 +157,52 @@ function mod(storeNum) {
   return result;
 }
 
-function operate(storeNum, storeOpr) {
-  if (storeOpr == "add") return add(storeNum);
+// function operate(storeNum, storeOpr) {
+//   if (storeOpr == "add") return add(storeNum);
 
-  if (storeOpr == "minus") return minus(storeNum);
+//   if (storeOpr == "minus") return minus(storeNum);
 
-  if (storeOpr == "pro") return pro(storeNum);
+//   if (storeOpr == "pro") return pro(storeNum);
 
-  if (storeOpr == "mod") return mod(storeNum);
+//   if (storeOpr == "mod") return mod(storeNum);
 
-  if (storeOpr == "div") return div(storeNum);
-}
+//   if (storeOpr == "div") return div(storeNum);
+// }
 
-function add(storeNum) {
-  for (let k = 0; k < storeNum.length; k++) {
-    result += storeNum[k];
-  }
-  return result;
-}
-function minus(storeNum) {
-  for (let k = 0; k < storeNum.length; k++) {
-    result -= storeNum[k];
-  }
-  return result;
-}
-function pro(storeNum) {
-  result = 1;
-  for (let k = 0; k < storeNum.length; k++) {
-    result *= storeNum[k];
-  }
-  return result;
-}
-function div(storeNum) {
-  result = "";
-  for (let k = 0; k < storeNum.length; k++) {
-    // if (storeNum[k+1] == !0)
-    result /= storeNum[k];
-  }
-  return result;
-  //  else return undefined;
-}
-function mod(storeNum) {
-  for (let k = 0; k < storeNum.length; k++) {
-    result %= storeNum[k];
-  }
-  return result;
-}
+// function add(storeNum) {
+//   for (let k = 0; k < storeNum.length; k++) {
+//     result += storeNum[k];
+//   }
+//   return result;
+// }
+// function minus(storeNum) {
+//   for (let k = 0; k < storeNum.length; k++) {
+//     result -= storeNum[k];
+//   }
+//   return result;
+// }
+// function pro(storeNum) {
+//   result = 1;
+//   for (let k = 0; k < storeNum.length; k++) {
+//     result *= storeNum[k];
+//   }
+//   return result;
+// }
+// function div(storeNum) {
+//   result = "";
+//   for (let k = 0; k < storeNum.length; k++) {
+//     // if (storeNum[k+1] == !0)
+//     result /= storeNum[k];
+//   }
+//   return result;
+//   //  else return undefined;
+// }
+// function mod(storeNum) {
+//   for (let k = 0; k < storeNum.length; k++) {
+//     result %= storeNum[k];
+//   }
+//   return result;
+// }
 
 // function isNumber(character) {
 //   return /0-9/.test(character);
