@@ -69,33 +69,51 @@ buttons.forEach((button) => {
               console.log(last);
               span.textContent = last;
             });
-          }
-          if (button.id == "AC") {
+          } else if (button.id == "AC") {
             span.textContent = "";
             array = [];
+          } else {
+            op = button.id;
+            storeOpr = storeOp(op);
+            console.log(storeOpr);
           }
-          op = button.id;
-          storeOpr = storeOp(op);
-          console.log(storeOpr);
         }
       }
-    }
+    } else {
+      if (
+        !(
+          button.id == "minus" ||
+          button.id == "add" ||
+          button.id == "div" ||
+          button.id == "pro" ||
+          button.id == "mod" ||
+          button.id == "AC" ||
+          button.id == "equal"
+        )
+      ) {
+        firstNum = button.id;
+        span.textContent = firstNum;
+        variable = parseInt(firstNum, 10);
+        storeNum = storeVar(variable);
+        console.log(storeNum);
+      }
 
-    // if (
-    //   button.id == "minus" ||
-    //   button.id == "add" ||
-    //   button.id == "div" ||
-    //   button.id == "pro" ||
-    //   button.id == "mod"
-    // ) {
-    //   op = button.id;
-    //   storeOpr = storeOp(op);
-    //   console.log(storeOpr);
-    // }
-    // if (button.id == "AC") {
-    //   span.textContent = "";
-    //   array = [];
-    // }
+      if (
+        button.id == "minus" ||
+        button.id == "add" ||
+        button.id == "div" ||
+        button.id == "pro" ||
+        button.id == "mod"
+      ) {
+        op = button.id;
+        storeOpr = storeOp(op);
+        console.log(storeOpr);
+      }
+      if (button.id == "AC") {
+        span.textContent = "";
+        array = [];
+      }
+    }
 
     //  else if (button.id == "point") {
     //   let val = button.id;
