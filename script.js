@@ -148,39 +148,28 @@ function display(numbers) {
   equal_button.addEventListener("click", function (storeOpr, storeNum) {
     operate(storeOpr, storeNum);
   });
-  // function operate(storeOpr, storeNum) {
-  //   if (storeOpr == "add") return add(storeNum);
+  function operate(storeOpr, storeNum) {
+    if (storeOpr == "add") return add(storeNum);
 
-  //   if (storeOpr == "minus") return minus(storeNum);
+    if (storeOpr == "minus") return minus(storeNum);
 
-  //   if (storeOpr == "pro") return pro(storeNum);
+    if (storeOpr == "pro") return pro(storeNum);
 
-  //   if (storeOpr == "mod") return mod(storeNum);
+    if (storeOpr == "mod") return mod(storeNum);
 
-  //   if (storeOpr == "div") return div(storeNum);
-  // }
-}
-function operate(storeOpr, storeNum) {
-  if (storeOpr == "add") return add(storeNum);
-
-  if (storeOpr == "minus") return minus(storeNum);
-
-  if (storeOpr == "pro") return pro(storeNum);
-
-  if (storeOpr == "mod") return mod(storeNum);
-
-  if (storeOpr == "div") return div(storeNum);
+    if (storeOpr == "div") return div(storeNum);
+  }
 }
 // function operate(storeOpr, storeNum) {
-//   if (operator == "add") return add(val, f1);
+//   if (storeOpr == "add") return add(storeNum);
 
-//   if (operator == "minus") return minus(val, f1);
+//   if (storeOpr == "minus") return minus(storeNum);
 
-//   if (operator == "pro") return pro(val, f1);
+//   if (storeOpr == "pro") return pro(storeNum);
 
-//   if (operator == "mod") return mod(val, f1);
+//   if (storeOpr == "mod") return mod(storeNum);
 
-//   if (operator == "div") return div(val, f1);
+//   if (storeOpr == "div") return div(storeNum);
 // }
 
 function add(storeNum) {
