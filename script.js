@@ -100,11 +100,6 @@ container.addEventListener("click", (event) => {
       variable = 0;
       display(variable);
       break;
-    // case "equal":
-    //   result = operate(storeOpr, storeNum);
-    //   span.textContent = result;
-    //   variable = result;
-    //   display(variable);
   }
 });
 
@@ -159,9 +154,6 @@ function storeOp(name) {
 }
 
 function operate(op, last) {
-  // console.log("storeOpr:", storeOpr);
-  // console.log("storeNum:", storeNum);
-
   if (op == "add") return add(last);
 
   if (op == "minus") return minus(last);
