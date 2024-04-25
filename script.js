@@ -14,6 +14,7 @@ let concat,
 let result;
 let storeNum,
   storeOpr,
+  fullArray,
   i,
   n,
   variable,
@@ -26,132 +27,158 @@ let storeNum,
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     let val = button.id;
+    // span.textContent = val;
     array.push(val);
     console.log(array);
-    firstNum = array[0];
-    span.textContent = firstNum;
-    console.log(firstNum);
-    if (array.length > 3) {
-      for (let i = 1; i < array.length; i++) {
-        if (isNaN(parseInt(array[i]))) {
-          firstNum += array[i];
-          console.log(firstNum);
 
-          span.textContent = firstNum;
-          variable = parseInt(firstNum, 10);
-          storeNum = storeVar(variable);
-          console.log(storeNum);
-        } else {
-          if (button.id == "equal") {
-            equal_button.addEventListener("click", () => {
-              last = operate(storeNum, storeOpr);
-              console.log(last);
-              span.textContent = last;
-            });
-          } else if (button.id == "AC") {
-            span.textContent = "";
-            array = [];
-          } else {
-            op = button.id;
-            storeOpr = storeOp(op);
-            console.log(storeOpr);
-          }
-        }
-      }
-    } else {
-      if (
-        !(
-          button.id == "minus" ||
-          button.id == "add" ||
-          button.id == "div" ||
-          button.id == "pro" ||
-          button.id == "mod" ||
-          button.id == "AC" ||
-          button.id == "equal"
-        )
-      ) {
-        firstNum = button.id;
-        span.textContent = firstNum;
-        variable = parseInt(firstNum, 10);
-        storeNum = storeVar(variable);
-        console.log(storeNum);
+    for (let i = 0; i < array.length; i++) {
+      arr = parseInt(array[i], 10);
+      console.log(arr);
+      if (isNumber(arr)) {
+        concat += arr[i].toString();
+        span.textContent = concat;
+        console.log(concat);
+        storeVar(concat);
+      } else {
+        op = arr[i];
+        storeOp(operator);
       }
 
-      if (
-        (!(button.id == "equal") && button.id == "minus") ||
-        button.id == "add" ||
-        button.id == "div" ||
-        button.id == "pro" ||
-        button.id == "mod"
-      ) {
-        op = button.id;
-        storeOpr = storeOp(op);
-        console.log(storeOpr);
+      function storeVar(variable) {
+        array.push(variable);
+        console.log(array);
+        return array;
       }
-      if (button.id == "AC") {
-        span.textContent = "";
-        array = [];
+      function storeOp(op) {
+        return (operator = op);
       }
     }
-    //  else if (button.id == "point") {
-    //   let val = button.id;
-    //   variable = parseInt(val, 10);
-    //   span.textContent = variable;
-    //   display(variable);
+    //   span.textContent = concat;
+
+    //   console.log(concat);
+    //   console.log(arr);
+    //   storeVar(concat);
+    //   storeOp(arr);
     // }
-    display(storeNum, storeOpr);
+    // for (let i = 0; i < array.length; i++) {
+    // while(typeof arra) }
+
+    //     firstNum = array[0];
+    //     span.textContent = firstNum;
+    //     console.log(firstNum);
+    //     if (array.length > 3) {
+    //       for (let i = 1; i < array.length; i++) {
+    //         if (!isNaN(parseInt(array[i]))) {
+    //           firstNum += array[i];
+    //           console.log(firstNum);
+
+    //           span.textContent = firstNum;
+    //           variable = parseInt(firstNum, 10);
+    //           storeNum = storeVar(variable);
+    //           console.log(storeNum);
+    //         } else {
+    //           if (button.id == "equal") {
+    //             equal_button.addEventListener("click", () => {
+    //               last = operate(storeNum, storeOpr);
+    //               console.log(last);
+    //               span.textContent = last;
+    //             });
+    //           } else if (button.id == "AC") {
+    //             span.textContent = "";
+    //             array = [];
+    //           } else {
+    //             op = button.id;
+    //             storeOpr = storeOp(op);
+    //             console.log(storeOpr);
+    //           }
+    //         }
+    //       }
+    //     } else {
+    //       if (
+    //         !(
+    //           button.id == "minus" ||
+    //           button.id == "add" ||
+    //           button.id == "div" ||
+    //           button.id == "pro" ||
+    //           button.id == "mod" ||
+    //           button.id == "AC" ||
+    //           button.id == "equal"
+    //         )
+    //       ) {
+    //         firstNum = button.id;
+    //         span.textContent = firstNum;
+    //         variable = parseInt(firstNum, 10);
+    //         storeNum = storeVar(variable);
+    //         console.log(storeNum);
+    //       }
+
+    //       if (
+    //         (!(button.id == "equal") && button.id == "minus") ||
+    //         button.id == "add" ||
+    //         button.id == "div" ||
+    //         button.id == "pro" ||
+    //         button.id == "mod"
+    //       ) {
+    //         op = button.id;
+    //         storeOpr = storeOp(op);
+    //         console.log(storeOpr);
+    //       }
+    //       if (button.id == "AC") {
+    //         span.textContent = "";
+    //         array = [];
+    //       }
+    //     }
+    //     //  else if (button.id == "point") {
+    //     //   let val = button.id;
+    //     //   variable = parseInt(val, 10);
+    //     //   span.textContent = variable;
+    //     //   display(variable);
+    //     // }
+    //     display(storeNum, storeOpr);
   });
-  function storeVar(variable) {
-    array.push(variable);
-    console.log(array);
-    return array;
-  }
-  function storeOp(op) {
-    return (operator = op);
-  }
 });
-function display(storeNum, storeOpr) {
-  equal_button.addEventListener("click", () => {
-    last = operate(storeNum, storeOpr);
-    console.log(last);
-    span.textContent = last;
-  });
-}
+// function display(storeNum, storeOpr) {
+//   equal_button.addEventListener("click", () => {
+//     last = operate(storeNum, storeOpr);
+//     console.log(last);
+//     span.textContent = last;
+//   });
+// }
 
-function operate(storeNum, storeOpr) {
-  if (storeOpr == "add") return add(storeNum);
+// function operate(storeNum, storeOpr) {
+//   if (storeOpr == "add") return add(storeNum);
 
-  if (storeOpr == "minus") return minus(storeNum);
+//   if (storeOpr == "minus") return minus(storeNum);
 
-  if (storeOpr == "pro") return pro(storeNum);
+//   if (storeOpr == "pro") return pro(storeNum);
 
-  if (storeOpr == "mod") return mod(storeNum);
+//   if (storeOpr == "mod") return mod(storeNum);
 
-  if (storeOpr == "div") return div(storeNum);
-}
+//   if (storeOpr == "div") return div(storeNum);
+// }
 
-function add(storeNum) {
-  result = storeNum[0] + storeNum[1];
-  return result;
-}
-function minus(storeNum) {
-  result = storeNum[0] - storeNum[1];
-  return result;
-}
-function pro(storeNum) {
-  result = storeNum[0] * storeNum[1];
-  return result;
-}
-function div(storeNum) {
-  if (storeNum[1] == !0) {
-    result = storeNum[0] / storeNum[1];
-    return result;
-  } else return undefined;
-}
-function mod(storeNum) {
-  result = storeNum[0] % storeNum[1];
-  return result;
-}
+// function add(storeNum) {
+//   result = storeNum[0] + storeNum[1];
+//   return result;
+// }
+// function minus(storeNum) {
+//   result = storeNum[0] - storeNum[1];
+//   return result;
+// }
+// function pro(storeNum) {
+//   result = storeNum[0] * storeNum[1];
+//   return result;
+// }
+// function div(storeNum) {
+//   if (storeNum[1] == !0) {
+//     result = storeNum[0] / storeNum[1];
+//     return result;
+//   } else return undefined;
+// }
+// function mod(storeNum) {
+//   result = storeNum[0] % storeNum[1];
+//   return result;
+// }
 
 // function operate(storeNum, storeOpr) {
 //   if (storeOpr == "add") return add(storeNum);
@@ -200,6 +227,6 @@ function mod(storeNum) {
 //   return result;
 // }
 
-// function isNumber(character) {
-//   return /0-9/.test(character);
-// }
+function isNumber(character) {
+  return /0-9/.test(character);
+}
