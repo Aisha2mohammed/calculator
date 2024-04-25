@@ -99,21 +99,17 @@ container.addEventListener("click", (event) => {
       variable = 0;
       display(variable);
       break;
-      // case "equal":
-      //   result = operate(storeOpr, storeNum);
-      //   span.textContent = result;
-      //   variable = result;
-      //   display(variable);
-      break;
-    default:
-      span.textContent = "invalid input";
+    // case "equal":
+    //   result = operate(storeOpr, storeNum);
+    //   span.textContent = result;
+    //   variable = result;
+    //   display(variable);
   }
 });
 
 function display(numbers) {
   array.push(numbers);
-  // console.log(array);
-  // concat = array[0].toString();
+  console.log(array);
   concat = array[0].toString();
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number") {
@@ -121,7 +117,8 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
-      storeNum = storeVar(concat);
+      // n = concat;
+      // storeNum = storeVar(n);
     } else if (typeof array[i] === "string") {
       // if (typeof array[i] === "string") {
       op = array[i];
@@ -132,7 +129,8 @@ function display(numbers) {
       array.push(variable);
       console.log(array);
       arr = array.map((el) => parseInt(el, 10));
-      return arr;
+      // console.log(arr);
+      return array;
     }
     function storeOp(name) {
       operator = name;
