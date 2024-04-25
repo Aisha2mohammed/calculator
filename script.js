@@ -162,17 +162,28 @@ function display(numbers) {
   equal_button.addEventListener("click", function () {
     operate(storeOpr, storeNum);
   });
-  function operate(storeOpr, storeNum) {
-    if (storeOpr == "add") return add(storeNum);
+  // function operate(storeOpr, storeNum) {
+  //   if (storeOpr == "add") return add(storeNum);
 
-    if (storeOpr == "minus") return minus(storeNum);
+  //   if (storeOpr == "minus") return minus(storeNum);
 
-    if (storeOpr == "pro") return pro(storeNum);
+  //   if (storeOpr == "pro") return pro(storeNum);
 
-    if (storeOpr == "mod") return mod(storeNum);
+  //   if (storeOpr == "mod") return mod(storeNum);
 
-    if (storeOpr == "div") return div(storeNum);
-  }
+  //   if (storeOpr == "div") return div(storeNum);
+  // }
+}
+function operate(storeOpr, storeNum) {
+  if (storeOpr == "add") return add(storeNum);
+
+  if (storeOpr == "minus") return minus(storeNum);
+
+  if (storeOpr == "pro") return pro(storeNum);
+
+  if (storeOpr == "mod") return mod(storeNum);
+
+  if (storeOpr == "div") return div(storeNum);
 }
 // function operate(storeOpr, storeNum) {
 //   if (operator == "add") return add(val, f1);
