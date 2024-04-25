@@ -113,43 +113,23 @@ function display(numbers) {
   concat = array[0].toString();
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number") {
-      op = "";
+      // op = "";
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
-      // n = concat;
-      // storeNum = storeVar(n);
+      last = parseInt(concat, 10);
+      console.log(last);
+
+      // storeNum = storeVar(concat);
     } else if (typeof array[i] === "string") {
-      // if (typeof array[i] === "string") {
       op = array[i];
       concat = "";
       storeOpr = storeOp(operator);
     }
-    function storeVar(variable) {
-      array.push(variable);
-      console.log(array);
-      arr = array.map((el) => parseInt(el, 10));
-      // console.log(arr);
-      return array;
-    }
-    function storeOp(name) {
-      operator = name;
-      console.log(operator);
-
-      if (
-        operator === "add" ||
-        operator === "minus" ||
-        operator === "pro" ||
-        operator === "mod" ||
-        operator === "div"
-      ) {
-        // console.log(operator);
-        return operator;
-      } else return undefined;
-    }
   }
-  equal_button.addEventListener("click", function (storeOpr, storeNum) {
-    result = operate(storeOpr, storeNum);
+  equal_button.addEventListener("click", function () {
+    result = operate(op, last);
+    console.log(result);
     span.textContent = result;
   });
 }
@@ -172,24 +152,24 @@ function storeOp(name) {
     operator === "mod" ||
     operator === "div"
   ) {
-    // console.log(operator);
+    console.log(operator);
     return operator;
   } else return undefined;
 }
 
-function operate(storeOpr, storeNum) {
-  console.log("storeOpr:", storeOpr);
-  console.log("storeNum:", storeNum);
+function operate(op, last) {
+  // console.log("storeOpr:", storeOpr);
+  // console.log("storeNum:", storeNum);
 
-  if (storeOpr == "add") return add(storeNum);
+  if (op == "add") return add(last);
 
-  if (storeOpr == "minus") return minus(storeNum);
+  if (op == "minus") return minus(last);
 
-  if (storeOpr == "pro") return pro(storeNum);
+  if (op == "pro") return pro(last);
 
-  if (storeOpr == "mod") return mod(storeNum);
+  if (op == "mod") return mod(last);
 
-  if (storeOpr == "div") return div(storeNum);
+  if (op == "div") return div(last);
 }
 
 function add(storeNum) {
@@ -207,8 +187,4 @@ function div(storeNum) {
 }
 function mod(storeNum) {
   return storeNum[i] % storeNum[i + 1];
-}
-
-function isNumber(character) {
-  return /0-9/.test(character);
 }
