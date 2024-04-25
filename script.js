@@ -5,9 +5,8 @@ const equal_button = document.querySelector("#equal");
 
 let array = [];
 let arr = [];
-let concat,
-  op,
-  y = "";
+let concat;
+let op = "";
 let result;
 let storeNum,
   storeOpr,
@@ -100,51 +99,68 @@ container.addEventListener("click", (event) => {
       variable = 0;
       display(variable);
       break;
-    case "equal":
-      result = operate(storeOpr, storeNum);
-      span.textContent = result;
-      variable = result;
-      display(variable);
+      // case "equal":
+      //   result = operate(storeOpr, storeNum);
+      //   span.textContent = result;
+      //   variable = result;
+      //   display(variable);
       break;
     default:
       span.textContent = "invalid input";
-
-    // // case 'plus_minus':
-    // span.textContent = '.';
-    // variable = . ;
-    // display(variable);
-    // break;
   }
 });
 
 function display(numbers) {
   array.push(numbers);
-  console.log(array);
+  // console.log(array);
   // concat = array[0].toString();
-  for (let i = 0; i < array.length; i++) {
-    if (isNumber(array[i])) {
+  concat = array[0].toString();
+  for (let i = 1; i < array.length; i++) {
+    if (typeof array[i] === "number") {
       op = "";
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
       storeNum = storeVar(concat);
-    }
-    if (typeof array[i] === "string") {
+    } else if (typeof array[i] === "string") {
+      // if (typeof array[i] === "string") {
       op = array[i];
       concat = "";
       storeOpr = storeOp(operator);
     }
+    function storeVar(variable) {
+      array.push(variable);
+      console.log(array);
+      arr = array.map((el) => parseInt(el, 10));
+      return arr;
+    }
+    function storeOp(name) {
+      operator = name;
+      console.log(operator);
+
+      if (
+        operator === "add" ||
+        operator === "minus" ||
+        operator === "pro" ||
+        operator === "mod" ||
+        operator === "div"
+      ) {
+        // console.log(operator);
+        return operator;
+      } else return undefined;
+    }
   }
-  // equal_button.addEventListener("click", function (storeOpr, storeNum) {
-  //   result = operate(storeOpr, storeNum);
-  //   span.textContent = result;
-  // });
+  equal_button.addEventListener("click", function (storeOpr, storeNum) {
+    result = operate(storeOpr, storeNum);
+    span.textContent = result;
+  });
 }
 
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
   arr = array.map((el) => parseInt(el, 10));
+  console.log(arr);
   return arr;
 }
 function storeOp(name) {
@@ -164,6 +180,9 @@ function storeOp(name) {
 }
 
 function operate(storeOpr, storeNum) {
+  console.log("storeOpr:", storeOpr);
+  console.log("storeNum:", storeNum);
+
   if (storeOpr == "add") return add(storeNum);
 
   if (storeOpr == "minus") return minus(storeNum);
