@@ -133,17 +133,7 @@ function display(numbers) {
       storeOpr = storeOp(operator);
     }
   }
-  function storeVar(variable) {
-    array.push(variable);
-    console.log(array);
-    arr = parseInt(array, 10);
-    return arr;
-  }
-  function storeOp(operator) {
-    op = operator;
-    console.log(op);
-    return op;
-  }
+
   //Listening to display the result
   equal_button.addEventListener("click", function (storeOpr, storeNum) {
     operate(storeOpr, storeNum);
@@ -159,6 +149,17 @@ function display(numbers) {
 
     if (storeOpr == "div") return div(storeNum);
   }
+}
+function storeVar(variable) {
+  array.push(variable);
+  console.log(array);
+  arr = array.map((el) => parseInt(el, 10));
+  return arr;
+}
+function storeOp(operator) {
+  op = operator;
+  console.log(op);
+  return op;
 }
 // function operate(storeOpr, storeNum) {
 //   if (storeOpr == "add") return add(storeNum);
