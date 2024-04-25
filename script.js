@@ -5,8 +5,10 @@ const equal_button = document.querySelector("#equal");
 
 let array = [];
 let arr = [];
+let last = [];
+
 let concat;
-let op = "";
+let op;
 let result;
 let storeNum,
   storeOpr,
@@ -16,7 +18,6 @@ let storeNum,
   variable,
   firstNum,
   secNum,
-  last,
   operator,
   nextIndex,
   Target;
@@ -121,16 +122,17 @@ function display(numbers) {
       console.log(last);
 
       // storeNum = storeVar(concat);
-    } else if (typeof array[i] === "string") {
+    } else {
       op = array[i];
       concat = "";
-      storeOpr = storeOp(operator);
+      // storeOpr = storeOp(operator);
     }
   }
   equal_button.addEventListener("click", function () {
     result = operate(op, last);
     console.log(result);
     span.textContent = result;
+    array.unshift(result);
   });
 }
 
