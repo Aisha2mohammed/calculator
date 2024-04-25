@@ -197,19 +197,19 @@ function operate(storeOpr, storeNum) {
 //   if (operator == "div") return div(val, f1);
 // }
 
-function add(a, c) {
-  return a + c;
+function add(storeNum) {
+  return storeNum[i] + storeNum[i];
 }
-function minus(a, c) {
-  return a - c;
+function minus(storeNum) {
+  return storeNum[i] - storeNum[i + 1];
 }
-function pro(a, c) {
-  return a * c;
+function pro(storeNum) {
+  return storeNum[i] * storeNum[i + 1];
 }
-function div(a, c) {
-  if (c == !0) return a / c;
+function div(storeNum) {
+  if (storeNum[i + 1] == !0) return storeNum[i] / storeNum[i + 1];
   else return undefined;
 }
-function mod(a, c) {
-  return a % c;
+function mod(storeNum) {
+  return storeNum[i] % storeNum[i + 1];
 }
