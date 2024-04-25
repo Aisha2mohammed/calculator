@@ -53,63 +53,65 @@ container.addEventListener("click", (event) => {
       display(variable);
       break;
     case "one":
-      // span.textContent = "1";
+      span.textContent = "1";
       variable = 1;
       display(variable);
       break;
 
     case "two":
-      // span.textContent = "2";
+      span.textContent = "2";
       variable = 2;
       display(variable);
       break;
     case "three":
-      // span.textContent = "3";
+      span.textContent = "3";
       variable = 3;
       display(variable);
       break;
     case "four":
-      // span.textContent = "4";
+      span.textContent = "4";
       variable = 4;
       display(variable);
       break;
     case "five":
-      // span.textContent = "5";
+      span.textContent = "5";
       variable = 5;
       display(variable);
       break;
     case "six":
-      // span.textContent = "6";
+      span.textContent = "6";
       variable = 6;
       display(variable);
       break;
     case "seven":
-      // span.textContent = "7";
+      span.textContent = "7";
       variable = 7;
       display(variable);
       break;
 
     case "eight":
-      // span.textContent = "8";
+      span.textContent = "8";
       variable = 8;
       display(variable);
       break;
     case "nine":
-      // span.textContent = "9";
+      span.textContent = "9";
       variable = 9;
       display(variable);
       break;
     case "zero":
-      // span.textContent = "0";
+      span.textContent = "0";
       variable = 0;
       display(variable);
       break;
-    case "point":
-      span.textContent = ".";
-      variable = ".";
-      display(variable);
-      break;
-    // case 'plus_minus':
+    default:
+      span.textContent = "invalid input";
+    // case "point":
+    //   span.textContent = ".";
+    //   variable = ".";
+    //   display(variable);
+    //   break;
+    // // case 'plus_minus':
     // span.textContent = '.';
     // variable = . ;
     // display(variable);
@@ -120,10 +122,11 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
+  // concat = array[0].toString();
   for (let i = 0; i < array.length; i++) {
-    if (typeof arr[i] === "number") {
+    if (isNumber(array[i])) {
       op = "";
-      concat += arr[i].toString();
+      concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
       storeNum = storeVar(concat);
@@ -133,23 +136,8 @@ function display(numbers) {
       storeOpr = storeOp(operator);
     }
   }
-
-  //Listening to display the result
-  equal_button.addEventListener("click", function (storeOpr, storeNum) {
-    operate(storeOpr, storeNum);
-  });
-  function operate(storeOpr, storeNum) {
-    if (storeOpr == "add") return add(storeNum);
-
-    if (storeOpr == "minus") return minus(storeNum);
-
-    if (storeOpr == "pro") return pro(storeNum);
-
-    if (storeOpr == "mod") return mod(storeNum);
-
-    if (storeOpr == "div") return div(storeNum);
-  }
 }
+
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
@@ -161,17 +149,21 @@ function storeOp(operator) {
   console.log(op);
   return op;
 }
-// function operate(storeOpr, storeNum) {
-//   if (storeOpr == "add") return add(storeNum);
+equal_button.addEventListener("click", function (storeOpr, storeNum) {
+  result = operate(storeOpr, storeNum);
+  span.textContent = result;
+});
+function operate(storeOpr, storeNum) {
+  if (storeOpr == "add") return add(storeNum);
 
-//   if (storeOpr == "minus") return minus(storeNum);
+  if (storeOpr == "minus") return minus(storeNum);
 
-//   if (storeOpr == "pro") return pro(storeNum);
+  if (storeOpr == "pro") return pro(storeNum);
 
-//   if (storeOpr == "mod") return mod(storeNum);
+  if (storeOpr == "mod") return mod(storeNum);
 
-//   if (storeOpr == "div") return div(storeNum);
-// }
+  if (storeOpr == "div") return div(storeNum);
+}
 
 function add(storeNum) {
   return storeNum[i] + storeNum[i + 1];
@@ -188,4 +180,8 @@ function div(storeNum) {
 }
 function mod(storeNum) {
   return storeNum[i] % storeNum[i + 1];
+}
+
+function isNumber(character) {
+  return /0-9/.test(character);
 }
