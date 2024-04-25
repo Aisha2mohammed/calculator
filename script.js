@@ -120,7 +120,6 @@ function display(numbers) {
       console.log(concat);
       last = parseInt(concat, 10);
       console.log(last);
-
       // storeNum = storeVar(concat);
     } else {
       op = array[i];
