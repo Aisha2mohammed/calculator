@@ -155,11 +155,13 @@ function display(numbers) {
     arr = parseInt(array, 10);
     return arr;
   }
-  function storeOp(op) {
-    return (operator = op);
+  function storeOp(operator) {
+    op = operator;
+    console.log(op);
+    return op;
   }
   //Listening to display the result
-  equal_button.addEventListener("click", function () {
+  equal_button.addEventListener("click", function (storeOpr, storeNum) {
     operate(storeOpr, storeNum);
   });
   // function operate(storeOpr, storeNum) {
@@ -198,7 +200,7 @@ function operate(storeOpr, storeNum) {
 // }
 
 function add(storeNum) {
-  return storeNum[i] + storeNum[i];
+  return storeNum[i] + storeNum[i + 1];
 }
 function minus(storeNum) {
   return storeNum[i] - storeNum[i + 1];
