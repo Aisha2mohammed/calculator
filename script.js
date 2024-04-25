@@ -120,22 +120,6 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-  //   for (let i = 0; i < array.length / 3; i++) {
-  //     for (let j = 0; j < array.length; i++) {
-  //       firstNum = array[0];
-  //       operator = array[1];
-  //       secNum = array[2];
-  //     }
-
-  //     result = operate(firstNum, operator, secNum);
-  //     console.log(result);
-  //     span.textContent = result;
-
-  //     if (array.length > 0) array.unshift(result);
-  //     else span.textContent = result;
-  //   }
-  // }
-
   for (let i = 0; i < array.length; i++) {
     if (typeof arr[i] === "number") {
       op = "";
