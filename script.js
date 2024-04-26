@@ -6,9 +6,8 @@ const equal_button = document.querySelector("#equal");
 let array = [];
 let arr = [];
 let last = [];
-
+let op = [];
 let concat;
-let op;
 let result;
 let storeNum,
   storeOpr,
@@ -106,6 +105,12 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
+
+  //  for(let i = 0 ; i <array.length ; i++){
+  //   arr.push(array[i]);
+  //   if(arr.length )
+  //  }
+
   concat = array[0].toString();
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number") {
@@ -113,45 +118,45 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
-      last = parseInt(concat, 10);
+      last.push(parseInt(concat, 10));
       console.log(last);
-      // storeNum = storeVar(concat);
     } else {
-      op = array[i];
+      op.push(array[i]);
+      console.log(op);
       concat = "";
       // storeOpr = storeOp(operator);
     }
   }
-  equal_button.addEventListener("click", function () {
-    result = operate(op, last);
-    console.log(result);
-    span.textContent = result;
-    array.unshift(result);
-  });
+  // equal_button.addEventListener("click", function () {
+  //   result = operate(op, arr);
+  //   console.log(result);
+  //   span.textContent = result;
+  //   array.unshift(result);
+  // });
 }
 
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
-  arr = array.map((el) => parseInt(el, 10));
-  console.log(arr);
-  return arr;
+  // arr = array.map((el) => parseInt(el, 10));
+  // console.log(arr);
+  // return arr;
 }
-function storeOp(name) {
-  operator = name;
-  console.log(operator);
+// function storeOp(name) {
+//   operator = name;
+//   console.log(operator);
 
-  if (
-    operator === "add" ||
-    operator === "minus" ||
-    operator === "pro" ||
-    operator === "mod" ||
-    operator === "div"
-  ) {
-    console.log(operator);
-    return operator;
-  } else return undefined;
-}
+//   if (
+//     operator === "add" ||
+//     operator === "minus" ||
+//     operator === "pro" ||
+//     operator === "mod" ||
+//     operator === "div"
+//   ) {
+//     console.log(operator);
+//     return operator;
+//   } else return undefined;
+// }
 
 function operate(op, last) {
   if (op == "add") return add(last);
