@@ -7,7 +7,8 @@ let array = [];
 let arr = [];
 let last = [];
 let op = [];
-let concat;
+let join = [];
+let concat = "";
 let result;
 let storeNum,
   storeOpr,
@@ -105,43 +106,68 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-
-  //  for(let i = 0 ; i <array.length ; i++){
-  //   arr.push(array[i]);
-  //   if(arr.length )
-  //  }
-
   concat = array[0].toString();
+  span.textContent = concat;
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number") {
-      // op = "";
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
+      // if (!last.includes(concat)) {
       last.push(parseInt(concat, 10));
       console.log(last);
     } else {
-      op.push(array[i]);
+      last.push(array[i]);
       console.log(op);
       concat = "";
+      // storeValue(array);
+
       // storeOpr = storeOp(operator);
     }
   }
-  // equal_button.addEventListener("click", function () {
-  //   result = operate(op, arr);
-  //   console.log(result);
-  //   span.textContent = result;
-  //   array.unshift(result);
-  // });
+  for (let value of array) {
+    while (typeof value === "number") {
+      join = array.join();
+    }
+    arr.push(value);
+    // storeOp(arr);
+    // storeVar(join);
+    console.log(arr);
+    console.log(join);
+    join = "";
+  }
+  // storeVar(last);
+
+  equal_button.addEventListener("click", function () {
+    result = operate(arr, join);
+    console.log(result);
+    span.textContent = result;
+    array.unshift(result);
+  });
 }
 
-function storeVar(variable) {
-  array.push(variable);
-  console.log(array);
-  // arr = array.map((el) => parseInt(el, 10));
-  // console.log(arr);
-  // return arr;
-}
+// function storeVar(variable) {
+//   // array.push(variable);
+//   console.log(variable);
+//   // arr = array.map((el) => parseInt(el, 10));
+//   console.log(arr);
+//   return arr;
+// }
+
+// function storeValue(array) {
+// for (let value of array) {
+//   while (typeof value === "number") {
+//     join = array.join();
+//   }
+//   arr.push(value);
+//   storeOp(arr);
+//   storeVar(join);
+//   console.log(arr);
+//   console.log(join);
+//   join = "";
+// }
+//   return join;
+// }
 // function storeOp(name) {
 //   operator = name;
 //   console.log(operator);
