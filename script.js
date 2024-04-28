@@ -14,8 +14,6 @@ let fullArray,
   result,
   operator,
   op,
-  i,
-  n,
   variable,
   firstNum,
   secNum,
@@ -142,26 +140,24 @@ function new_array(array) {
       join = "";
       operator = array[k];
       console.log(operator);
-      storeOpr = storeOp(operator);
+      return (storeOpr = storeOp(operator));
       // operator = "";
     }
   }
-  storeNum = storeVar(join);
-  storeOpr = storeOp(operator);
+  return (storeNum = storeVar(join));
 }
 function storeVar(variable) {
-  // let arr = [];
   arr.push(variable);
   console.log(arr);
   parsedArr = arr.map((el) => parseInt(el, 10));
   console.log(parsedArr);
   return parsedArr;
 }
+
 function storeOp(name) {
-  let operate = [];
-  operate.push(name);
-  console.log(operate);
-  return operate;
+  last.push(name);
+  console.log(last);
+  return last;
 }
 
 function operate(op, last) {
