@@ -6,14 +6,14 @@ const equal_button = document.querySelector("#equal");
 let array = [];
 let arr = [];
 let last = [];
-
+let storeNum = [];
+let storeOpr = [];
 let concat;
 let op;
 let result;
-let storeNum,
-  storeOpr,
-  fullArray,
+let fullArray,
   i,
+  join,
   n,
   variable,
   firstNum,
@@ -115,13 +115,25 @@ function display(numbers) {
       console.log(concat);
       last = parseInt(concat, 10);
       console.log(last);
-      // storeNum = storeVar(concat);
     } else {
       op = array[i];
       concat = "";
-      storeOpr = storeOp(operator);
     }
   }
+
+  for (let value of array) {
+    while (typeof value === "number") {
+      join = value.join();
+    }
+    storeNum = storeVar(join);
+    join = "";
+    let opr = value;
+    storeOpr = storeOp(opr);
+    opr = "";
+    console.log(storeOpr);
+    console.log(storeNum);
+  }
+
   equal_button.addEventListener("click", function () {
     result = operate(op, last);
     console.log(result);
@@ -133,24 +145,24 @@ function display(numbers) {
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
-  arr = array.map((el) => parseInt(el, 10));
-  console.log(arr);
-  return arr;
+  // arr = array.map((el) => parseInt(el, 10));
+  // console.log(arr);
+  return array;
 }
 function storeOp(name) {
-  operator = name;
+  operator.push(name);
   console.log(operator);
-
-  if (
-    operator === "add" ||
-    operator === "minus" ||
-    operator === "pro" ||
-    operator === "mod" ||
-    operator === "div"
-  ) {
-    console.log(operator);
-    return operator;
-  } else return undefined;
+  // return operator
+  //   if (
+  //     operator === "add" ||
+  //     operator === "minus" ||
+  //     operator === "pro" ||
+  //     operator === "mod" ||
+  //     operator === "div"
+  //   ) {
+  //     console.log(operator);
+  //     return operator;
+  //   } else return undefined;
 }
 
 function operate(op, last) {
