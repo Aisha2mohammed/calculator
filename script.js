@@ -4,13 +4,23 @@ const span = document.querySelector(".span1");
 const equal_button = document.querySelector("#equal");
 
 let array = [];
-let arr = [];
 let last = [];
 let storeNum = [];
 let storeOpr = [];
-let operator = [];
 let concat;
-let fullArray, result, op, i, n, variable, firstNum, secNum, nextIndex, Target;
+let arr = [];
+let join = "";
+let fullArray,
+  result,
+  operator,
+  op,
+  i,
+  n,
+  variable,
+  firstNum,
+  secNum,
+  nextIndex,
+  Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
   // console.log(Target);
@@ -99,12 +109,11 @@ function display(numbers) {
   concat = array[0].toString();
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number") {
-      // op = "";
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
-      last = parseInt(concat, 10);
-      console.log(last);
+      // last = parseInt(concat, 10);
+      // console.log(last);
     } else {
       op = array[i];
       concat = "";
@@ -125,30 +134,34 @@ function new_array(array) {
   let join = array[0].toString();
   for (let k = 1; k < array.length; k++) {
     if (typeof array[k] === "number") {
-      opr = "";
+      // storeOpr = storeOp(operator);
       join += array[k].toString();
     }
     if (typeof array[k] === "string") {
       storeNum = storeVar(join);
       join = "";
-      let opr = array[k];
-      storeOpr = storeOp(opr);
-      console.log(storeOpr);
-      console.log(storeNum);
+      operator = array[k];
+      console.log(operator);
+      storeOpr = storeOp(operator);
+      // operator = "";
     }
   }
+  storeNum = storeVar(join);
+  storeOpr = storeOp(operator);
 }
 function storeVar(variable) {
-  array.push(variable);
-  console.log(array);
-  arr = array.map((el) => parseInt(el, 10));
+  // let arr = [];
+  arr.push(variable);
   console.log(arr);
-  return arr;
+  parsedArr = arr.map((el) => parseInt(el, 10));
+  console.log(parsedArr);
+  return parsedArr;
 }
 function storeOp(name) {
-  operator.push(name);
-  console.log(operator);
-  return operator;
+  let operate = [];
+  operate.push(name);
+  console.log(operate);
+  return operate;
 }
 
 function operate(op, last) {
