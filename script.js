@@ -149,16 +149,6 @@ function storeOp(name) {
   operator.push(name);
   console.log(operator);
   return operator;
-  //   if (
-  //     operator === "add" ||
-  //     operator === "minus" ||
-  //     operator === "pro" ||
-  //     operator === "mod" ||
-  //     operator === "div"
-  //   ) {
-  //     console.log(operator);
-  //     return operator;
-  //   } else return undefined;
 }
 
 function operate(op, last) {
