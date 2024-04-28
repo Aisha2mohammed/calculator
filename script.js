@@ -8,19 +8,9 @@ let arr = [];
 let last = [];
 let storeNum = [];
 let storeOpr = [];
+let operator = [];
 let concat;
-let op;
-let result;
-let fullArray,
-  i,
-  join,
-  n,
-  variable,
-  firstNum,
-  secNum,
-  operator,
-  nextIndex,
-  Target;
+let fullArray, result, op, i, n, variable, firstNum, secNum, nextIndex, Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
   // console.log(Target);
@@ -120,22 +110,10 @@ function display(numbers) {
       concat = "";
     }
   }
-  let value = "";
-  for (value of array) {
-    if (typeof value === "number") {
-      opr = "";
-      value += value;
-    } else {
-      storeNum = storeVar(value);
-      value = "";
-      let opr = value;
-      storeOpr = storeOp(opr);
-      console.log(storeOpr);
-      console.log(storeNum);
-    }
-  }
 
   equal_button.addEventListener("click", function () {
+    new_array(array);
+
     result = operate(storeNum, storeOpr);
     console.log(result);
     span.textContent = result;
@@ -143,6 +121,23 @@ function display(numbers) {
   });
 }
 
+function new_array(array) {
+  let join = array[0].toString();
+  for (let k = 1; k < array.length; k++) {
+    if (typeof array[k] === "number") {
+      opr = "";
+      join += array[k].toString();
+    }
+    if (typeof array[k] === "string") {
+      storeNum = storeVar(join);
+      join = "";
+      let opr = array[k];
+      storeOpr = storeOp(opr);
+      console.log(storeOpr);
+      console.log(storeNum);
+    }
+  }
+}
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
