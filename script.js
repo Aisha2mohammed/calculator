@@ -11,17 +11,7 @@ let newArray = [];
 let concat;
 let arr = [];
 let join = "";
-let fullArray,
-  result,
-  operator,
-  newOp,
-  reduce,
-  op,
-  variable,
-  firstNum,
-  secNum,
-  nextIndex,
-  Target;
+let result, operator, newOp, reduce, op, variable, firstNum, secNum, Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
   // console.log(Target);
@@ -133,34 +123,32 @@ function display(numbers) {
 }
 
 function operate(newArray, newOpr) {
+  firstNum = newArray[0];
   for (let j = 1; j < newArray.length; j++) {
-    reduce = newArray.shift(0);
-    firstNum = newArray.shift(1);
-
     for (let i = 0; i < newOpr.length; i++) {
       if (newOpr[i] === "add") {
-        reduce += firstNum;
+        result = firstNum + newArray[i];
       }
       if (newOpr[i] === "minus") {
-        reduce -= firstNum;
+        result = firstNum - newArray[i];
       }
       if (newOpr[i] === "pro") {
-        reduce *= firstNum;
+        result = firstNum * newArray[i];
       }
       if (newOpr[i] === "mod") {
-        reduce %= firstNum;
+        result = firstNum % newArray[i];
       }
       if (newOpr[i] === "div") {
-        reduce /= firstNum;
+        result = firstNum / newArray[i];
       }
     }
     if (newArray.length > 0) {
-      newArray.unshift(reduce);
+      firstNum = result;
     }
   }
 
-  span.textContent = reduce;
-  return reduce;
+  span.textContent = result;
+  return result;
 }
 
 // function add(storeNum) {
