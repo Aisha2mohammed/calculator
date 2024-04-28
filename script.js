@@ -133,30 +133,32 @@ function display(numbers) {
 }
 
 function operate(newArray, newOpr) {
-  reduce = newArray.shift(0);
-
-  for (let i = 0; i < newOpr.length; i++) {
+  for (let j = 1; j < newArray.length; j++) {
+    reduce = newArray.shift(0);
     firstNum = newArray.shift(1);
 
-    if (newOpr[i] === "add") {
-      reduce += firstNum;
+    for (let i = 0; i < newOpr.length; i++) {
+      if (newOpr[i] === "add") {
+        reduce += firstNum;
+      }
+      if (newOpr[i] === "minus") {
+        reduce -= firstNum;
+      }
+      if (newOpr[i] === "pro") {
+        reduce *= firstNum;
+      }
+      if (newOpr[i] === "mod") {
+        reduce %= firstNum;
+      }
+      if (newOpr[i] === "div") {
+        reduce /= firstNum;
+      }
     }
-    if (newOpr[i] === "minus") {
-      reduce -= firstNum;
-    }
-    if (newOpr[i] === "pro") {
-      reduce *= firstNum;
-    }
-    if (newOpr[i] === "mod") {
-      reduce %= firstNum;
-    }
-    if (newOpr[i] === "div") {
-      reduce /= firstNum;
+    if (newArray.length > 0) {
+      newArray.unshift(reduce);
     }
   }
-  if (newArray.length > 0) {
-    newArray.unshift(reduce);
-  }
+
   span.textContent = reduce;
   return reduce;
 }
