@@ -124,94 +124,80 @@ function display(numbers) {
   equal_button.addEventListener("click", function () {
     let [storeNum, storeOpr] = new_array(array);
 
-    for (let m = 0; m < storeNum.length; m++) {
-      newArray = storeNum[m];
-      if (newArray.length == 2) break;
-    }
-    for (let n = 0; n < storeOpr.length; n++) {
-      newOp = storeOpr[n];
-      if (storeOpr.length == 1) break;
-    }
-
-    let last_result = operate(newArray, newOpr);
-    console.log(last_result);
-    span.textContent = last_result;
-
-    if (storeNum.length > 0) {
-      storeNum.unshift(last_result);
-    }
+    operate(storeNum, storeOpr);
+    // console.log(result);
+    // span.textContent = result;
+    // if (storeNum.length > 0) {
+    //   storeNum.unshift(result);
   });
 }
 
 function operate(newArray, newOpr) {
-  if (newOpr === "add") {
-    reduce = newArray.reduce((acc, val) => {
-      acc += val;
-    }, 0);
-  }
+  for (let i = 0; i < newOpr.length; i++) {
+    reduce = newArray[0];
+    if (newOpr[i] === "add") {
+      reduce += newArray[i + 1];
+    }
 
-  if (newOpr === "minus") {
-    reduce = newArray.reduce((acc, val) => {
-      acc -= val;
-    }, 0);
-  }
+    if (newOpr[i] === "minus") {
+      reduce -= newArray[i + 1];
+    }
 
-  if (newOpr === "pro") {
-    reduce = newArray.reduce((acc, val) => {
-      acc *= val;
-    }, 0);
-  }
+    if (newOpr[i] === "pro") {
+      reduce *= newArray[i + 1];
+    }
 
-  if (newOpr === "mod") {
-    reduce = newArray.reduce((acc, val) => {
-      acc %= val;
-    }, 0);
-  }
+    if (newOpr[i] === "mod") {
+      reduce %= newArray[i + 1];
+    }
 
-  if (newOpr === "div") {
-    reduce = newArray.reduce((acc, val) => {
-      acc /= val;
-    }, 0);
+    if (newOpr[i] === "div") {
+      reduce /= newArray[i + 1];
+    }
+    if (newArray.length > 0) {
+      span.textContent = reduce;
+      newArray.unshift(reduce);
+    }
+    return reduce;
   }
-  return reduce;
 }
 
-function add(storeNum) {
-  result = storeNum[0];
-  for (let y = 0; y < storeNum.length; y++) {
-    result += storeNum[y + 1];
-  }
-  return result;
-}
-function minus(storeNum) {
-  result = storeNum[0];
-  for (let y = 0; y < storeNum.length; y++) {
-    result -= storeNum[y + 1];
-  }
-  return result;
-}
-function pro(storeNum) {
-  result *= storeNum[0];
-  for (let y = 0; y < storeNum.length; y++) {
-    result = storeNum[y + 1];
-  }
-  return result;
-}
-function div(storeNum) {
-  result = storeNum[0];
-  for (let y = 0; y < storeNum.length; y++) {
-    if (storeNum[y + 1] !== 0) result /= storeNum[y + 1];
-    else result = undefined;
-  }
-  return result;
-}
-function mod(storeNum) {
-  result %= storeNum[0];
-  for (let y = 0; y < storeNum.length; y++) {
-    result = storeNum[y + 1];
-  }
-  return result;
-}
+// function add(storeNum) {
+//   result = storeNum[0];
+//   for (let y = 0; y < storeNum.length; y++) {
+//     result += storeNum[y + 1];
+//   }
+//   return result;
+// }
+// function minus(storeNum) {
+//   result = storeNum[0];
+//   for (let y = 0; y < storeNum.length; y++) {
+//     result -= storeNum[y + 1];
+//   }
+//   return result;
+// }
+// function pro(storeNum) {
+//   result *= storeNum[0];
+//   for (let y = 0; y < storeNum.length; y++) {
+//     result = storeNum[y + 1];
+//   }
+//   return result;
+// }
+// function div(storeNum) {
+//   result = storeNum[0];
+//   for (let y = 0; y < storeNum.length; y++) {
+//     if (storeNum[y + 1] !== 0) result /= storeNum[y + 1];
+//     else result = undefined;
+//   }
+//   return result;
+// }
+// function mod(storeNum) {
+//   result %= storeNum[0];
+//   for (let y = 0; y < storeNum.length; y++) {
+//     result = storeNum[y + 1];
+//   }
+//   return result;
+// }
 
 function new_array(array) {
   let join = array[0].toString();
@@ -231,6 +217,7 @@ function new_array(array) {
   storeNum = storeVar(join);
   return [storeNum, storeOpr];
 }
+
 function storeVar(variable) {
   arr.push(variable);
   console.log(arr);
