@@ -119,7 +119,7 @@ function display(numbers) {
     } else {
       op = array[i];
       concat = "";
-      // storeOpr = storeOp(operator);
+      storeOpr = storeOp(operator);
     }
   }
   equal_button.addEventListener("click", function () {
