@@ -120,22 +120,23 @@ function display(numbers) {
       concat = "";
     }
   }
-
-  for (let value of array) {
-    while (typeof value === "number") {
-      join = value.join();
+  let value = "";
+  for (value of array) {
+    if (typeof value === "number") {
+      opr = "";
+      value += value;
+    } else {
+      storeNum = storeVar(value);
+      value = "";
+      let opr = value;
+      storeOpr = storeOp(opr);
+      console.log(storeOpr);
+      console.log(storeNum);
     }
-    storeNum = storeVar(join);
-    join = "";
-    let opr = value;
-    storeOpr = storeOp(opr);
-    opr = "";
-    console.log(storeOpr);
-    console.log(storeNum);
   }
 
   equal_button.addEventListener("click", function () {
-    result = operate(op, last);
+    result = operate(storeNum, storeOpr);
     console.log(result);
     span.textContent = result;
     array.unshift(result);
@@ -145,14 +146,14 @@ function display(numbers) {
 function storeVar(variable) {
   array.push(variable);
   console.log(array);
-  // arr = array.map((el) => parseInt(el, 10));
-  // console.log(arr);
-  return array;
+  arr = array.map((el) => parseInt(el, 10));
+  console.log(arr);
+  return arr;
 }
 function storeOp(name) {
   operator.push(name);
   console.log(operator);
-  // return operator
+  return operator;
   //   if (
   //     operator === "add" ||
   //     operator === "minus" ||
