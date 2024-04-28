@@ -119,8 +119,8 @@ function display(numbers) {
   }
 
   equal_button.addEventListener("click", function () {
-    new_array(array);
-
+    const [storeNum, storeOpr] = new_array(array);
+    console.log(new_array);
     result = operate(storeNum, storeOpr);
     console.log(result);
     span.textContent = result;
@@ -140,11 +140,11 @@ function new_array(array) {
       join = "";
       operator = array[k];
       console.log(operator);
-      return (storeOpr = storeOp(operator));
-      // operator = "";
+      storeOpr = storeOp(operator);
     }
   }
-  return (storeNum = storeVar(join));
+  storeNum = storeVar(join);
+  return [storeNum, storeOpr];
 }
 function storeVar(variable) {
   arr.push(variable);
