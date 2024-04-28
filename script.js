@@ -7,12 +7,15 @@ let array = [];
 let last = [];
 let storeNum = [];
 let storeOpr = [];
+let newArray = [];
 let concat;
 let arr = [];
 let join = "";
 let fullArray,
   result,
   operator,
+  newOp,
+  reduce,
   op,
   variable,
   firstNum,
@@ -119,13 +122,95 @@ function display(numbers) {
   }
 
   equal_button.addEventListener("click", function () {
-    const [storeNum, storeOpr] = new_array(array);
-    console.log(new_array);
-    result = operate(storeNum, storeOpr);
-    console.log(result);
-    span.textContent = result;
-    array.unshift(result);
+    let [storeNum, storeOpr] = new_array(array);
+
+    for (let m = 0; m < storeNum.length; m++) {
+      newArray = storeNum[m];
+      if (newArray.length == 2) break;
+    }
+    for (let n = 0; n < storeOpr.length; n++) {
+      newOp = storeOpr[n];
+      if (storeOpr.length == 1) break;
+    }
+
+    let last_result = operate(newArray, newOpr);
+    console.log(last_result);
+    span.textContent = last_result;
+
+    if (storeNum.length > 0) {
+      storeNum.unshift(last_result);
+    }
   });
+}
+
+function operate(newArray, newOpr) {
+  if (newOpr === "add") {
+    reduce = newArray.reduce((acc, val) => {
+      acc += val;
+    }, 0);
+  }
+
+  if (newOpr === "minus") {
+    reduce = newArray.reduce((acc, val) => {
+      acc -= val;
+    }, 0);
+  }
+
+  if (newOpr === "pro") {
+    reduce = newArray.reduce((acc, val) => {
+      acc *= val;
+    }, 0);
+  }
+
+  if (newOpr === "mod") {
+    reduce = newArray.reduce((acc, val) => {
+      acc %= val;
+    }, 0);
+  }
+
+  if (newOpr === "div") {
+    reduce = newArray.reduce((acc, val) => {
+      acc /= val;
+    }, 0);
+  }
+  return reduce;
+}
+
+function add(storeNum) {
+  result = storeNum[0];
+  for (let y = 0; y < storeNum.length; y++) {
+    result += storeNum[y + 1];
+  }
+  return result;
+}
+function minus(storeNum) {
+  result = storeNum[0];
+  for (let y = 0; y < storeNum.length; y++) {
+    result -= storeNum[y + 1];
+  }
+  return result;
+}
+function pro(storeNum) {
+  result *= storeNum[0];
+  for (let y = 0; y < storeNum.length; y++) {
+    result = storeNum[y + 1];
+  }
+  return result;
+}
+function div(storeNum) {
+  result = storeNum[0];
+  for (let y = 0; y < storeNum.length; y++) {
+    if (storeNum[y + 1] !== 0) result /= storeNum[y + 1];
+    else result = undefined;
+  }
+  return result;
+}
+function mod(storeNum) {
+  result %= storeNum[0];
+  for (let y = 0; y < storeNum.length; y++) {
+    result = storeNum[y + 1];
+  }
+  return result;
 }
 
 function new_array(array) {
@@ -158,33 +243,4 @@ function storeOp(name) {
   last.push(name);
   console.log(last);
   return last;
-}
-
-function operate(op, last) {
-  if (op == "add") return add(last);
-
-  if (op == "minus") return minus(last);
-
-  if (op == "pro") return pro(last);
-
-  if (op == "mod") return mod(last);
-
-  if (op == "div") return div(last);
-}
-
-function add(storeNum) {
-  return storeNum[i] + storeNum[i + 1];
-}
-function minus(storeNum) {
-  return storeNum[i] - storeNum[i + 1];
-}
-function pro(storeNum) {
-  return storeNum[i] * storeNum[i + 1];
-}
-function div(storeNum) {
-  if (storeNum[i + 1] == !0) return storeNum[i] / storeNum[i + 1];
-  else return undefined;
-}
-function mod(storeNum) {
-  return storeNum[i] % storeNum[i + 1];
 }
