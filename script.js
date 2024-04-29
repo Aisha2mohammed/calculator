@@ -163,49 +163,6 @@ function operate(storeNum, newOpr) {
   return result;
 }
 
-// if (newArray.length > 0) {
-//   firstNum = result;
-// }
-
-// span.textContent = result;
-
-// function add(storeNum) {
-//   result = storeNum[0];
-//   for (let y = 0; y < storeNum.length; y++) {
-//     result += storeNum[y + 1];
-//   }
-//   return result;
-// }
-// function minus(storeNum) {
-//   result = storeNum[0];
-//   for (let y = 0; y < storeNum.length; y++) {
-//     result -= storeNum[y + 1];
-//   }
-//   return result;
-// }
-// function pro(storeNum) {
-//   result *= storeNum[0];
-//   for (let y = 0; y < storeNum.length; y++) {
-//     result = storeNum[y + 1];
-//   }
-//   return result;
-// }
-// function div(storeNum) {
-//   result = storeNum[0];
-//   for (let y = 0; y < storeNum.length; y++) {
-//     if (storeNum[y + 1] !== 0) result /= storeNum[y + 1];
-//     else result = undefined;
-//   }
-//   return result;
-// }
-// function mod(storeNum) {
-//   result %= storeNum[0];
-//   for (let y = 0; y < storeNum.length; y++) {
-//     result = storeNum[y + 1];
-//   }
-//   return result;
-// }
-
 function new_array(array) {
   let join = array[0].toString();
   for (let k = 1; k < array.length; k++) {
