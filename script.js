@@ -144,33 +144,30 @@ function display(numbers) {
   });
 }
 
-function operate(storeNum, firstOp) {
-  // firstNum = newArray[0];
-
-  for (let i = 0; i < newOpr.length; i++) {}
+function operate(storeNum, newOpr) {
   if (newOpr === "add") {
-    result = firstNum + secNum;
+    return storeNum[0] + storeNum[1];
   }
   if (newOpr === "minus") {
-    result = firstNum - secNum;
+    return storeNum[0] - storeNum[1];
   }
   if (newOpr === "pro") {
-    result = firstNum * secNum;
+    return storeNum[0] * storeNum[1];
   }
   if (newOpr === "mod") {
-    result = firstNum % secNum;
+    return storeNum[0] % storeNum[1];
   }
   if (newOpr === "div") {
-    result = firstNum / secNum;
+    return storeNum[0] / storeNum[1];
   }
-
-  // if (newArray.length > 0) {
-  //   firstNum = result;
-  // }
-
-  // span.textContent = result;
   return result;
 }
+
+// if (newArray.length > 0) {
+//   firstNum = result;
+// }
+
+// span.textContent = result;
 
 // function add(storeNum) {
 //   result = storeNum[0];
