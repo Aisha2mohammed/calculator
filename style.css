@@ -30,7 +30,7 @@ body {
   border-radius: 10px;
   background-color: rgb(251, 235, 238);
 }
-button.num {
+.num {
   width: 110px;
   height: 60px;
   border-radius: 10px;
@@ -50,8 +50,9 @@ span.highest {
   margin-top: 30px;
 }
 
-button.sign {
+span.sign {
   background-color: rgb(219, 204, 206);
+  padding: 5px 0 0 40px;
 }
 button.clear {
   background-color: rgb(219, 204, 206);

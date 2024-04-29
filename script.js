@@ -128,6 +128,7 @@ function display(numbers) {
     // secNum = storeNum.shift(1);
     // console.log(storeNum.length);
     last_result = operate(storeNum, storeOpr);
+    console.log(last_result);
     span.textContent = last_result;
     //  if(storeNum > 0){
 
@@ -167,7 +168,6 @@ function new_array(array) {
   let join = array[0].toString();
   for (let k = 1; k < array.length; k++) {
     if (typeof array[k] === "number") {
-      // storeOpr = storeOp(operator);
       join += array[k].toString();
     }
     if (typeof array[k] === "string") {
@@ -175,7 +175,7 @@ function new_array(array) {
       join = "";
       operator = array[k];
       console.log(operator);
-      storeOpr = storeOp(operator);
+      storeOpr = storeOp(operator, storeNum);
     }
   }
   storeNum = storeVar(join);
@@ -190,12 +190,13 @@ function storeVar(variable) {
   return parsedArr;
 }
 
-function storeOp(name) {
+function storeOp(name, storeNum) {
   last.push(name);
   console.log(last.length);
   console.log(last);
-  if (last.length == 2) {
+  if (last.length >= 2) {
     firstOpr = last.shift();
+    console.log(firstOpr);
     result = operate(storeNum, firstOpr);
     span.textContent = result;
     storeVar(result);
