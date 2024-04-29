@@ -11,7 +11,16 @@ let newArray = [];
 let concat;
 let arr = [];
 let join = "";
-let result, operator, newOp, reduce, op, variable, firstNum, secNum, Target;
+let result,
+  firstOpr,
+  operator,
+  newOp,
+  reduce,
+  op,
+  variable,
+  firstNum,
+  secNum,
+  Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
   // console.log(Target);
@@ -114,7 +123,20 @@ function display(numbers) {
   equal_button.addEventListener("click", function () {
     let [storeNum, storeOpr] = new_array(array);
 
-    operate(storeNum, storeOpr);
+    // for (let i = 0; i < storeNum.length / 2; i++) {
+    // firstNum = storeNum.shift(0);
+    // secNum = storeNum.shift(1);
+    // console.log(storeNum.length);
+    last_result = operate(storeNum, storeOpr);
+    span.textContent = last_result;
+    //  if(storeNum > 0){
+
+    //  }
+
+    // for(let u = 0; u < storeOpr.length ; u ++){
+    //   firstOp = shift(i)
+    // }
+
     // console.log(result);
     // span.textContent = result;
     // if (storeNum.length > 0) {
@@ -122,32 +144,31 @@ function display(numbers) {
   });
 }
 
-function operate(newArray, newOpr) {
-  firstNum = newArray[0];
-  for (let j = 1; j < newArray.length; j++) {
-    for (let i = 0; i < newOpr.length; i++) {
-      if (newOpr[i] === "add") {
-        result = firstNum + newArray[i];
-      }
-      if (newOpr[i] === "minus") {
-        result = firstNum - newArray[i];
-      }
-      if (newOpr[i] === "pro") {
-        result = firstNum * newArray[i];
-      }
-      if (newOpr[i] === "mod") {
-        result = firstNum % newArray[i];
-      }
-      if (newOpr[i] === "div") {
-        result = firstNum / newArray[i];
-      }
-    }
-    if (newArray.length > 0) {
-      firstNum = result;
-    }
+function operate(storeNum, firstOp) {
+  // firstNum = newArray[0];
+
+  for (let i = 0; i < newOpr.length; i++) {}
+  if (newOpr === "add") {
+    result = firstNum + secNum;
+  }
+  if (newOpr === "minus") {
+    result = firstNum - secNum;
+  }
+  if (newOpr === "pro") {
+    result = firstNum * secNum;
+  }
+  if (newOpr === "mod") {
+    result = firstNum % secNum;
+  }
+  if (newOpr === "div") {
+    result = firstNum / secNum;
   }
 
-  span.textContent = result;
+  // if (newArray.length > 0) {
+  //   firstNum = result;
+  // }
+
+  // span.textContent = result;
   return result;
 }
 
@@ -217,6 +238,13 @@ function storeVar(variable) {
 
 function storeOp(name) {
   last.push(name);
+  console.log(last.length);
   console.log(last);
-  return last;
+  if (last.length == 2) {
+    firstOpr = last.shift();
+    result = operate(storeNum, firstOpr);
+    span.textContent = result;
+    storeVar(result);
+    return last;
+  } else return last;
 }
