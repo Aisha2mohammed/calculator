@@ -173,6 +173,7 @@ function new_array(array) {
     if (typeof array[k] === "string") {
       storeNum = storeVar(join);
       join = "";
+
       operator = array[k];
       console.log(operator);
       storeOpr = storeOp(operator, storeNum);
@@ -181,7 +182,18 @@ function new_array(array) {
   storeNum = storeVar(join);
   return [storeNum, storeOpr];
 }
+buttons.addEventListener("click", function () {
+  let [storeNum, storeOpr] = new_array(array);
 
+  if (storeOpr == 2) {
+    firstOpr = storeOpr.shift();
+
+    result = operate(storeNum, firstOpr);
+    span.textContent = result;
+    console.log(result);
+    storeVar(result);
+  }
+});
 function storeVar(variable) {
   arr.push(variable);
   console.log(arr);
@@ -190,16 +202,18 @@ function storeVar(variable) {
   return parsedArr;
 }
 
-function storeOp(name, storeNum) {
+function storeOp(name) {
   last.push(name);
   console.log(last.length);
   console.log(last);
-  if (last.length >= 2) {
-    firstOpr = last.shift();
-    console.log(firstOpr);
-    result = operate(storeNum, firstOpr);
-    span.textContent = result;
-    storeVar(result);
-    return last;
-  } else return last;
+  // if (last.length > 2) {
+  //   firstOpr = last.shift();
+  //   console.log(firstOpr);
+  //   result = operate(storeNum, firstOpr);
+  //   span.textContent = result;
+  //   console.log(result);
+  //   storeVar(result);
+  //   return last;
+  // }
+  return last;
 }
