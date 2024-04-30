@@ -43,6 +43,9 @@ body {
   text-align: center;
   font-family: sans-serif;
 }
+span.num {
+  padding: 6px 0 0 40px;
+}
 span {
   display: flex;
 }
