@@ -104,39 +104,6 @@ container.addEventListener("click", (event) => {
   }
 });
 
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     let val = button.id;
-//     if (
-//       val == "1" ||
-//       val == "2" ||
-//       val == "3" ||
-//       val == "4" ||
-//       val == "5" ||
-//       val == "6" ||
-//       val == "7" ||
-//       val == "8" ||
-//       val == "9"
-//     ) {
-//       span.textContent = val;
-//       display(val);
-//     }
-//     if (
-//       val == "1" ||
-//       val == "2" ||
-//       val == "3" ||
-//       val == "4" ||
-//       val == "5" ||
-//       val == "6" ||
-//       val == "7" ||
-//       val == "8" ||
-//       val == "9"
-//     ) {
-//       display(val);
-//     }
-//   });
-// });
-
 function display(numbers) {
   array.push(numbers);
   console.log(array);
@@ -158,26 +125,24 @@ function display(numbers) {
       console.log(a);
       console.log(a.length);
 
-      if (a.length >= 2) {
-        // console.log(new_array(array));
-        let [storeNum, storeOpr] = new_array(array);
-        let first_result = operate(storeNum, storeOpr);
-        span.textContent = first_result;
-        console.log(first_result);
-        return first_result;
-      }
+      // if (a.length >= 2) {
+      //   // console.log(new_array(array));
+      //   [storeNum, storeOpr] = new_array(array);
+      //   let first_result = operate(storeNum, storeOpr);
+      //   span.textContent = first_result;
+      //   console.log(first_result);
+      //   return first_result;
+      // }
     }
   }
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      let [storeNum, storeOpr] = new_array(array);
+  equal_button.addEventListener("click", function () {
+    [storeNum, storeOpr] = new_array(array);
 
-      last_result = operate(storeNum, storeOpr);
-      console.log(last_result);
-      span.textContent = last_result;
-      return last_result;
-    });
+    last_result = operate(storeNum, storeOpr);
+    console.log(last_result);
+    span.textContent = last_result;
+    // return last_result;
   });
 }
 
@@ -215,6 +180,8 @@ function new_array(array) {
       storeOpr = storeOp(operator);
     }
   }
+  console.log(storeOpr);
+  console.log(storeNum);
   storeNum = storeVar(join);
   return [storeNum, storeOpr];
 }
@@ -237,16 +204,17 @@ function storeOp(name) {
       ar.push(mul);
     }
   }
-  if (ar.length > 2) {
-    firstOpr = ar.shift();
-    console.log(firstOpr);
+  // if (ar.length > 2) {
+  //   firstOpr = ar.shift();
+  //   console.log(firstOpr);
 
-    // result = operate(storeNum, firstOpr);
-    // span.textContent = result;
-    // console.log(result);
-    // storeVar(result);
-    console.log(ar);
-    return firstOpr;
-  } else console.log(ar);
+  //   result = operate(storeNum, firstOpr);
+  //   span.textContent = result;
+  //   console.log(result);
+  //   storeVar(result);
+  //   console.log(ar);
+  //   return ar;
+  // } else
+  console.log(ar);
   return ar;
 }
