@@ -50,9 +50,8 @@ span.highest {
   margin-top: 30px;
 }
 
-span.sign {
+.sign {
   background-color: rgb(219, 204, 206);
-  padding: 5px 0 0 40px;
 }
 button.clear {
   background-color: rgb(219, 204, 206);

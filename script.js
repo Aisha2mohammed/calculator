@@ -112,8 +112,6 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
       console.log(concat);
-      // last = parseInt(concat, 10);
-      // console.log(last);
     } else {
       op = array[i];
       concat = "";
@@ -123,25 +121,9 @@ function display(numbers) {
   equal_button.addEventListener("click", function () {
     let [storeNum, storeOpr] = new_array(array);
 
-    // for (let i = 0; i < storeNum.length / 2; i++) {
-    // firstNum = storeNum.shift(0);
-    // secNum = storeNum.shift(1);
-    // console.log(storeNum.length);
     last_result = operate(storeNum, storeOpr);
     console.log(last_result);
     span.textContent = last_result;
-    //  if(storeNum > 0){
-
-    //  }
-
-    // for(let u = 0; u < storeOpr.length ; u ++){
-    //   firstOp = shift(i)
-    // }
-
-    // console.log(result);
-    // span.textContent = result;
-    // if (storeNum.length > 0) {
-    //   storeNum.unshift(result);
   });
 }
 
@@ -176,24 +158,13 @@ function new_array(array) {
 
       operator = array[k];
       console.log(operator);
-      storeOpr = storeOp(operator, storeNum);
+      storeOpr = storeOp(operator);
     }
   }
   storeNum = storeVar(join);
   return [storeNum, storeOpr];
 }
-buttons.addEventListener("click", function () {
-  let [storeNum, storeOpr] = new_array(array);
 
-  if (storeOpr == 2) {
-    firstOpr = storeOpr.shift();
-
-    result = operate(storeNum, firstOpr);
-    span.textContent = result;
-    console.log(result);
-    storeVar(result);
-  }
-});
 function storeVar(variable) {
   arr.push(variable);
   console.log(arr);
@@ -206,14 +177,24 @@ function storeOp(name) {
   last.push(name);
   console.log(last.length);
   console.log(last);
-  // if (last.length > 2) {
-  //   firstOpr = last.shift();
-  //   console.log(firstOpr);
-  //   result = operate(storeNum, firstOpr);
-  //   span.textContent = result;
-  //   console.log(result);
-  //   storeVar(result);
-  //   return last;
-  // }
+  if (last.length > 2) {
+    // buttons.forEach((button) => {
+    //   button.addEventListener("click", function () {
+    //     let [storeNum, storeOpr] = new_array(array);
+    //     if (storeOpr.length >= 2) last_result = operate(storeNum, storeOpr);
+    //     console.log(last_result);
+    //     span.textContent = last_result;
+    //     storeVar(last_result);
+    //   });
+    // });
+
+    firstOpr = last.shift();
+    console.log(firstOpr);
+    result = operate(storeNum, firstOpr);
+    span.textContent = result;
+    console.log(result);
+    storeVar(result);
+    return last;
+  }
   return last;
 }
