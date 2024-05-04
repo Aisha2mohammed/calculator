@@ -3,24 +3,14 @@ const buttons = document.querySelectorAll("button");
 const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
-let arr = [];
-let [op, store] = [[], []];
 let Array = [];
-let storeOpr = [];
 let array = [];
+let storeOpr = [];
 let storeNum = [];
-let parsedArr = [];
-let newArray = [];
-let last = [];
-let firstNum = [];
-let a = [];
-let ar = [];
-let concat, lol;
+let concat, lol, result, Target;
 let join = "";
-let result, firstOpr, operator, newOp, reduce, variable, secNum, Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
-  // console.log(Target);
   switch (Target.id) {
     case "add":
       variable = "add";
@@ -125,15 +115,15 @@ function display(numbers) {
     }
   }
 
-  //   equal_button.addEventListener("click", () => {
-  //     lol = concat;
-  //     console.log(lol);
-  //     new_array(parseInt(lol, 10));
+  // equal_button.addEventListener("click", () => {
+  //   lol = concat;
+  //   console.log(lol);
+  //   new_array(parseInt(lol, 10));
 
-  //     console.log(lol);
-  //     // array = [];
-  //     console.log(array);
-  //   });
+  //   console.log(lol);
+  //   // array = [];
+  //   console.log(array);
+  // });
 }
 function operate(storeNum, newOpr) {
   if (newOpr === "add") {
