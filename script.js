@@ -115,15 +115,15 @@ function display(numbers) {
     }
   }
 
-  // equal_button.addEventListener("click", () => {
-  //   lol = concat;
-  //   console.log(lol);
-  //   new_array(parseInt(lol, 10));
+  equal_button.addEventListener("click", () => {
+    lol = concat;
+    console.log(lol);
+    new_array(parseInt(lol, 10));
 
-  //   console.log(lol);
-  //   // array = [];
-  //   console.log(array);
-  // });
+    console.log(lol);
+    // array = [];
+    console.log(array);
+  });
 }
 function operate(storeNum, newOpr) {
   if (newOpr === "add") {
