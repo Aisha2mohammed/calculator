@@ -213,27 +213,3 @@ function new_array(val) {
 //   console.log(k);
 //   return k;
 // }
-
-// function storeOp(name, storeNum) {
-//   last.push(name);
-//   console.log(last.length);
-//   console.log(last);
-//   for (let mul of last) {
-//     if (!ar.includes(mul)) {
-//       ar.push(mul);
-//     }
-//   }
-// }
-// if (ar.length >= 2) {
-//   firstOpr = ar.shift();
-//   console.log(firstOpr);
-
-//   result = operate(firstOpr, storeNum);
-//   span.textContent = result;
-//   console.log(result);
-//   span.textContent = result;
-//   storeVar(result);
-//   console.log(ar);
-//   return ar;
-// } else console.log(ar);
-// return ar;
