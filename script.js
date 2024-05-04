@@ -182,34 +182,4 @@ function new_array(val) {
     Array.unshift(result);
     console.log(Array);
   }
-
-  // let join = array[0].toString();
-  // for (let k = 1; k < array.length; k++) {
-  //   if (typeof array[k] === "number") {
-  //     join += array[k].toString();
-  //   }
-  //   if (typeof array[k] === "string") {
-  //     storeNum.push(parseInt(join));
-  //     join = "";
-  //     operator = array[k];
-  //     console.log(operator);
-  //     storeOpr.push(operator);
-  //   }
-  // }
-  // storeNumstoreVar(join);
-
-  // storeNum.push(parseInt(join));
-  // console.log(storeOpr);
-  // console.log(storeNum);
-  // return [storeNum, storeOpr];
 }
-// function storeVar(variable) {
-//   // console.log(variable);
-
-//   arr.push(variable);
-//   console.log(arr);
-//   // let parsedArr = arr.map((el) => parseInt(el, 10));
-//   let k = parseInt(variable, 10);
-//   console.log(k);
-//   return k;
-// }
