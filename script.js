@@ -46,11 +46,6 @@ container.addEventListener("click", (event) => {
       array = [];
       location.reload();
       break;
-    // case "del":
-    //   // array.pop();
-    //   array.splice(-1, 1);
-
-    //   break;
     case "1":
       span.textContent = "1";
       variable = 1;
