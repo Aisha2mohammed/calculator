@@ -7,7 +7,7 @@ let Array = [];
 let array = [];
 let storeOpr = [];
 let storeNum = [];
-let concat, lol, result, Target, split;
+let concat, lol, result, Target, opr, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -39,6 +39,11 @@ container.addEventListener("click", (event) => {
       variable = ".";
       span.textContent = ".";
       display(variable);
+      break;
+    case "AC":
+      span.textContent = "0";
+      array = [];
+      location.reload();
       break;
     case "1":
       span.textContent = "1";
@@ -110,30 +115,33 @@ function display(numbers) {
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
-
       console.log(array);
-      let opr = array[i];
+      // let previousElement = array[i - 1];
+      // if (
+      //   typeof previousElement === "string" &&
+      //   isNaN(parseInt(previousElement))
+      // ) {
+      opr = array[i];
       console.log(opr);
       new_array(opr);
       array = [];
-      console.log(array);
     }
+
+    equal_button.addEventListener("click", () => {
+      concat.includes(".")
+        ? new_array(parseFloat(concat))
+        : new_array(parseInt(concat, 10));
+      // Convert `concat` to float if it includes a decimal point
+      console.log(result);
+      // Clear the array and set the result in the display
+      array = [];
+      array.push(result);
+      span.textContent = result;
+      console.log(array);
+    });
   }
-
-  equal_button.addEventListener("click", () => {
-    concat.includes(".")
-      ? new_array(parseFloat(concat))
-      : new_array(parseInt(concat, 10));
-    // Convert `concat` to float if it includes a decimal point
-
-    console.log(result);
-    // Clear the array and set the result in the display
-    array = [];
-    array.push(result);
-    span.textContent = result;
-    console.log(array);
-  });
 }
+
 function operate(storeNum, newOpr) {
   if (newOpr === "add") {
     result = storeNum[0] + storeNum[1];
