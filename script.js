@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll("button");
 const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
+const delete_button = document.querySelector("#del");
 let Array = [];
 let array = [];
 let storeOpr = [];
@@ -45,11 +46,11 @@ container.addEventListener("click", (event) => {
       array = [];
       location.reload();
       break;
-    case "del":
-      // array.pop();
-      array.splice(-1, 1);
+    // case "del":
+    //   // array.pop();
+    //   array.splice(-1, 1);
 
-      break;
+    //   break;
     case "1":
       span.textContent = "1";
       variable = 1;
@@ -126,11 +127,17 @@ function display(numbers) {
       //   typeof previousElement === "string" &&
       //   isNaN(parseInt(previousElement))
       // ) {
+
       opr = array[i];
       console.log(opr);
       new_array(opr);
       array = [];
     }
+
+    delete_button.addEventListener("click", () => {
+      array.pop();
+      span.textContent = array.join("");
+    });
 
     equal_button.addEventListener("click", () => {
       concat.includes(".")
@@ -139,6 +146,7 @@ function display(numbers) {
       // Convert `concat` to float if it includes a decimal point
       console.log(result);
       // Clear the array and set the result in the display
+
       array = [];
       array.push(result);
       span.textContent = result;
