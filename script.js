@@ -7,7 +7,7 @@ let Array = [];
 let array = [];
 let storeOpr = [];
 let storeNum = [];
-let concat, lol, result, Target;
+let concat, lol, result, Target, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -33,6 +33,11 @@ container.addEventListener("click", (event) => {
       break;
     case "div":
       variable = "div";
+      display(variable);
+      break;
+    case "point":
+      variable = ".";
+      span.textContent = ".";
       display(variable);
       break;
     case "1":
@@ -97,15 +102,27 @@ function display(numbers) {
   concat = array[0].toString();
   span.textContent = concat;
   for (let i = 1; i < array.length; i++) {
-    if (typeof array[i] === "number") {
+    if (typeof array[i] === "number" || array[i] === ".") {
       concat += array[i].toString();
       span.textContent = concat;
     } else if (typeof array[i] === "string") {
-      lol = concat;
-      console.log(lol);
-      new_array(parseInt(lol, 10));
+      split = concat.split("");
 
-      console.log(lol);
+      if (split.includes(".")) {
+        let lol = split.join("");
+        new_array(parseFloat(lol));
+      }
+
+      // if (concat.includes(".")) {
+      //   // Added this condition to check if `concat` includes a decimal point
+      //   new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
+      // }
+      else {
+        let lol = split.join("");
+
+        new_array(parseInt(lol, 10));
+      }
+
       console.log(array);
       let opr = array[i];
       console.log(opr);
@@ -116,12 +133,18 @@ function display(numbers) {
   }
 
   equal_button.addEventListener("click", () => {
-    lol = concat;
-    console.log(lol);
-    new_array(parseInt(lol, 10));
+    if (concat.includes(".")) {
+      new_array(parseFloat(concat));
+    } else {
+      new_array(parseInt(concat, 10));
+    }
 
-    console.log(lol);
-    // array = [];
+    console.log(result);
+
+    // Clear the array and set the result in the display
+    array = [];
+    array.push(result);
+    span.textContent = result;
     console.log(array);
   });
 }
