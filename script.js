@@ -8,7 +8,7 @@ let Array = [];
 let array = [];
 let storeOpr = [];
 let storeNum = [];
-let concat, lol, result, Target, opr, split;
+let concat, concatin, lol, result, Target, opr, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -104,13 +104,15 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-  concat = array[0].toString();
-  // if (concat == ".") {
-  //   let firstNum = concat;
-  //   let zero = "0";
-  //   concat = zero + firstNum;
-  //   span.textContent = concat;
-  // } else span.textContent = concat;
+  concatin = array[0].toString();
+  if (concatin == ".") {
+    let zero = "0";
+    concat = zero + concatin;
+    span.textContent = concat;
+  } else {
+    concat = concatin;
+    span.textContent = concat;
+  }
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
       concat += array[i].toString();
