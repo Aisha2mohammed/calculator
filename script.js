@@ -106,12 +106,6 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
     } else if (typeof array[i] === "string") {
-      // if (concat.includes(".")) {
-      //   // Added this condition to check if `concat` includes a decimal point
-      //   new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
-      // } else {
-      //   new_array(parseInt(concat, 10));
-      // }
       concat.includes(".")
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
