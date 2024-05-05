@@ -55,6 +55,7 @@ span.highest {
 
 .sign {
   background-color: rgb(219, 204, 206);
+  width: 230px;
 }
 button.clear {
   background-color: rgb(219, 204, 206);
