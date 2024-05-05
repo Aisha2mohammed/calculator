@@ -106,21 +106,11 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
     } else if (typeof array[i] === "string") {
-      split = concat.split("");
-
-      if (split.includes(".")) {
-        let lol = split.join("");
-        new_array(parseFloat(lol));
-      }
-
-      // if (concat.includes(".")) {
-      //   // Added this condition to check if `concat` includes a decimal point
-      //   new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
-      // }
-      else {
-        let lol = split.join("");
-
-        new_array(parseInt(lol, 10));
+      if (concat.includes(".")) {
+        // Added this condition to check if `concat` includes a decimal point
+        new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
+      } else {
+        new_array(parseInt(concat, 10));
       }
 
       console.log(array);
@@ -140,7 +130,6 @@ function display(numbers) {
     }
 
     console.log(result);
-
     // Clear the array and set the result in the display
     array = [];
     array.push(result);
