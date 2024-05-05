@@ -106,12 +106,16 @@ function display(numbers) {
       concat += array[i].toString();
       span.textContent = concat;
     } else if (typeof array[i] === "string") {
-      if (concat.includes(".")) {
-        // Added this condition to check if `concat` includes a decimal point
-        new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
-      } else {
-        new_array(parseInt(concat, 10));
-      }
+      // if (concat.includes(".")) {
+      //   // Added this condition to check if `concat` includes a decimal point
+      //   new_array(parseFloat(concat)); // Convert `concat` to float if it includes a decimal point
+      // } else {
+      //   new_array(parseInt(concat, 10));
+      // }
+      concat.includes(".")
+        ? new_array(parseFloat(concat))
+        : new_array(parseInt(concat, 10));
+      // Convert `concat` to float if it includes a decimal point
 
       console.log(array);
       let opr = array[i];
@@ -123,11 +127,10 @@ function display(numbers) {
   }
 
   equal_button.addEventListener("click", () => {
-    if (concat.includes(".")) {
-      new_array(parseFloat(concat));
-    } else {
-      new_array(parseInt(concat, 10));
-    }
+    concat.includes(".")
+      ? new_array(parseFloat(concat))
+      : new_array(parseInt(concat, 10));
+    // Convert `concat` to float if it includes a decimal point
 
     console.log(result);
     // Clear the array and set the result in the display
