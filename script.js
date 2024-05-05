@@ -104,9 +104,13 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-
   concat = array[0].toString();
-  span.textContent = concat;
+  // if (concat == ".") {
+  //   let firstNum = concat;
+  //   let zero = "0";
+  //   concat = zero + firstNum;
+  //   span.textContent = concat;
+  // } else span.textContent = concat;
   for (let i = 1; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
       concat += array[i].toString();
@@ -134,13 +138,8 @@ function display(numbers) {
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
-      console.log(result);
       // Clear the array and set the result in the display
-
       array = [];
-      array.push(result);
-      span.textContent = result;
-      console.log(array);
     });
   }
 }
