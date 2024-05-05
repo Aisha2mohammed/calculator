@@ -117,11 +117,6 @@ function display(numbers) {
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
       console.log(array);
-      // let previousElement = array[i - 1];
-      // if (
-      //   typeof previousElement === "string" &&
-      //   isNaN(parseInt(previousElement))
-      // ) {
 
       opr = array[i];
       console.log(opr);
