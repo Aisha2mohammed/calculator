@@ -3,14 +3,23 @@ const buttons = document.querySelectorAll("button");
 const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
-let Array = [];
-let array = [];
-let storeOpr = [];
+let arr = [];
+let [op, store] = [[], []];
 let storeNum = [];
-let concat, lol, result, Target, opr, split;
+let storeOpr = [];
+let array = [];
+let parsedArr = [];
+let newArray = [];
+let last = [];
+let firstNum = [];
+let a = [];
+let ar = [];
+let concat;
 let join = "";
+let result, firstOpr, operator, newOp, reduce, variable, secNum, Target;
 container.addEventListener("click", (event) => {
   Target = event.target;
+  // console.log(Target);
   switch (Target.id) {
     case "add":
       variable = "add";
@@ -34,21 +43,6 @@ container.addEventListener("click", (event) => {
     case "div":
       variable = "div";
       display(variable);
-      break;
-    case "point":
-      variable = ".";
-      span.textContent = ".";
-      display(variable);
-      break;
-    case "AC":
-      span.textContent = "0";
-      array = [];
-      location.reload();
-      break;
-    case "del":
-      // array.pop();
-      array.splice(-1, 1);
-
       break;
     case "1":
       span.textContent = "1";
@@ -108,45 +102,33 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-
   concat = array[0].toString();
   span.textContent = concat;
   for (let i = 1; i < array.length; i++) {
-    if (typeof array[i] === "number" || array[i] === ".") {
+    if (typeof array[i] === "number") {
       concat += array[i].toString();
       span.textContent = concat;
-    } else if (typeof array[i] === "string") {
-      concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat, 10));
-      // Convert `concat` to float if it includes a decimal point
-      console.log(array);
-      // let previousElement = array[i - 1];
-      // if (
-      //   typeof previousElement === "string" &&
-      //   isNaN(parseInt(previousElement))
-      // ) {
-      opr = array[i];
-      console.log(opr);
-      new_array(opr);
-      array = [];
+      console.log(concat);
+    } else {
+      new_array(concat);
+      concat = "";
+      op = array[i];
+      new_array(op);
     }
-
-    equal_button.addEventListener("click", () => {
-      concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat, 10));
-      // Convert `concat` to float if it includes a decimal point
-      console.log(result);
-      // Clear the array and set the result in the display
-      array = [];
-      array.push(result);
-      span.textContent = result;
-      console.log(array);
-    });
   }
-}
+  console.log(concat);
+  // array.slice(-1);
+  // new_array(concat);
 
+  equal_button.addEventListener("click", function () {
+    let [storeNum, storeOpr] = new_array(array);
+
+    last_result = operate(storeNum, storeOpr);
+    console.log(last_result);
+    span.textContent = last_result;
+    return last_result;
+  });
+}
 function operate(storeNum, newOpr) {
   if (newOpr === "add") {
     result = storeNum[0] + storeNum[1];
@@ -163,35 +145,65 @@ function operate(storeNum, newOpr) {
   if (newOpr === "div") {
     result = storeNum[0] / storeNum[1];
   }
+  span.textContent = result;
   console.log(result);
   return result;
 }
 
-function new_array(val) {
-  Array.push(val);
+function new_array(array) {
+  console.log(array);
+  console.log(array.length);
 
-  console.log(Array);
-  console.log(Array.length);
-  if (Array.length == 4) {
-    for (let m = 0; m < Array.length; m++) {
-      if (typeof Array[m] === "number") storeNum.push(Array[m]);
-      if (typeof Array[m] === "string") storeOpr.push(Array[m]);
+  let join = array[0].toString();
+  for (let k = 1; k < array.length; k++) {
+    if (typeof array[k] === "number") {
+      join += array[k].toString();
     }
-    console.log(storeNum);
-    console.log(storeOpr);
-
-    let firstOpr = storeOpr.shift();
-    console.log(firstOpr);
-    Array = [];
-    console.log(storeOpr);
-    let secOpr = storeOpr.shift();
-    Array.unshift(secOpr);
-    console.log(Array);
-
-    result = operate(storeNum, firstOpr);
-    storeNum = [];
-    span.textContent = result;
-    Array.unshift(result);
-    console.log(Array);
+    if (typeof array[k] === "string") {
+      storeNum.push(parseInt(join));
+      join = "";
+      operator = array[k];
+      console.log(operator);
+      storeOpr.push(operator);
+    }
   }
+  // storeNumstoreVar(join);
+  storeNum.push(parseInt(join));
+  console.log(storeOpr);
+  console.log(storeNum);
+  return [storeNum, storeOpr];
 }
+// function storeVar(variable) {
+//   // console.log(variable);
+
+//   arr.push(variable);
+//   console.log(arr);
+//   // let parsedArr = arr.map((el) => parseInt(el, 10));
+//   let k = parseInt(variable, 10);
+//   console.log(k);
+//   return k;
+// }
+
+// function storeOp(name, storeNum) {
+//   last.push(name);
+//   console.log(last.length);
+//   console.log(last);
+//   for (let mul of last) {
+//     if (!ar.includes(mul)) {
+//       ar.push(mul);
+//     }
+//   }
+// }
+// if (ar.length >= 2) {
+//   firstOpr = ar.shift();
+//   console.log(firstOpr);
+
+//   result = operate(firstOpr, storeNum);
+//   span.textContent = result;
+//   console.log(result);
+//   span.textContent = result;
+//   storeVar(result);
+//   console.log(ar);
+//   return ar;
+// } else console.log(ar);
+// return ar;
