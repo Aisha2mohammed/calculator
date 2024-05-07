@@ -119,10 +119,18 @@ function display(numbers) {
   // }
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
+      // if (array[0] == ".") {
+      //   let zero = "0";
+      //   concat = zero + array[0];
+      //   // array = [];
+      //   span.textContent = concat;
+      //}
+      //else {
       concat += array[i].toString();
       console.log(concat);
       array = [];
       span.textContent = concat;
+      //}
     } else if (typeof array[i] === "string") {
       concat.includes(".")
         ? new_array(parseFloat(concat))
@@ -177,7 +185,7 @@ function new_array(val) {
 
   console.log(Array);
   console.log(Array.length);
-  if (Array.length == 4) {
+  if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
@@ -198,6 +206,17 @@ function new_array(val) {
 
     result = operate(storeNum, firstOpr);
     storeNum = [];
+
+    // if (result === parseFloat(result)) {
+    //   Math.round(result);
+    //   span.textContent = result;
+    //   Array.unshift(result);
+    //   console.log(Array);
+    // } else {
+    //   span.textContent = result;
+    //   Array.unshift(result);
+    //   console.log(Array);
+    // }
     span.textContent = result;
     Array.unshift(result);
     console.log(Array);
