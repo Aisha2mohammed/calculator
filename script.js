@@ -129,6 +129,7 @@ function display(numbers) {
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
       console.log(array);
+      concat = "";
       opr = array[i];
       console.log(opr);
       new_array(opr);
