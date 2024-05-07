@@ -196,9 +196,10 @@ function new_array(val) {
   if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
-      if (typeof Array[m] === "string") {
-        if (typeof Array[m - 1] === "string") storeOpr.pop();
+      if (typeof Array[m] === "string") storeOpr.push(Array[m]);
+      if (typeof Array[m - 1] === "string" && Array[m] === "string") {
         console.log(storeOpr);
+        storeOpr.pop();
         storeOpr.push(Array[m]);
         console.log(storeOpr);
       }
