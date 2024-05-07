@@ -165,30 +165,6 @@ function display(numbers) {
   }
 }
 
-function operate(storeNum, newOpr) {
-  if (newOpr === "add") {
-    result = storeNum[0] + storeNum[1];
-  }
-  if (newOpr === "minus") {
-    result = storeNum[0] - storeNum[1];
-  }
-  if (newOpr === "pro") {
-    result = storeNum[0] * storeNum[1];
-  }
-  if (newOpr === "mod") {
-    result = storeNum[0] % storeNum[1];
-  }
-  if (newOpr === "div") {
-    if (storeNum[1] !== 0) result = storeNum[0] / storeNum[1];
-    else {
-      span.textContent = "Undefined";
-      result = undefined;
-    }
-  }
-  console.log(result);
-  return result;
-}
-
 function new_array(val) {
   Array.push(val);
   console.log(Array);
@@ -246,10 +222,28 @@ function new_array(val) {
       return 0;
     }
   }
+}
 
-  let number = 4.47;
-  let decimalPlaces = countDecimalPlaces(number);
-
-  console.log(decimalPlaces); // Output: 2
-  return decimalPlaces;
+function operate(storeNum, newOpr) {
+  if (newOpr === "add") {
+    result = storeNum[0] + storeNum[1];
+  }
+  if (newOpr === "minus") {
+    result = storeNum[0] - storeNum[1];
+  }
+  if (newOpr === "pro") {
+    result = storeNum[0] * storeNum[1];
+  }
+  if (newOpr === "mod") {
+    result = storeNum[0] % storeNum[1];
+  }
+  if (newOpr === "div") {
+    if (storeNum[1] !== 0) result = storeNum[0] / storeNum[1];
+    else {
+      span.textContent = "Undefined";
+      result = undefined;
+    }
+  }
+  console.log(result);
+  return result;
 }
