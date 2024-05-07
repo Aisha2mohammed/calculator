@@ -180,7 +180,10 @@ function operate(storeNum, newOpr) {
   }
   if (newOpr === "div") {
     if (storeNum[1] !== 0) result = storeNum[0] / storeNum[1];
-    else result = undefined;
+    else {
+      span.textContent = "Undefined";
+      result = undefined;
+    }
   }
   console.log(result);
   return result;
@@ -188,16 +191,16 @@ function operate(storeNum, newOpr) {
 
 function new_array(val) {
   Array.push(val);
-  // for(let p= 0 ;p < Array.length ; p++){
-  //   if (typeof Array[p] === "string")
-  // }
   console.log(Array);
   console.log(Array.length);
   if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") {
+        if (typeof Array[m - 1] === "string") storeOpr.pop();
+        console.log(storeOpr);
         storeOpr.push(Array[m]);
+        console.log(storeOpr);
       }
     }
     console.log(storeNum);
