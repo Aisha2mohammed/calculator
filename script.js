@@ -140,8 +140,9 @@ function display(numbers) {
       concat = "";
       opr = array[i];
       console.log(opr);
-      new_array(opr);
       array = [];
+
+      new_array(opr);
     }
 
     delete_button.addEventListener("click", () => {
