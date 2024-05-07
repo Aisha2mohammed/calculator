@@ -141,8 +141,8 @@ function display(numbers) {
       opr = array[i];
       console.log(opr);
       console.log(array[i]);
+      console.log(array);
       array = [];
-
       new_array(opr);
     }
 
@@ -172,12 +172,16 @@ function new_array(val) {
   if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
-      if (typeof Array[m] === "string") storeOpr.push(Array[m]);
-      if (typeof Array[m - 1] === "string" && Array[m] === "string") {
-        console.log(storeOpr);
-        storeOpr.pop();
-        storeOpr.push(Array[m]);
-        console.log(storeOpr);
+      // if (typeof Array[m] === "string") storeOpr.push(Array[m]);
+      if (typeof Array[m] === "string") {
+        if (
+          storeOpr.length > 0 &&
+          typeof storeOpr[storeOpr.length - 1] === "string"
+        ) {
+          storeOpr[storeOpr.length - 1] = Array[m]; // Overwrite the last operator
+        } else {
+          storeOpr.push(Array[m]); // Add the operator if it's not consecutive
+        }
       }
     }
     console.log(storeNum);
