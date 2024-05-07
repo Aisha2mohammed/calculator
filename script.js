@@ -207,18 +207,19 @@ function new_array(val) {
     result = operate(storeNum, firstOpr);
     storeNum = [];
 
-    // if (result === parseFloat(result)) {
-    //   Math.round(result);
-    //   span.textContent = result;
-    //   Array.unshift(result);
-    //   console.log(Array);
-    // } else {
-    //   span.textContent = result;
-    //   Array.unshift(result);
-    //   console.log(Array);
-    // }
-    span.textContent = result;
-    Array.unshift(result);
-    console.log(Array);
+    if (result === parseFloat(result)) {
+      let l = result.toFixed(3);
+      console.log(l);
+      span.textContent = l;
+      Array.unshift(l);
+      console.log(Array);
+    } else {
+      span.textContent = result;
+      Array.unshift(result);
+      console.log(Array);
+    }
+    // span.textContent = result;
+    // Array.unshift(result);
+    // console.log(Array);
   }
 }
