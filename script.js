@@ -105,18 +105,6 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-  // concatin = array[0];
-  //  if(concatin === "string"){
-
-  //  }
-  // if (concatin == ".") {
-  //   let zero = "0";
-  //   concat = zero + concatin;
-  //   span.textContent = concat;
-  // } else {
-  //   concat = concatin;
-  //   span.textContent = concat;
-  // }
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
       // if (array[0] == ".") {
