@@ -9,7 +9,7 @@ let array = [];
 let storeOpr = [];
 let storeNum = [];
 let concat = "";
-let concatin, lol, result, Target, opr, split;
+let concatin, numberOfDecimal, lol, result, Target, opr, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -110,24 +110,27 @@ function display(numbers) {
       // if (array[0] == ".") {
       //   let zero = "0";
       //   concat = zero + array[0];
-      //   // array = [];
+      //   array = [];
       //   span.textContent = concat;
-      //}
-      //else {
+      // }
+      // else {
       concat += array[i].toString();
       console.log(concat);
       array = [];
       span.textContent = concat;
       //}
     } else if (typeof array[i] === "string") {
+      // if (concat !== "") {
       concat.includes(".")
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
       console.log(array);
       concat = "";
+      // }
       opr = array[i];
       console.log(opr);
+      console.log(array[i]);
       array = [];
 
       new_array(opr);
@@ -171,13 +174,18 @@ function operate(storeNum, newOpr) {
 
 function new_array(val) {
   Array.push(val);
-
+  // for(let p= 0 ;p < Array.length ; p++){
+  //   if (typeof Array[p] === "string")
+  // }
   console.log(Array);
   console.log(Array.length);
   if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
-      if (typeof Array[m] === "string") storeOpr.push(Array[m]);
+      if (typeof Array[m] === "string") {
+        storeOpr.push(Array[m]);
+        // if (Array[m - 1] === "string") storeOpr.push(Array[m]);
+      }
     }
     console.log(storeNum);
     console.log(storeOpr);
@@ -195,14 +203,19 @@ function new_array(val) {
 
     result = operate(storeNum, firstOpr);
     storeNum = [];
-
-    if (result === parseFloat(result)) {
-      let l = result.toFixed(3);
-      console.log(l);
-      span.textContent = l;
-      Array.unshift(l);
+    numberOfDecimal = countDecimalPlaces(result);
+    if (numberOfDecimal >= 5) {
+      let fixed = result.toFixed(4);
+      span.textContent = fixed;
+      Array.unshift(fixed);
       console.log(Array);
-    } else {
+    } else if (
+      numberOfDecimal == 0 ||
+      numberOfDecimal == 1 ||
+      numberOfDecimal == 2 ||
+      numberOfDecimal == 3 ||
+      numberOfDecimal == 4
+    ) {
       span.textContent = result;
       Array.unshift(result);
       console.log(Array);
@@ -211,4 +224,18 @@ function new_array(val) {
     // Array.unshift(result);
     // console.log(Array);
   }
+  function countDecimalPlaces(number) {
+    const decimalString = number.toString().split(".")[1];
+    if (decimalString) {
+      return decimalString.length;
+    } else {
+      return 0;
+    }
+  }
+
+  let number = 4.47;
+  let decimalPlaces = countDecimalPlaces(number);
+
+  console.log(decimalPlaces); // Output: 2
+  return decimalPlaces;
 }
