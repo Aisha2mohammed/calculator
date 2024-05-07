@@ -130,11 +130,6 @@ function display(numbers) {
       // if (concat !== "") {
 
       if (concat.includes(".")) {
-        // split = concat.toString().split('');
-        // // for(let k of split ){
-        //   if(!concate.includes('.'))
-        //   concate.push()
-
         new_array(parseFloat(concat));
       } else {
         new_array(parseInt(concat, 10));
@@ -152,8 +147,11 @@ function display(numbers) {
     }
 
     delete_button.addEventListener("click", () => {
-      array.pop();
-      span.textContent = array.join("");
+      let split = concat.split("");
+
+      let join = split.join("");
+      console.log(join);
+      span.textContent = join;
     });
 
     equal_button.addEventListener("click", () => {
@@ -181,7 +179,8 @@ function operate(storeNum, newOpr) {
     result = storeNum[0] % storeNum[1];
   }
   if (newOpr === "div") {
-    result = storeNum[0] / storeNum[1];
+    if (storeNum[1] !== 0) result = storeNum[0] / storeNum[1];
+    else result = undefined;
   }
   console.log(result);
   return result;
