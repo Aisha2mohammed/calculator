@@ -8,7 +8,8 @@ let Array = [];
 let array = [];
 let storeOpr = [];
 let storeNum = [];
-let concat, concatin, lol, result, Target, opr, split;
+let concat = "";
+let concatin, lol, result, Target, opr, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -104,18 +105,23 @@ container.addEventListener("click", (event) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-  concatin = array[0].toString();
-  if (concatin == ".") {
-    let zero = "0";
-    concat = zero + concatin;
-    span.textContent = concat;
-  } else {
-    concat = concatin;
-    span.textContent = concat;
-  }
-  for (let i = 1; i < array.length; i++) {
+  // concatin = array[0];
+  //  if(concatin === "string"){
+
+  //  }
+  // if (concatin == ".") {
+  //   let zero = "0";
+  //   concat = zero + concatin;
+  //   span.textContent = concat;
+  // } else {
+  //   concat = concatin;
+  //   span.textContent = concat;
+  // }
+  for (let i = 0; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
       concat += array[i].toString();
+      console.log(concat);
+      array = [];
       span.textContent = concat;
     } else if (typeof array[i] === "string") {
       concat.includes(".")
@@ -123,7 +129,6 @@ function display(numbers) {
         : new_array(parseInt(concat, 10));
       // Convert `concat` to float if it includes a decimal point
       console.log(array);
-
       opr = array[i];
       console.log(opr);
       new_array(opr);
@@ -183,8 +188,11 @@ function new_array(val) {
     console.log(firstOpr);
     Array = [];
     console.log(storeOpr);
-    let secOpr = storeOpr.shift();
-    Array.unshift(secOpr);
+    let secOpr;
+    if (storeOpr.length > 0) {
+      secOpr = storeOpr.shift();
+      Array.unshift(secOpr);
+    }
     console.log(Array);
 
     result = operate(storeNum, firstOpr);
