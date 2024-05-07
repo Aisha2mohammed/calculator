@@ -114,16 +114,31 @@ function display(numbers) {
       //   span.textContent = concat;
       // }
       // else {
-      concat += array[i].toString();
       console.log(concat);
-      array = [];
-      span.textContent = concat;
-      //}
+      if (array[i] === ".") {
+        if (!concat.includes(".")) concat += array[i].toString();
+        console.log(concat);
+        array = [];
+        span.textContent = concat;
+      } else {
+        concat += array[i].toString();
+        console.log(concat);
+        array = [];
+        span.textContent = concat;
+      }
     } else if (typeof array[i] === "string") {
       // if (concat !== "") {
-      concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat, 10));
+
+      if (concat.includes(".")) {
+        // split = concat.toString().split('');
+        // // for(let k of split ){
+        //   if(!concate.includes('.'))
+        //   concate.push()
+
+        new_array(parseFloat(concat));
+      } else {
+        new_array(parseInt(concat, 10));
+      }
       // Convert `concat` to float if it includes a decimal point
       console.log(array);
       concat = "";
@@ -184,7 +199,6 @@ function new_array(val) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") {
         storeOpr.push(Array[m]);
-        // if (Array[m - 1] === "string") storeOpr.push(Array[m]);
       }
     }
     console.log(storeNum);
@@ -220,9 +234,6 @@ function new_array(val) {
       Array.unshift(result);
       console.log(Array);
     }
-    // span.textContent = result;
-    // Array.unshift(result);
-    // console.log(Array);
   }
   function countDecimalPlaces(number) {
     const decimalString = number.toString().split(".")[1];
