@@ -146,13 +146,6 @@ function display(numbers) {
       new_array(opr);
     }
 
-    delete_button.addEventListener("click", () => {
-      console.log(concat);
-      concat = concat.slice(0, -1);
-      console.log(concat);
-      span.textContent = concat;
-    });
-
     equal_button.addEventListener("click", () => {
       concat.includes(".")
         ? new_array(parseFloat(concat))
@@ -163,6 +156,12 @@ function display(numbers) {
     });
   }
 }
+delete_button.addEventListener("click", () => {
+  console.log(concat);
+  concat = concat.slice(0, concat.length - 1);
+  console.log(concat);
+  span.textContent = concat;
+});
 
 function new_array(val) {
   Array.push(val);
