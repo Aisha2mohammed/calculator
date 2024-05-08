@@ -127,14 +127,6 @@ function display(numbers) {
         span.textContent = concat;
       }
     } else {
-      opr = array[i];
-      console.log(opr);
-      console.log(array[i]);
-      console.log(array);
-      array = [];
-      console.log(array);
-      new_array(opr);
-
       concat.includes(".")
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
@@ -142,17 +134,23 @@ function display(numbers) {
 
       console.log(array);
       concat = "";
-    }
-
-    equal_button.addEventListener("click", () => {
-      concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat, 10));
-      // Convert `concat` to float if it includes a decimal point
-      // Clear the array and set the result in the display
+      opr = array[i];
+      console.log(opr);
+      console.log(array[i]);
+      console.log(array);
       array = [];
-    });
+      console.log(array);
+      new_array(opr);
+    }
   }
+  equal_button.addEventListener("click", () => {
+    concat.includes(".")
+      ? new_array(parseFloat(concat))
+      : new_array(parseInt(concat, 10));
+    // Convert `concat` to float if it includes a decimal point
+    // Clear the array and set the result in the display
+    array = [];
+  });
 }
 delete_button.addEventListener("click", () => {
   console.log(concat);
