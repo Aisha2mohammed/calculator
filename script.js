@@ -9,7 +9,7 @@ let array = [];
 let storeOpr = [];
 let storeNum = [];
 let concat = "";
-let concatin, numberOfDecimal, lol, result, Target, opr, split;
+let concatin, numberOfDecimal, result, Target, opr, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -167,7 +167,6 @@ function new_array(val) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
-      // if (typeof Array[m] === "string)
     }
     console.log(storeNum);
     console.log(storeOpr);
