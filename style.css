@@ -55,6 +55,18 @@ button.num:hover {
 .sign:hover {
   background-color: rgb(181, 178, 178);
 }
+.num:active {
+  background-color: rgb(219, 168, 175);
+}
+button.num:active {
+  background-color: rgb(220, 167, 175);
+}
+.clear:active {
+  background-color: rgb(198, 193, 193);
+}
+.sign:active {
+  background-color: rgb(202, 200, 200);
+}
 span.num {
   padding: 6px 0 0 40px;
 }
