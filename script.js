@@ -126,7 +126,7 @@ function display(numbers) {
         array = [];
         span.textContent = concat;
       }
-    } else if (typeof array[i] === "string") {
+    } else {
       // if (concat !== "") {
 
       if (concat.includes(".")) {

@@ -43,6 +43,18 @@ body {
   text-align: center;
   font-family: sans-serif;
 }
+.num:hover {
+  background-color: rgb(235, 197, 202);
+}
+button.num:hover {
+  background-color: rgb(247, 187, 196);
+}
+.clear:hover {
+  background-color: rgb(181, 178, 178);
+}
+.sign:hover {
+  background-color: rgb(181, 178, 178);
+}
 span.num {
   padding: 6px 0 0 40px;
 }
