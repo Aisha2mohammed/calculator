@@ -147,11 +147,10 @@ function display(numbers) {
     }
 
     delete_button.addEventListener("click", () => {
-      let split = concat.split("");
-
-      let join = split.join("");
-      console.log(join);
-      span.textContent = join;
+      console.log(concat);
+      concat = concat.slice(0, -1);
+      console.log(concat);
+      span.textContent = concat;
     });
 
     equal_button.addEventListener("click", () => {
