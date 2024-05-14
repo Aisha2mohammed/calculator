@@ -4,12 +4,13 @@ const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
-let Array = [];
 let array = [];
-let storeOpr = [];
-let storeNum = [];
+let Array = [];
+
+// let storeOpr = [];
+// let storeNum = [];
 let concat = "";
-let concatin, numberOfDecimal, result, Target, opr, split;
+let concatin, numberOfDecimal, result, secOpr, Target, split;
 let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -134,24 +135,38 @@ function display(numbers) {
 
       console.log(array);
       concat = "";
-      opr = array[i];
+      let opr = array[i];
       console.log(opr);
       console.log(array[i]);
       console.log(array);
+      new_array(opr);
+
       array = [];
       console.log(array);
-      new_array(opr);
     }
   }
   equal_button.addEventListener("click", () => {
-    concat.includes(".")
-      ? new_array(parseFloat(concat))
-      : new_array(parseInt(concat, 10));
-    // Convert `concat` to float if it includes a decimal point
-    // Clear the array and set the result in the display
-    array = [];
+    if (concat.includes(".")) {
+      console.log(concat);
+      new_array(parseFloat(concat));
+      array = [];
+      console.log(concat);
+    } else {
+      let some = concat;
+      new_array(parseInt(some, 10));
+      // concat = "";
+
+      array = [];
+
+      console.log(concat);
+      // array = [];
+
+      // Convert `concat` to float if it includes a decimal point
+      // Clear the array and set the result in the display
+    }
   });
 }
+
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
@@ -163,56 +178,65 @@ function new_array(val) {
   Array.push(val);
   console.log(Array);
   console.log(Array.length);
-  if (Array.length >= 3) {
+  if (Array.length >= 4) {
+    storeNum = [];
+    storeOpr = [];
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
     }
+    Array = [];
+    console.log(Array);
     console.log(storeNum);
     console.log(storeOpr);
 
     let firstOpr = storeOpr.shift();
     console.log(firstOpr);
-    Array = [];
     console.log(storeOpr);
-    let secOpr;
+
+    result = operate(storeNum, firstOpr);
+    storeNum = [];
+    firstOpr = [];
     if (storeOpr.length > 0) {
       secOpr = storeOpr.shift();
       Array.unshift(secOpr);
     }
+    //   numberOfDecimal = countDecimalPlaces(result);
+    //   if (numberOfDecimal >= 5) {
+    //     let fixed = result.toFixed(4);
+    //     span.textContent = fixed;
+    //     Array.unshift(fixed);
+    //     console.log(Array);
+    //   } else if (
+    //     numberOfDecimal == 0 ||
+    //     numberOfDecimal == 1 ||
+    //     numberOfDecimal == 2 ||
+    //     numberOfDecimal == 3 ||
+    //     numberOfDecimal == 4
+    //   ) {
+    //     span.textContent = result;
+    //     Array.unshift(result);
+    //     console.log(Array);
+    //   }
+    span.textContent = result;
+    Array.unshift(result);
+    Array.slice(1, 2);
     console.log(Array);
+  }
 
-    result = operate(storeNum, firstOpr);
-    storeNum = [];
-    numberOfDecimal = countDecimalPlaces(result);
-    if (numberOfDecimal >= 5) {
-      let fixed = result.toFixed(4);
-      span.textContent = fixed;
-      Array.unshift(fixed);
-      console.log(Array);
-    } else if (
-      numberOfDecimal == 0 ||
-      numberOfDecimal == 1 ||
-      numberOfDecimal == 2 ||
-      numberOfDecimal == 3 ||
-      numberOfDecimal == 4
-    ) {
-      span.textContent = result;
-      Array.unshift(result);
-      console.log(Array);
-    }
-  }
-  function countDecimalPlaces(number) {
-    const decimalString = number.toString().split(".")[1];
-    if (decimalString) {
-      return decimalString.length;
-    } else {
-      return 0;
-    }
-  }
+  // function countDecimalPlaces(number) {
+  //   const decimalString = number.toString().split(".")[1];
+  //   if (decimalString) {
+  //     return decimalString.length;
+  //   } else {
+  //     return 0;
+  //   }
 }
 
 function operate(storeNum, newOpr) {
+  console.log(storeNum);
+  console.log(newOpr);
+
   if (newOpr === "add") {
     result = storeNum[0] + storeNum[1];
   }
