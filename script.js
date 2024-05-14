@@ -201,23 +201,23 @@ function new_array(val) {
       secOpr = storeOpr.shift();
       Array.unshift(secOpr);
     }
-    //   numberOfDecimal = countDecimalPlaces(result);
-    //   if (numberOfDecimal >= 5) {
-    //     let fixed = result.toFixed(4);
-    //     span.textContent = fixed;
-    //     Array.unshift(fixed);
-    //     console.log(Array);
-    //   } else if (
-    //     numberOfDecimal == 0 ||
-    //     numberOfDecimal == 1 ||
-    //     numberOfDecimal == 2 ||
-    //     numberOfDecimal == 3 ||
-    //     numberOfDecimal == 4
-    //   ) {
-    //     span.textContent = result;
-    //     Array.unshift(result);
-    //     console.log(Array);
-    //   }
+    numberOfDecimal = countDecimalPlaces(result);
+    if (numberOfDecimal >= 5) {
+      let fixed = result.toFixed(4);
+      span.textContent = fixed;
+      Array.unshift(fixed);
+      console.log(Array);
+    } else if (
+      numberOfDecimal == 0 ||
+      numberOfDecimal == 1 ||
+      numberOfDecimal == 2 ||
+      numberOfDecimal == 3 ||
+      numberOfDecimal == 4
+    ) {
+      span.textContent = result;
+      Array.unshift(result);
+      console.log(Array);
+    }
     span.textContent = result;
     Array.unshift(result);
     Array.slice(1, 2);
