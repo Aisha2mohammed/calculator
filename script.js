@@ -224,13 +224,13 @@ function new_array(val) {
     console.log(Array);
   }
 
-  // function countDecimalPlaces(number) {
-  //   const decimalString = number.toString().split(".")[1];
-  //   if (decimalString) {
-  //     return decimalString.length;
-  //   } else {
-  //     return 0;
-  //   }
+  function countDecimalPlaces(number) {
+    const decimalString = number.toString().split(".")[1];
+    if (decimalString) {
+      return decimalString.length;
+    } else {
+      return 0;
+    }
 }
 
 function operate(storeNum, newOpr) {
