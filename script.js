@@ -216,7 +216,7 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      Array.slice(1, 2);
+      Array.slice(1, Array.length - 1);
 
       console.log(Array);
     }
