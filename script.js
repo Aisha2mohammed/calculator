@@ -216,12 +216,10 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
+      Array.slice(1, 2);
+
       console.log(Array);
     }
-    span.textContent = result;
-    Array.unshift(result);
-    Array.slice(1, 2);
-    console.log(Array);
   }
 
   function countDecimalPlaces(number) {
@@ -231,8 +229,8 @@ function new_array(val) {
     } else {
       return 0;
     }
+  }
 }
-
 function operate(storeNum, newOpr) {
   console.log(storeNum);
   console.log(newOpr);
