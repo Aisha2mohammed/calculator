@@ -26,21 +26,17 @@ body {
   font-size: 60px;
   font-family: sans-serif;
   margin: 25px 20px 0 8px;
-  border: 3px solid rgb(30, 30, 70);
+  border: 3px solid grey;
   border-radius: 10px;
   background-color: rgb(251, 235, 238);
 }
 
 .input {
   width: 475px;
-  height: 106px;
-  /* padding: 42px; */
-  /* padding-right: 40px; */
+  height: 105px;
   font-weight: bold;
   font-size: 60px;
-  /* font-family: sans-serif; */
-  /* margin: 25px 20px 0 8px; */
-  /* border: 3px solid rgb(30, 30, 70); */
+  border-color: rgb(251, 235, 238);
   border-radius: 10px;
   background-color: rgb(251, 235, 238);
 }

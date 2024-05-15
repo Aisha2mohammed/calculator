@@ -4,7 +4,7 @@ const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
-const input = document.querySelector("input");
+const input = document.querySelector(".input");
 let array = [];
 let Array = [];
 
@@ -13,10 +13,10 @@ let Array = [];
 let concat = "";
 let concatin, numberOfDecimal, result, secOpr, Target, split;
 let join = "";
-input.addEventListener("keydown keyup", (event) => {
-  let key = event.key;
-  console.log(key);
-  display(key);
+input.addEventListener("keydown", (event) => {
+  let num = event.key;
+  console.log(num);
+  display(num);
 });
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -110,6 +110,13 @@ container.addEventListener("click", (event) => {
 });
 
 function display(numbers) {
+  if (!(typeof numbers === "number")) {
+    let k = numbers;
+    console.log(numbers);
+    let last = Number(k);
+    numbers = last;
+    console.log(numbers);
+  }
   array.push(numbers);
   console.log(array);
   for (let i = 0; i < array.length; i++) {
