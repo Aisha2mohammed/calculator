@@ -4,6 +4,7 @@ const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
+const input = document.querySelector("input");
 let array = [];
 let Array = [];
 
@@ -12,6 +13,11 @@ let Array = [];
 let concat = "";
 let concatin, numberOfDecimal, result, secOpr, Target, split;
 let join = "";
+input.addEventListener("keydown keyup", (event) => {
+  let key = event.key;
+  console.log(key);
+  display(key);
+});
 container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
@@ -216,7 +222,7 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      Array.slice(1, Array.length - 1);
+      Array.slice(1, Array.length);
 
       console.log(Array);
     }
