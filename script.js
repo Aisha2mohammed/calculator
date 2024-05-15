@@ -17,7 +17,81 @@ let join = "";
 input.addEventListener("keydown", (event) => {
   let num = event.key;
   console.log(num);
-  display2(num);
+  switch (num) {
+    case "1":
+      variable = 1;
+      display(variable);
+      break;
+
+    case "2":
+      variable = 2;
+      display(variable);
+      break;
+    case "3":
+      variable = 3;
+      display(variable);
+      break;
+    case "4":
+      variable = 4;
+      display(variable);
+      break;
+    case "5":
+      variable = 5;
+      display(variable);
+      break;
+    case "6":
+      variable = 6;
+      display(variable);
+      break;
+    case "7":
+      variable = 7;
+      display(variable);
+      break;
+
+    case "8":
+      variable = 8;
+      display(variable);
+      break;
+    case "9":
+      variable = 9;
+      display(variable);
+      break;
+    case "0":
+      variable = 0;
+      display(variable);
+      break;
+    case "+":
+      variable = "add";
+      display(variable);
+      break;
+    case "-":
+      variable = "minus";
+      display(variable);
+
+      break;
+    case "%":
+      variable = "mod";
+      display(variable);
+      break;
+
+    case "*":
+      variable = "pro";
+      display(variable);
+
+      break;
+    case "/":
+      variable = "div";
+      display(variable);
+      break;
+    case ".":
+      variable = ".";
+      span.textContent = ".";
+      display(variable);
+      break;
+    default:
+      variable = "";
+      span.textContent = variable;
+  }
 });
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -110,68 +184,66 @@ container.addEventListener("click", (event) => {
   }
 });
 
-function display2(num) {
-  if (
-    num === "1" ||
-    num === "2" ||
-    num === "3" ||
-    num === "4" ||
-    num === "5" ||
-    num === "6" ||
-    num === "7" ||
-    num === "9"
-  ) {
-    let k = num;
-    console.log(num);
-    let last = Number(k);
-    num = last;
-  }
-  arr.push(num);
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "number" || arr[i] === ".") {
-      // if (array[0] == ".") {
-      //   let zero = "0";
-      //   concat = zero + array[0];
-      //   array = [];
-      //   span.textContent = concat;
-      // }
-      // else {
-      console.log(concat);
-      if (arr[i] === ".") {
-        if (!concat.includes(".")) {
-          concat += arr[i].toString();
-          console.log(concat);
-          arr = [];
-          // span.textContent = concat;
-          console.log(arr);
-        } else {
-          concat += arr[i].toString();
-          console.log(concat);
-          arr = [];
-          span.textContent = concat;
-        }
-      }
-      } else {
-        concat.includes(".")
-          ? new_array(parseFloat(concat))
-          : new_array(parseInt(concat, 10));
-        // Convert `concat` to float if it includes a decimal point
+// function display2(num) {
+// if (
+//   num === "1" ||
+//   num === "2" ||
+//   num === "3" ||
+//   num === "4" ||
+//   num === "5" ||
+//   num === "6" ||
+//   num === "7" ||
+//   num === "9"
+// ) {
+//   let k = num;
+//   console.log(num);
+//   let last = Number(k);
+//   num = last;
+// }
+// arr.push(num);
+// for (let i = 0; i < arr.length; i++) {
+//   if (typeof arr[i] === "number" || arr[i] === ".") {
+//     // if (array[0] == ".") {
+//     //   let zero = "0";
+//     //   concat = zero + array[0];
+//     //   array = [];
+//     //   span.textContent = concat;
+//     // }
+//     // else {
+//     console.log(concat);
+//     if (arr[i] === ".") {
+//       if (!concat.includes(".")) {
+//         concat += arr[i].toString();
+//         console.log(concat);
+//         arr = [];
+//         // span.textContent = concat;
+//         console.log(arr);
+//       } else {
+//         concat += arr[i].toString();
+//         console.log(concat);
+//         arr = [];
+//         span.textContent = concat;
+//       }
+//     }
+//     } else {
+//       concat.includes(".")
+//         ? new_array(parseFloat(concat))
+//         : new_array(parseInt(concat, 10));
+//       // Convert `concat` to float if it includes a decimal point
 
-        console.log(arr);
-        concat = "";
-        let opr = arr[i];
-        console.log(opr);
-        console.log(arr[i]);
-        console.log(arr);
-        new_array(opr);
+//       console.log(arr);
+//       concat = "";
+//       let opr = arr[i];
+//       console.log(opr);
+//       console.log(arr[i]);
+//       console.log(arr);
+//       new_array(opr);
 
-        arr = [];
-        console.log(arr);
-      }
-    
-  }
-  if
-}
+//       arr = [];
+//       console.log(arr);
+//     }
+
+// }
 function display(numbers) {
   array.push(numbers);
   console.log(array);
@@ -198,7 +270,7 @@ function display(numbers) {
           span.textContent = concat;
         }
       }
-    }else {
+    } else {
       concat.includes(".")
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
