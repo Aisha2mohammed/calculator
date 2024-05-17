@@ -82,6 +82,9 @@ input.addEventListener("keydown", (event) => {
     case "/":
       variable = "div";
       display(variable);
+    case "=":
+      variable = "=";
+      display(variable);
       break;
     case ".":
       variable = ".";
@@ -92,10 +95,10 @@ input.addEventListener("keydown", (event) => {
 container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
-    case "equal":
-      variable = "=";
-      display(variable);
-      break;
+    // case "equal":
+    //   variable = "=";
+    //   display(variable);
+    // break;
     case "add":
       variable = "add";
       display(variable);
@@ -228,20 +231,20 @@ function display(numbers) {
       console.log(array);
     } else if (array[i] === "=") {
       array.pop();
-      // array[i].addEventListener("click", () => {
-      if (concat.includes(".")) {
-        console.log(concat);
-        new_array(parseFloat(concat));
-        array = [];
-        console.log(concat);
-      } else {
-        let some = concat;
-        new_array(parseInt(some, 10));
-        // concat = "";
-        array = [];
-        console.log(concat);
-      }
-      // });
+      array[i].addEventListener("click", () => {
+        if (concat.includes(".")) {
+          console.log(concat);
+          new_array(parseFloat(concat));
+          array = [];
+          console.log(concat);
+        } else {
+          let some = concat;
+          new_array(parseInt(some, 10));
+          // concat = "";
+          array = [];
+          console.log(concat);
+        }
+      });
     }
   }
   // equal_button.addEventListener("click", () => {
