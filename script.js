@@ -9,8 +9,6 @@ let array = [];
 let Array = [];
 const arr = [];
 
-// let storeOpr = [];
-// // let storeNum = [];
 let concat = "";
 let concatin, numberOfDecimal, num, result, secOpr, Target, split;
 let join = "";
@@ -223,7 +221,6 @@ function display(numbers) {
       concat = "";
       let opr = array[i];
       console.log(opr);
-      console.log(array[i]);
       console.log(array);
       new_array(opr);
 
@@ -253,8 +250,7 @@ function display(numbers) {
       array = [];
       console.log(concat);
     } else {
-      let some = concat;
-      new_array(parseInt(some, 10));
+      new_array(parseInt(concat, 10));
       // concat = "";
       array = [];
       console.log(concat);
@@ -354,23 +350,25 @@ function new_array(val) {
   }
 }
 function operate(storeNum, newOpr) {
+  const [num1, num2] = storeNum;
+
   console.log(storeNum);
   console.log(newOpr);
 
   if (newOpr === "add") {
-    result = storeNum[0] + storeNum[1];
+    result = num1 + num2;
   }
   if (newOpr === "minus") {
-    result = storeNum[0] - storeNum[1];
+    result = num1 - num2;
   }
   if (newOpr === "pro") {
-    result = storeNum[0] * storeNum[1];
+    result = num1 * num2;
   }
   if (newOpr === "mod") {
-    result = storeNum[0] % storeNum[1];
+    result = num1 % num2;
   }
   if (newOpr === "div") {
-    if (storeNum[1] !== 0) result = storeNum[0] / storeNum[1];
+    if (num2 !== 0) result = num1 / num2;
     else {
       span.textContent = "Undefined";
       result = undefined;
