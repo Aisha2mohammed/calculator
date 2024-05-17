@@ -17,85 +17,85 @@ let join = "";
 input.addEventListener("keydown", (event) => {
   num = event.key;
   console.log(num);
-  //   switch (num) {
-  //     case "1":
-  //       variable = 1;
-  //       display(variable);
-  //       break;
+  switch (num) {
+    case "1":
+      variable = 1;
+      display(variable);
+      break;
 
-  //     case "2":
-  //       variable = 2;
-  //       display(variable);
-  //       break;
-  //     case "3":
-  //       variable = 3;
-  //       display(variable);
-  //       break;
-  //     case "4":
-  //       variable = 4;
-  //       display(variable);
-  //       break;
-  //     case "5":
-  //       variable = 5;
-  //       display(variable);
-  //       break;
-  //     case "6":
-  //       variable = 6;
-  //       display(variable);
-  //       break;
-  //     case "7":
-  //       variable = 7;
-  //       display(variable);
-  //       break;
+    case "2":
+      variable = 2;
+      display(variable);
+      break;
+    case "3":
+      variable = 3;
+      display(variable);
+      break;
+    case "4":
+      variable = 4;
+      display(variable);
+      break;
+    case "5":
+      variable = 5;
+      display(variable);
+      break;
+    case "6":
+      variable = 6;
+      display(variable);
+      break;
+    case "7":
+      variable = 7;
+      display(variable);
+      break;
 
-  //     case "8":
-  //       variable = 8;
-  //       display(variable);
-  //       break;
-  //     case "9":
-  //       variable = 9;
-  //       display(variable);
-  //       break;
-  //     case "0":
-  //       variable = 0;
-  //       display(variable);
-  //       break;
-  //     case "+":
-  //       variable = "add";
-  //       display(variable);
-  //       break;
-  //     case "-":
-  //       variable = "minus";
-  //       display(variable);
+    case "8":
+      variable = 8;
+      display(variable);
+      break;
+    case "9":
+      variable = 9;
+      display(variable);
+      break;
+    case "0":
+      variable = 0;
+      display(variable);
+      break;
+    case "+":
+      variable = "add";
+      display(variable);
+      break;
+    case "-":
+      variable = "minus";
+      display(variable);
 
-  //       break;
-  //     case "%":
-  //       variable = "mod";
-  //       display(variable);
-  //       break;
+      break;
+    case "%":
+      variable = "mod";
+      display(variable);
+      break;
 
-  //     case "*":
-  //       variable = "pro";
-  //       display(variable);
+    case "*":
+      variable = "pro";
+      display(variable);
 
-  //       break;
-  //     case "/":
-  //       variable = "div";
-  //       display(variable);
-  //       break;
-  //     case ".":
-  //       variable = ".";
-  //       span.textContent = ".";
-  //       display(variable);
-  //       break;
-  //     default:
-  //       variable = "";
-  //       span.textContent = variable;
-  //   }
+      break;
+    case "/":
+      variable = "div";
+      display(variable);
+      break;
+    case ".":
+      variable = ".";
+      display(variable);
+      break;
+  }
 });
 container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
+    case "equal":
+      variable = "=";
+      display(variable);
+      break;
     case "add":
       variable = "add";
       display(variable);
@@ -210,7 +210,7 @@ function display(numbers) {
           span.textContent = concat;
         }
       }
-    } else {
+    } else if (typeof array[i] === "string") {
       concat.includes(".")
         ? new_array(parseFloat(concat))
         : new_array(parseInt(concat, 10));
@@ -226,30 +226,63 @@ function display(numbers) {
 
       array = [];
       console.log(array);
+    } else if (array[i] === "=") {
+      array.pop();
+      // array[i].addEventListener("click", () => {
+      if (concat.includes(".")) {
+        console.log(concat);
+        new_array(parseFloat(concat));
+        array = [];
+        console.log(concat);
+      } else {
+        let some = concat;
+        new_array(parseInt(some, 10));
+        // concat = "";
+        array = [];
+        console.log(concat);
+      }
+      // });
     }
   }
-  equal_button.addEventListener("click", () => {
-    if (concat.includes(".")) {
-      console.log(concat);
-      new_array(parseFloat(concat));
-      array = [];
-      console.log(concat);
-    } else {
-      let some = concat;
-      new_array(parseInt(some, 10));
-      // concat = "";
+  // equal_button.addEventListener("click", () => {
+  //   if (concat.includes(".")) {
+  //     console.log(concat);
+  //     new_array(parseFloat(concat));
+  //     array = [];
+  //     console.log(concat);
+  //   } else {
+  //     let some = concat;
+  //     new_array(parseInt(some, 10));
+  //     // concat = "";
 
-      array = [];
+  //     array = [];
 
-      console.log(concat);
-      // array = [];
+  //     console.log(concat);
+  //     // array = [];
 
-      // Convert `concat` to float if it includes a decimal point
-      // Clear the array and set the result in the display
-    }
-  });
+  //     // Convert `concat` to float if it includes a decimal point
+  //     // Clear the array and set the result in the display
+  //   }
+  // });
 }
-// if(num === )
+// if (num === "=") {
+//   num.addEventListener("keydown", () => {
+//     if (concat.includes(".")) {
+//       console.log(concat);
+//       new_array(parseFloat(concat));
+//       array = [];
+//       console.log(concat);
+//     } else {
+//       let some = concat;
+//       new_array(parseInt(some, 10));
+//       // concat = "";
+
+//       array = [];
+
+//       console.log(concat);
+//     }
+//   });
+// }
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
