@@ -355,25 +355,16 @@ function operate(storeNum, newOpr) {
   console.log(storeNum);
   console.log(newOpr);
 
-  if (newOpr === "add") {
-    result = num1 + num2;
+  switch (newOpr) {
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      return num1 / num2;
+    default:
+      return NaN;
   }
-  if (newOpr === "minus") {
-    result = num1 - num2;
-  }
-  if (newOpr === "pro") {
-    result = num1 * num2;
-  }
-  if (newOpr === "mod") {
-    result = num1 % num2;
-  }
-  if (newOpr === "div") {
-    if (num2 !== 0) result = num1 / num2;
-    else {
-      span.textContent = "Undefined";
-      result = undefined;
-    }
-  }
-  console.log(result);
-  return result;
 }
