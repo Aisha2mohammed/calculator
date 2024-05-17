@@ -230,7 +230,6 @@ function display(numbers) {
       array = [];
       console.log(array);
     } else if (array[i] === "=") {
-      array.pop();
       array[i].addEventListener("click", () => {
         if (concat.includes(".")) {
           console.log(concat);
@@ -247,45 +246,43 @@ function display(numbers) {
       });
     }
   }
-  // equal_button.addEventListener("click", () => {
-  //   if (concat.includes(".")) {
-  //     console.log(concat);
-  //     new_array(parseFloat(concat));
-  //     array = [];
-  //     console.log(concat);
-  //   } else {
-  //     let some = concat;
-  //     new_array(parseInt(some, 10));
-  //     // concat = "";
+  equal_button.addEventListener("click", () => {
+    if (concat.includes(".")) {
+      console.log(concat);
+      new_array(parseFloat(concat));
+      array = [];
+      console.log(concat);
+    } else {
+      let some = concat;
+      new_array(parseInt(some, 10));
+      // concat = "";
+      array = [];
+      console.log(concat);
+      // array = [];
 
-  //     array = [];
+      // Convert `concat` to float if it includes a decimal point
+      // Clear the array and set the result in the display
+    }
+  });
+  // }
+  //  if (num === "=") {
+  //   num.addEventListener("keydown", () => {
+  //     if (concat.includes(".")) {
+  //       console.log(concat);
+  //       new_array(parseFloat(concat));
+  //       array = [];
+  //       console.log(concat);
+  //     } else {
+  //       let some = concat;
+  //       new_array(parseInt(some, 10));
+  //       // concat = "";
 
-  //     console.log(concat);
-  //     // array = [];
+  //       array = [];
 
-  //     // Convert `concat` to float if it includes a decimal point
-  //     // Clear the array and set the result in the display
-  //   }
-  // });
+  //       console.log(concat);
+  //     }
+  //   });
 }
-// if (num === "=") {
-//   num.addEventListener("keydown", () => {
-//     if (concat.includes(".")) {
-//       console.log(concat);
-//       new_array(parseFloat(concat));
-//       array = [];
-//       console.log(concat);
-//     } else {
-//       let some = concat;
-//       new_array(parseInt(some, 10));
-//       // concat = "";
-
-//       array = [];
-
-//       console.log(concat);
-//     }
-//   });
-// }
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
