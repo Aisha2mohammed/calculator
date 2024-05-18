@@ -8,88 +8,89 @@ const input = document.querySelector(".input");
 let array = [];
 let Array = [];
 const arr = [];
-
+let storeNum = [];
+let storeOpr = [];
 let concat = "";
 let concatin, numberOfDecimal, num, result, secOpr, Target, split;
 let join = "";
-input.addEventListener("keydown", (event) => {
-  num = event.key;
-  console.log(num);
-  switch (num) {
-    case "1":
-      variable = 1;
-      display(variable);
-      break;
+// input.addEventListener("keydown", (event) => {
+//   num = event.key;
+//   console.log(num);
+//   switch (num) {
+//     case "1":
+//       variable = 1;
+//       display(variable);
+//       break;
 
-    case "2":
-      variable = 2;
-      display(variable);
-      break;
-    case "3":
-      variable = 3;
-      display(variable);
-      break;
-    case "4":
-      variable = 4;
-      display(variable);
-      break;
-    case "5":
-      variable = 5;
-      display(variable);
-      break;
-    case "6":
-      variable = 6;
-      display(variable);
-      break;
-    case "7":
-      variable = 7;
-      display(variable);
-      break;
+//     case "2":
+//       variable = 2;
+//       display(variable);
+//       break;
+//     case "3":
+//       variable = 3;
+//       display(variable);
+//       break;
+//     case "4":
+//       variable = 4;
+//       display(variable);
+//       break;
+//     case "5":
+//       variable = 5;
+//       display(variable);
+//       break;
+//     case "6":
+//       variable = 6;
+//       display(variable);
+//       break;
+//     case "7":
+//       variable = 7;
+//       display(variable);
+//       break;
 
-    case "8":
-      variable = 8;
-      display(variable);
-      break;
-    case "9":
-      variable = 9;
-      display(variable);
-      break;
-    case "0":
-      variable = 0;
-      display(variable);
-      break;
-    case "+":
-      variable = "add";
-      display(variable);
-      break;
-    case "-":
-      variable = "minus";
-      display(variable);
+//     case "8":
+//       variable = 8;
+//       display(variable);
+//       break;
+//     case "9":
+//       variable = 9;
+//       display(variable);
+//       break;
+//     case "0":
+//       variable = 0;
+//       display(variable);
+//       break;
+//     case "+":
+//       variable = "add";
+//       display(variable);
+//       break;
+//     case "-":
+//       variable = "minus";
+//       display(variable);
 
-      break;
-    case "%":
-      variable = "mod";
-      display(variable);
-      break;
+//       break;
+//     case "%":
+//       variable = "mod";
+//       display(variable);
+//       break;
 
-    case "*":
-      variable = "pro";
-      display(variable);
+//     case "*":
+//       variable = "pro";
+//       display(variable);
 
-      break;
-    case "/":
-      variable = "div";
-      display(variable);
-    case "=":
-      variable = "=";
-      display(variable);
-      break;
-    case ".":
-      variable = ".";
-      display(variable);
-      break;
-  }
-});
+//       break;
+//     case "/":
+//       variable = "div";
+//       display(variable);
+//     case "=":
+//       variable = "=";
+//       display(variable);
+//       break;
+//     case ".":
+//       variable = ".";
+//       display(variable);
+//       break;
+//   }
+// });
 container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
@@ -204,12 +205,12 @@ function display(numbers) {
           console.log(concat);
           array = [];
           span.textContent = concat;
-        } else {
-          concat += array[i].toString();
-          console.log(concat);
-          array = [];
-          span.textContent = concat;
         }
+      } else {
+        concat += array[i].toString();
+        console.log(concat);
+        array = [];
+        span.textContent = concat;
       }
     } else if (typeof array[i] === "string") {
       concat.includes(".")
@@ -226,23 +227,24 @@ function display(numbers) {
 
       array = [];
       console.log(array);
-    } else if (array[i] === "=") {
-      array[i].addEventListener("click", () => {
-        if (concat.includes(".")) {
-          console.log(concat);
-          new_array(parseFloat(concat));
-          array = [];
-          console.log(concat);
-        } else {
-          let some = concat;
-          new_array(parseInt(some, 10));
-          // concat = "";
-          array = [];
-          console.log(concat);
-        }
-      });
     }
   }
+  // if (array.includes("=")) {
+  //   array.pop();
+  //   // array[i].addEventListener("click", () => {
+  //   if (concat.includes(".")) {
+  //     console.log(concat);
+  //     new_array(parseFloat(concat));
+  //     array = [];
+  //     console.log(concat);
+  //   } else {
+  //     new_array(parseInt(concat, 10));
+  //     // concat = "";
+  //     array = [];
+  //     console.log(concat);
+  //   }
+  //   // });
+  // }
   equal_button.addEventListener("click", () => {
     if (concat.includes(".")) {
       console.log(concat);
@@ -260,25 +262,27 @@ function display(numbers) {
       // Clear the array and set the result in the display
     }
   });
-  // }
-  //  if (num === "=") {
-  //   num.addEventListener("keydown", () => {
-  //     if (concat.includes(".")) {
-  //       console.log(concat);
-  //       new_array(parseFloat(concat));
-  //       array = [];
-  //       console.log(concat);
-  //     } else {
-  //       let some = concat;
-  //       new_array(parseInt(some, 10));
-  //       // concat = "";
-
-  //       array = [];
-
-  //       console.log(concat);
-  //     }
-  //   });
 }
+
+// }
+//  if (num === "=") {
+//   num.addEventListener("keydown", () => {
+//     if (concat.includes(".")) {
+//       console.log(concat);
+//       new_array(parseFloat(concat));
+//       array = [];
+//       console.log(concat);
+//     } else {
+//       let some = concat;
+//       new_array(parseInt(some, 10));
+//       // concat = "";
+
+//       array = [];
+
+//       console.log(concat);
+//     }
+//   });
+// }
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
@@ -286,19 +290,17 @@ delete_button.addEventListener("click", () => {
   span.textContent = concat;
 });
 
-if (num === "Backspace") {
-  console.log(concat);
-  concat = concat.slice(0, concat.length - 1);
-  console.log(concat);
-  span.textContent = concat;
-}
+// if (num === "Backspace") {
+//   console.log(concat);
+//   concat = concat.slice(0, concat.length - 1);
+//   console.log(concat);
+//   span.textContent = concat;
+//}
 function new_array(val) {
   Array.push(val);
   console.log(Array);
   console.log(Array.length);
-  if (Array.length >= 4) {
-    storeNum = [];
-    storeOpr = [];
+  if (Array.length >= 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
@@ -334,7 +336,7 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      Array.slice(1, Array.length);
+      // Array.slice(1, Array.length);
 
       console.log(Array);
     }
@@ -356,15 +358,15 @@ function operate(storeNum, newOpr) {
   console.log(newOpr);
 
   switch (newOpr) {
-    case "+":
+    case "add":
       return num1 + num2;
-    case "-":
+    case "minus":
       return num1 - num2;
-    case "*":
+    case "pro":
       return num1 * num2;
-    case "/":
+    case "div":
       return num1 / num2;
-    default:
-      return NaN;
+    case "mod":
+      return num1 % num2;
   }
 }
