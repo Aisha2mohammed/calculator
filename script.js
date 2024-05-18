@@ -300,7 +300,7 @@ function new_array(val) {
   Array.push(val);
   console.log(Array);
   console.log(Array.length);
-  if (Array.length >= 3) {
+  if (Array.length == 3) {
     for (let m = 0; m < Array.length; m++) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
@@ -336,7 +336,7 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      // Array.slice(1, Array.length);
+      Array.slice(1, Array.length - 1);
 
       console.log(Array);
     }
