@@ -54,10 +54,10 @@ body {
   font-family: sans-serif;
 }
 .num:hover {
-  background-color: rgb(235, 197, 202);
+  background-color: rgb(202, 200, 200);
 }
 button.num:hover {
-  background-color: rgb(247, 187, 196);
+  background-color: rgb(129, 129, 133);
 }
 .clear:hover {
   background-color: rgb(181, 178, 178);
@@ -66,10 +66,10 @@ button.num:hover {
   background-color: rgb(181, 178, 178);
 }
 .num:active {
-  background-color: rgb(219, 168, 175);
+  background-color: rgb(136, 133, 133);
 }
 button.num:active {
-  background-color: rgb(220, 167, 175);
+  background-color: rgb(162, 162, 177);
 }
 .clear:active {
   background-color: rgb(198, 193, 193);
