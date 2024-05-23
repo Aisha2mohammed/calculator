@@ -7,11 +7,10 @@ const delete_button = document.querySelector("#del");
 const input = document.querySelector(".input");
 let array = [];
 let Array = [];
-const arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
-let concatin, numberOfDecimal, num, result, secOpr, Target, split;
+let concatin, numberOfDecimal, result, secOpr, Target, split;
 let join = "";
 // input.addEventListener("keydown", (event) => {
 //   num = event.key;
