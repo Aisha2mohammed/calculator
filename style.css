@@ -63,7 +63,7 @@ button.num:hover {
   background-color: rgb(181, 178, 178);
 }
 .sign:hover {
-  background-color: rgb(181, 178, 178);
+  background-color: rgb(162, 159, 159);
 }
 .num:active {
   background-color: rgb(136, 133, 133);
@@ -103,4 +103,11 @@ button.module {
 }
 button.delete {
   background-color: rgb(136, 133, 133);
+}
+button.delete:hover {
+  background-color: rgb(162, 162, 177);
+}
+
+button.delete:active {
+  background-color: rgb(207, 207, 222);
 }
