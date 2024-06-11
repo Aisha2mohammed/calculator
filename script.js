@@ -190,19 +190,16 @@ function display(numbers) {
   console.log(array);
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
-      console.log(concat);
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
             concat += array[i];
-            console.log(concat);
             array = [];
             span.textContent = concat;
           }
           if (concat === "") {
             concat = "0";
             concat += array[i];
-            console.log(concat);
             array = [];
             span.textContent = concat;
           }
@@ -220,14 +217,10 @@ function display(numbers) {
     } else if (typeof array[i] === "string") {
       concat.includes(".")
         ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat, 10));
-      // Convert `concat` to float if it includes a decimal point
-
-      console.log(array);
+        : new_array(parseInt(concat));
       concat = "";
       let opr = array[i];
       console.log(opr);
-      console.log(array);
       new_array(opr);
 
       array = [];
@@ -252,10 +245,9 @@ function display(numbers) {
   // }
   equal_button.addEventListener("click", () => {
     if (concat.includes(".")) {
-      console.log(concat);
       new_array(parseFloat(concat));
       array = [];
-      console.log(concat);
+      console.log(array);
     } else {
       new_array(parseInt(concat, 10));
       // concat = "";
