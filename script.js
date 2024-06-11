@@ -254,9 +254,6 @@ function display(numbers) {
       array = [];
       console.log(concat);
       // array = [];
-
-      // Convert `concat` to float if it includes a decimal point
-      // Clear the array and set the result in the display
     }
   });
 }
