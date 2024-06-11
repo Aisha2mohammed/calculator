@@ -190,13 +190,6 @@ function display(numbers) {
   console.log(array);
   for (let i = 0; i < array.length; i++) {
     if (typeof array[i] === "number" || array[i] === ".") {
-      // if (array[0] == ".") {
-      //   let zero = "0";
-      //   concat = zero + array[0];
-      //   array = [];
-      //   span.textContent = concat;
-      // }
-      // else {
       console.log(concat);
       if (array[i] === ".") {
         if (!concat.includes(".")) {
