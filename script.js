@@ -249,11 +249,14 @@ function display(numbers) {
       array = [];
       console.log(array);
     } else {
-      new_array(parseInt(concat, 10));
+      let new_result = new_array(parseInt(concat, 10));
+      new_array(new_result);
       // concat = "";
       array = [];
       console.log(concat);
       // array = [];
+      // Convert `concat` to float if it includes a decimal point
+      // Clear the array and set the result in the display
     }
   });
 }
