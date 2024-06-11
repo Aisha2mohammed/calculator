@@ -200,10 +200,19 @@ function display(numbers) {
       console.log(concat);
       if (array[i] === ".") {
         if (!concat.includes(".")) {
-          concat += array[i].toString();
-          console.log(concat);
-          array = [];
-          span.textContent = concat;
+          if (concat.length > 0) {
+            concat += array[i];
+            console.log(concat);
+            array = [];
+            span.textContent = concat;
+          }
+          if (concat == "") {
+            let concat = "0";
+            concat += array[i];
+            console.log(concat);
+            array = [];
+            span.textContent = concat;
+          }
         }
       } else {
         concat += array[i].toString();
