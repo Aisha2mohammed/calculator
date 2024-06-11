@@ -206,13 +206,17 @@ function display(numbers) {
             array = [];
             span.textContent = concat;
           }
-          if (concat == "") {
-            let concat = "0";
+          if (concat === "") {
+            concat = "0";
             concat += array[i];
             console.log(concat);
             array = [];
             span.textContent = concat;
           }
+        }
+        if (concat.includes(".")) {
+          array = [];
+          span.textContent = concat;
         }
       } else {
         concat += array[i].toString();
