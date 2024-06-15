@@ -259,6 +259,12 @@ function display(numbers) {
   });
 }
 
+// if (num === "Backspace") {
+//   console.log(concat);
+//   concat = concat.slice(0, concat.length - 1);
+//   console.log(concat);
+//   span.textContent = concat;
+//}
 // }
 //  if (num === "=") {
 //   num.addEventListener("keydown", () => {
