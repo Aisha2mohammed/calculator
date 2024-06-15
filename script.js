@@ -93,10 +93,6 @@ let join = "";
 container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
-    // case "equal":
-    //   variable = "=";
-    //   display(variable);
-    // break;
     case "add":
       variable = "add";
       display(variable);
@@ -249,8 +245,10 @@ function display(numbers) {
       array = [];
       console.log(array);
     } else {
-      let new_result = new_array(parseInt(concat, 10));
-      new_array(new_result);
+      new_array(parseInt(concat, 10));
+      console.log(concat);
+
+      // new_array(new_result);
       // concat = "";
       array = [];
       console.log(concat);
