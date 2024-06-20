@@ -226,12 +226,14 @@ function display(numbers) {
 
   equal_button.addEventListener("click", () => {
     if (concat.includes(".")) {
-      new_array(parseFloat(concat));
+      let float = new_array(parseFloat(concat));
       array = [];
+      new_array(float);
       console.log(array);
     } else {
-      new_array(parseInt(concat, 10));
+      let int = new_array(parseInt(concat, 10));
       console.log(concat);
+      new_array(int);
 
       // new_array(new_result);
       // concat = "";
@@ -279,8 +281,9 @@ function new_array(val) {
     if (numberOfDecimal >= 5) {
       let fixed = result.toFixed(4);
       span.textContent = fixed;
-      Array.unshift(fixed);
-      console.log(Array);
+      return fixed;
+      // Array.unshift(fixed);
+      // console.log(Array);
     } else if (
       numberOfDecimal == 0 ||
       numberOfDecimal == 1 ||
@@ -289,9 +292,9 @@ function new_array(val) {
       numberOfDecimal == 4
     ) {
       span.textContent = result;
-      Array.unshift(result);
-
-      console.log(Array);
+      // Array.unshift(result);
+      return result;
+      // console.log(Array);
     }
   }
 
