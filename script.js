@@ -299,7 +299,7 @@ function new_array(val) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
     }
-    // Array = [];
+    Array = [];
     console.log(Array);
     console.log(storeNum);
     console.log(storeOpr);
@@ -330,7 +330,7 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      Array.slice(1, Array.length - 1);
+      // Array.slice(1, Array.length - 1);
 
       console.log(Array);
     }
