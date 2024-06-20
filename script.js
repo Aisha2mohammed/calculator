@@ -299,7 +299,7 @@ function new_array(val) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
     }
-    Array = [];
+    // Array = [];
     console.log(Array);
     console.log(storeNum);
     console.log(storeOpr);
