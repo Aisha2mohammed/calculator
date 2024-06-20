@@ -258,31 +258,6 @@ function display(numbers) {
   });
 }
 
-// if (num === "Backspace") {
-//   console.log(concat);
-//   concat = concat.slice(0, concat.length - 1);
-//   console.log(concat);
-//   span.textContent = concat;
-//}
-// }
-//  if (num === "=") {
-//   num.addEventListener("keydown", () => {
-//     if (concat.includes(".")) {
-//       console.log(concat);
-//       new_array(parseFloat(concat));
-//       array = [];
-//       console.log(concat);
-//     } else {
-//       let some = concat;
-//       new_array(parseInt(some, 10));
-//       // concat = "";
-
-//       array = [];
-
-//       console.log(concat);
-//     }
-//   });
-// }
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
@@ -330,7 +305,6 @@ function new_array(val) {
     ) {
       span.textContent = result;
       Array.unshift(result);
-      // Array.slice(1, Array.length - 1);
 
       console.log(Array);
     }
