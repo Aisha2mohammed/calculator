@@ -271,10 +271,10 @@ function new_array(val) {
     result = operate(storeNum, firstOpr);
     storeNum = [];
     firstOpr = [];
-    if (storeOpr.length > 0) {
-      secOpr = storeOpr.shift();
-      Array.unshift(secOpr);
-    }
+    // if (storeOpr.length > 0) {
+    //   secOpr = storeOpr.shift();
+    //   Array.unshift(secOpr);
+    // }
     numberOfDecimal = countDecimalPlaces(result);
     if (numberOfDecimal >= 5) {
       let fixed = result.toFixed(4);
