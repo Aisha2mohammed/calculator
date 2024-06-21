@@ -247,13 +247,19 @@ delete_button.addEventListener("click", () => {
 });
 
 function new_array(val) {
-  arr.push(val);
-  console.log(arr);
-  console.log(arr.length);
-  if (arr.length == 3) {
+  let Arr;
+  Arr.push(val);
+  console.log(Arr);
+  console.log(Arr.length);
+  if ((Arr.length = 4)) {
+    arr = Arr.filter((val) => val != "=");
+
     for (let m = 0; m < arr.length; m++) {
       if (typeof arr[m] === "number") storeNum.push(arr[m]);
-      if (typeof arr[m] === "string") storeOpr.push(arr[m]);
+      if (typeof arr[m] === "string")
+        if (arr[m] !== "=") {
+          storeOpr.push(arr[m]);
+        }
     }
     arr = [];
     console.log(arr);
