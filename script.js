@@ -256,10 +256,8 @@ function new_array(val) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
     }
-    // Array = [];
-    console.log(Array);
+    Array = [];
     console.log(storeNum);
-    4;
     console.log(storeOpr);
 
     let firstOpr = storeOpr.shift();
@@ -267,7 +265,6 @@ function new_array(val) {
     console.log(storeOpr);
 
     result = operate(storeNum, firstOpr);
-    Array = [];
     storeNum = [];
     firstOpr = [];
     // if (storeOpr.length > 0) {
