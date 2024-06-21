@@ -6,7 +6,7 @@ const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
 const input = document.querySelector(".input");
 let array = [];
-let Array = [];
+let arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
@@ -230,11 +230,12 @@ function display(numbers) {
       array = [];
       console.log(array);
     } else {
-      new_array(parseInt(concat, 10));
       array = [];
+      new_array(parseInt(concat, 10));
+      concat = "";
+
       console.log(concat);
 
-      // concat = "";
       // Clear the array and set the result in the display
     }
   });
@@ -248,15 +249,16 @@ delete_button.addEventListener("click", () => {
 });
 
 function new_array(val) {
-  Array.push(val);
-  console.log(Array);
-  console.log(Array.length);
-  if (Array.length == 3) {
-    for (let m = 0; m < Array.length; m++) {
-      if (typeof Array[m] === "number") storeNum.push(Array[m]);
-      if (typeof Array[m] === "string") storeOpr.push(Array[m]);
+  arr.push(val);
+  console.log(arr);
+  console.log(arr.length);
+  if (arr.length == 3) {
+    for (let m = 0; m < arr.length; m++) {
+      if (typeof arr[m] === "number") storeNum.push(arr[m]);
+      if (typeof arr[m] === "string") storeOpr.push(arr[m]);
     }
-    Array = [];
+    arr = [];
+    console.log(arr);
     console.log(storeNum);
     console.log(storeOpr);
 
@@ -269,14 +271,14 @@ function new_array(val) {
     firstOpr = [];
     // if (storeOpr.length > 0) {
     //   secOpr = storeOpr.shift();
-    //   Array.unshift(secOpr);
+    //   arr.unshift(secOpr);
     // }
     numberOfDecimal = countDecimalPlaces(result);
     if (numberOfDecimal >= 5) {
       let fixed = result.toFixed(4);
       span.textContent = fixed;
-      Array.unshift(fixed);
-      // console.log(Array);
+      arr.unshift(fixed);
+      // console.log(arr);
     } else if (
       numberOfDecimal == 0 ||
       numberOfDecimal == 1 ||
@@ -285,8 +287,8 @@ function new_array(val) {
       numberOfDecimal == 4
     ) {
       span.textContent = result;
-      Array.unshift(result);
-      // console.log(Array);
+      arr.unshift(result);
+      // console.log(arr);
     }
   }
 
