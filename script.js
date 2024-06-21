@@ -223,24 +223,22 @@ function display(numbers) {
       console.log(array);
     }
   }
-
-  equal_button.addEventListener("click", () => {
-    if (concat.includes(".")) {
-      new_array(parseFloat(concat));
-      array = [];
-      console.log(array);
-    } else {
-      array = [];
-      new_array(parseInt(concat, 10));
-      concat = "";
-
-      console.log(concat);
-
-      // Clear the array and set the result in the display
-    }
-  });
 }
 
+equal_button.addEventListener("click", () => {
+  let equal = "=";
+  display(equal);
+  // if (concat.includes(".")) {
+  //   new_array(parseFloat(concat));
+  //   array = [];
+  //   console.log(array);
+  // } else {
+  //   array = [];
+  //   new_array(parseInt(concat, 10));
+  //   concat = "";
+
+  //   console.log(concat);
+});
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
