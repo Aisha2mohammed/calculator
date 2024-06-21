@@ -226,20 +226,15 @@ function display(numbers) {
 
   equal_button.addEventListener("click", () => {
     if (concat.includes(".")) {
-      let float = new_array(parseFloat(concat));
+      new_array(parseFloat(concat));
       array = [];
-      new_array(float);
       console.log(array);
     } else {
-      let int = new_array(parseInt(concat, 10));
-      console.log(concat);
-      new_array(int);
-
-      // new_array(new_result);
-      // concat = "";
+      new_array(parseInt(concat, 10));
       array = [];
       console.log(concat);
-      // array = [];
+
+      // concat = "";
       // Clear the array and set the result in the display
     }
   });
@@ -261,9 +256,10 @@ function new_array(val) {
       if (typeof Array[m] === "number") storeNum.push(Array[m]);
       if (typeof Array[m] === "string") storeOpr.push(Array[m]);
     }
-    Array = [];
+    // Array = [];
     console.log(Array);
     console.log(storeNum);
+    4;
     console.log(storeOpr);
 
     let firstOpr = storeOpr.shift();
@@ -271,6 +267,7 @@ function new_array(val) {
     console.log(storeOpr);
 
     result = operate(storeNum, firstOpr);
+    Array = [];
     storeNum = [];
     firstOpr = [];
     // if (storeOpr.length > 0) {
@@ -281,8 +278,7 @@ function new_array(val) {
     if (numberOfDecimal >= 5) {
       let fixed = result.toFixed(4);
       span.textContent = fixed;
-      return fixed;
-      // Array.unshift(fixed);
+      Array.unshift(fixed);
       // console.log(Array);
     } else if (
       numberOfDecimal == 0 ||
@@ -292,8 +288,7 @@ function new_array(val) {
       numberOfDecimal == 4
     ) {
       span.textContent = result;
-      // Array.unshift(result);
-      return result;
+      Array.unshift(result);
       // console.log(Array);
     }
   }
