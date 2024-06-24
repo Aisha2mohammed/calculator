@@ -251,18 +251,18 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
-  if ((Arr.length = 4)) {
-    arr = Arr.filter((val) => val != "=");
+  if ((Arr.length = 3)) {
+    // arr = Arr.filter((val) => val != "=");
 
-    for (let m = 0; m < arr.length; m++) {
-      if (typeof arr[m] === "number") storeNum.push(arr[m]);
-      if (typeof arr[m] === "string")
-        if (arr[m] !== "=") {
-          storeOpr.push(arr[m]);
-        }
+    for (let m = 0; m < Arr.length; m++) {
+      if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
+      if (typeof Arr[m] === "string")
+        // if (Arr[m] !== "=") {
+        storeOpr.push(Arr[m]);
+      // }
     }
-    arr = [];
-    console.log(arr);
+    Arr = [];
+    console.log(Arr);
     console.log(storeNum);
     console.log(storeOpr);
 
@@ -281,7 +281,7 @@ function new_array(val) {
     if (numberOfDecimal >= 5) {
       let fixed = result.toFixed(4);
       span.textContent = fixed;
-      arr.unshift(fixed);
+      Arr.unshift(fixed);
       // console.log(arr);
     } else if (
       numberOfDecimal == 0 ||
@@ -291,7 +291,7 @@ function new_array(val) {
       numberOfDecimal == 4
     ) {
       span.textContent = result;
-      arr.unshift(result);
+      Arr.unshift(result);
       // console.log(arr);
     }
   }
