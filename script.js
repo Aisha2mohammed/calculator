@@ -226,8 +226,8 @@ function display(numbers) {
 }
 
 equal_button.addEventListener("click", () => {
-  let equal = "=";
-  display(equal);
+  // let equal = "=";
+  // display(equal);
   // if (concat.includes(".")) {
   //   new_array(parseFloat(concat));
   //   array = [];
@@ -236,7 +236,6 @@ equal_button.addEventListener("click", () => {
   //   array = [];
   //   new_array(parseInt(concat, 10));
   //   concat = "";
-
   //   console.log(concat);
 });
 delete_button.addEventListener("click", () => {
