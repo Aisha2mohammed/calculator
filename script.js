@@ -7,6 +7,7 @@ const delete_button = document.querySelector("#del");
 const input = document.querySelector(".input");
 let array = [];
 let arr = [];
+let Arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
@@ -247,7 +248,6 @@ delete_button.addEventListener("click", () => {
 });
 
 function new_array(val) {
-  let Arr;
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
