@@ -207,39 +207,22 @@ function display(numbers) {
         }
       } else {
         concat += array[i].toString();
+        span.textContent = concat;
         console.log(concat);
         array = [];
-        span.textContent = concat;
       }
     } else if (typeof array[i] === "string") {
       concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat));
-      concat = "";
-      let opr = array[i];
-      console.log(opr);
-      new_array(opr);
+        ? new_array(parseFloat()
 
       array = [];
       console.log(array);
     }
-  }
+  
 }
 
-equal_button.addEventListener("click", () => {
-  // let equal = "=";
-  // display(equal);
-  if (concat.includes(".")) {
-    new_array(parseFloat(concat));
-    array = [];
-    console.log(array);
-  } else {
-    array = [];
-    new_array(parseInt(concat, 10));
-    concat = "";
-    console.log(concat);
-  }
-});
+
+
 delete_button.addEventListener("click", () => {
   console.log(concat);
   concat = concat.slice(0, concat.length - 1);
@@ -282,33 +265,33 @@ function new_array(val) {
     //   arr.unshift(secOpr);
     // }
 
-    //   numberOfDecimal = countDecimalPlaces(result);
-    //   if (numberOfDecimal >= 5) {
-    //     let fixed = result.toFixed(4);
-    //     span.textContent = fixed;
-    //     Arr.unshift(fixed);
-    //     // console.log(arr);
-    //   } else if (
-    //     numberOfDecimal == 0 ||
-    //     numberOfDecimal == 1 ||
-    //     numberOfDecimal == 2 ||
-    //     numberOfDecimal == 3 ||
-    //     numberOfDecimal == 4
-    //   ) {
-    //     span.textContent = result;
-    //     Arr.unshift(result);
-    //     // console.log(arr);
-    //   }
+    numberOfDecimal = countDecimalPlaces(result);
+    if (numberOfDecimal >= 5) {
+      let fixed = result.toFixed(4);
+      span.textContent = fixed;
+      Arr.unshift(fixed);
+      // console.log(arr);
+    } else if (
+      numberOfDecimal == 0 ||
+      numberOfDecimal == 1 ||
+      numberOfDecimal == 2 ||
+      numberOfDecimal == 3 ||
+      numberOfDecimal == 4
+    ) {
+      span.textContent = result;
+      Arr.unshift(result);
+      // console.log(arr);
+    }
   }
 
-  // function countDecimalPlaces(number) {
-  //   const decimalString = number.toString().split(".")[1];
-  //   if (decimalString) {
-  //     return decimalString.length;
-  //   } else {
-  //     return 0;
-  //   }
-  // }
+  function countDecimalPlaces(number) {
+    const decimalString = number.toString().split(".")[1];
+    if (decimalString) {
+      return decimalString.length;
+    } else {
+      return 0;
+    }
+  }
 }
 function operate(storeNum, newOpr) {
   const [num1, num2] = storeNum;
