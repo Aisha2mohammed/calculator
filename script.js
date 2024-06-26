@@ -272,6 +272,7 @@ function new_array(val) {
     console.log(storeOpr);
 
     result = operate(storeNum, firstOpr);
+    console.log(result);
     storeNum = [];
     firstOpr = [];
 
