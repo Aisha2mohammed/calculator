@@ -233,8 +233,8 @@ function display(numbers) {
       array = [];
       console.log(array);
     } else {
-      array = [];
       new_array(parseInt(concat, 10));
+      // array = [];
       concat = "";
       console.log(concat);
     }
@@ -252,7 +252,7 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
-  if (Arr.length >= 3) {
+  if (Arr.length >= 4) {
     // arr = Arr.filter((val) => val != "=");
 
     for (let m = 0; m < Arr.length; m++) {
