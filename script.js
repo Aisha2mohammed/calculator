@@ -125,7 +125,6 @@ container.addEventListener("click", (event) => {
       break;
 
     case "AC":
-      span.textContent = "0";
       array = [];
       location.reload();
       break;
@@ -244,20 +243,6 @@ function display(numbers) {
     array = [];
     console.log(array);
   }
-  // equal_button.addEventListener("click", () => {
-  //   // let equal = "=";
-  //   // display(equal);
-  //   if (concat.includes(".")) {
-  //     new_array(parseFloat(concat));
-  //     array = [];
-  //     console.log(array);
-  //   } else {
-  //     new_array(parseInt(concat, 10));
-  //     // array = [];
-  //     concat = "";
-  //     console.log(concat);
-  //   }
-  // });
 }
 
 delete_button.addEventListener("click", () => {
