@@ -257,14 +257,9 @@ function new_array(val) {
   console.log(Arr);
   console.log(Arr.length);
   if (Arr.length >= 3) {
-    // arr = Arr.filter((val) => val != "=");
-
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
-      if (typeof Arr[m] === "string")
-        // if (Arr[m] !== "=") {
-        storeOpr.push(Arr[m]);
-      // }
+      if (typeof Arr[m] === "string") storeOpr.push(Arr[m]);
     }
     Arr = [];
     console.log(Arr);
@@ -296,16 +291,26 @@ function new_array(val) {
 }
 function checkDecimal(result) {
   numberOfDecimal = countDecimalPlaces(result);
+  console.log(numberOfDecimal);
   if (numberOfDecimal >= 5) {
     let fixed = result.toFixed(4);
+    console.log(fixed);
+    let number_of_decimal = countDecimalPlaces(fixed);
+    for (let i = 1; i <= number_of_decimal; i++) {
+      let fixedArray = fixed.split("");
+      console.log(fixedArray);
+
+      // if(number_of_decimal)
+    }
+    return fixed;
+  } else if (numberOfDecimal == 3 || numberOfDecimal == 4) {
+    let fixed = result.toFixed(3);
     console.log(fixed);
     return fixed;
   } else if (
     numberOfDecimal == 0 ||
     numberOfDecimal == 1 ||
-    numberOfDecimal == 2 ||
-    numberOfDecimal == 3 ||
-    numberOfDecimal == 4
+    numberOfDecimal == 2
   ) {
     console.log(result);
     return result;
