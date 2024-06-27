@@ -179,6 +179,10 @@ container.addEventListener("click", (event) => {
       variable = 0;
       display(variable);
       break;
+    case "=":
+      variable = "=";
+      display(variable);
+      break;
   }
 });
 
@@ -212,33 +216,41 @@ function display(numbers) {
         array = [];
       }
     } else if (typeof array[i] === "string") {
-      concat.includes(".")
-        ? new_array(parseFloat(concat))
-        : new_array(parseInt(concat));
-      concat = "";
+      if (array[i] === "=") {
+        concat.includes(".")
+          ? new_array(parseFloat(concat))
+          : new_array(parseInt(concat));
+        concat = "";
+        array = [];
+      } else {
+        concat.includes(".")
+          ? new_array(parseFloat(concat))
+          : new_array(parseInt(concat));
+        concat = "";
 
-      let opr = array[i];
-      console.log(opr);
-      new_array(opr);
+        let opr = array[i];
+        console.log(opr);
+        new_array(opr);
 
-      array = [];
-      console.log(array);
+        array = [];
+        console.log(array);
+      }
     }
   }
-  equal_button.addEventListener("click", () => {
-    // let equal = "=";
-    // display(equal);
-    if (concat.includes(".")) {
-      new_array(parseFloat(concat));
-      array = [];
-      console.log(array);
-    } else {
-      new_array(parseInt(concat, 10));
-      // array = [];
-      concat = "";
-      console.log(concat);
-    }
-  });
+  // equal_button.addEventListener("click", () => {
+  //   // let equal = "=";
+  //   // display(equal);
+  //   if (concat.includes(".")) {
+  //     new_array(parseFloat(concat));
+  //     array = [];
+  //     console.log(array);
+  //   } else {
+  //     new_array(parseInt(concat, 10));
+  //     // array = [];
+  //     concat = "";
+  //     console.log(concat);
+  //   }
+  // });
 }
 
 delete_button.addEventListener("click", () => {
