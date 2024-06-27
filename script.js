@@ -11,7 +11,7 @@ let Arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
-let concatin, numberOfDecimal, result, secOpr, Target, split;
+let concatin, numberOfDecimal, result, secOpr, Target, last_result;
 let join = "";
 // input.addEventListener("keydown", (event) => {
 //   num = event.key;
@@ -280,9 +280,9 @@ function new_array(val) {
     storeNum = [];
     firstOpr = [];
 
-    // let return = checkDecimal(result);
-    span.textContent = result;
-    Arr.push(result);
+    last_result = checkDecimal(result);
+    span.textContent = last_result;
+    Arr.push(last_result);
     console.log(Arr);
     console.log(storeNum);
     console.log(firstOpr);
@@ -298,9 +298,8 @@ function checkDecimal(result) {
   numberOfDecimal = countDecimalPlaces(result);
   if (numberOfDecimal >= 5) {
     let fixed = result.toFixed(4);
-    span.textContent = fixed;
-    Arr.unshift(fixed);
-    // console.log(arr);
+    console.log(fixed);
+    return fixed;
   } else if (
     numberOfDecimal == 0 ||
     numberOfDecimal == 1 ||
@@ -308,9 +307,8 @@ function checkDecimal(result) {
     numberOfDecimal == 3 ||
     numberOfDecimal == 4
   ) {
-    span.textContent = result;
-    Arr.unshift(result);
-    // console.log(arr);
+    console.log(result);
+    return result;
   }
 }
 
