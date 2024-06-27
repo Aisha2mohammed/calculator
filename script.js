@@ -187,8 +187,8 @@ container.addEventListener("click", (event) => {
       variable = 0;
       display(variable);
       break;
-    case "=":
-      variable = "=";
+    case "equal":
+      variable = "equal";
       display(variable);
       break;
   }
@@ -224,21 +224,21 @@ function display(numbers) {
         array = [];
       }
     } else if (typeof array[i] === "string") {
-      if (array[i] === "=") {
+      if (array[i] === "equal") {
         if (concat !== "") {
           new_array(
             concat.includes(".") ? parseFloat(concat) : parseInt(concat)
           );
+          concat = "";
         }
       } else {
         if (concat !== "") {
           new_array(
             concat.includes(".") ? parseFloat(concat) : parseInt(concat)
           );
+          concat = "";
         }
-
         new_array(array[i]); // Add the operator
-        concat = "";
       }
     }
     array = [];
@@ -271,7 +271,7 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
-  if (Arr.length >= 4) {
+  if (Arr.length >= 3) {
     // arr = Arr.filter((val) => val != "=");
 
     for (let m = 0; m < Arr.length; m++) {
