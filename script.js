@@ -294,34 +294,34 @@ function new_array(val) {
     console.log(Arr);
   }
 }
-// function checkDecimal(result){
-//   numberOfDecimal = countDecimalPlaces(result);
-//   if (numberOfDecimal >= 5) {
-//     let fixed = result.toFixed(4);
-//     span.textContent = fixed;
-//     Arr.unshift(fixed);
-//     // console.log(arr);
-//   } else if (
-//     numberOfDecimal == 0 ||
-//     numberOfDecimal == 1 ||
-//     numberOfDecimal == 2 ||
-//     numberOfDecimal == 3 ||
-//     numberOfDecimal == 4
-//   ) {
-//     span.textContent = result;
-//     Arr.unshift(result);
-//     // console.log(arr);
-//   }
-//}
+function checkDecimal(result) {
+  numberOfDecimal = countDecimalPlaces(result);
+  if (numberOfDecimal >= 5) {
+    let fixed = result.toFixed(4);
+    span.textContent = fixed;
+    Arr.unshift(fixed);
+    // console.log(arr);
+  } else if (
+    numberOfDecimal == 0 ||
+    numberOfDecimal == 1 ||
+    numberOfDecimal == 2 ||
+    numberOfDecimal == 3 ||
+    numberOfDecimal == 4
+  ) {
+    span.textContent = result;
+    Arr.unshift(result);
+    // console.log(arr);
+  }
+}
 
-// function countDecimalPlaces(number) {
-//   const decimalString = number.toString().split(".")[1];
-//   if (decimalString) {
-//     return decimalString.length;
-//   } else {
-//     return 0;
-//   }
-// }
+function countDecimalPlaces(number) {
+  const decimalString = number.toString().split(".")[1];
+  if (decimalString) {
+    return decimalString.length;
+  } else {
+    return 0;
+  }
+}
 
 function operate(storeNum, newOpr) {
   const [num1, num2] = storeNum;
