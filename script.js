@@ -111,22 +111,25 @@ container.addEventListener("click", (event) => {
     case "pro":
       variable = "pro";
       display(variable);
-
       break;
+
     case "div":
       variable = "div";
       display(variable);
       break;
+
     case "point":
       variable = ".";
       span.textContent = ".";
       display(variable);
       break;
+
     case "AC":
       span.textContent = "0";
       array = [];
       location.reload();
       break;
+
     case "1":
       span.textContent = "1";
       variable = 1;
@@ -138,26 +141,31 @@ container.addEventListener("click", (event) => {
       variable = 2;
       display(variable);
       break;
+
     case "3":
       span.textContent = "3";
       variable = 3;
       display(variable);
       break;
+
     case "4":
       span.textContent = "4";
       variable = 4;
       display(variable);
       break;
+
     case "5":
       span.textContent = "5";
       variable = 5;
       display(variable);
       break;
+
     case "6":
       span.textContent = "6";
       variable = 6;
       display(variable);
       break;
+
     case "7":
       span.textContent = "7";
       variable = 7;
@@ -217,25 +225,24 @@ function display(numbers) {
       }
     } else if (typeof array[i] === "string") {
       if (array[i] === "=") {
-        concat.includes(".")
-          ? new_array(parseFloat(concat))
-          : new_array(parseInt(concat));
-        concat = "";
-        array = [];
+        if (concat !== "") {
+          new_array(
+            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
+          );
+        }
       } else {
-        concat.includes(".")
-          ? new_array(parseFloat(concat))
-          : new_array(parseInt(concat));
+        if (concat !== "") {
+          new_array(
+            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
+          );
+        }
+
+        new_array(array[i]); // Add the operator
         concat = "";
-
-        let opr = array[i];
-        console.log(opr);
-        new_array(opr);
-
-        array = [];
-        console.log(array);
       }
     }
+    array = [];
+    console.log(array);
   }
   // equal_button.addEventListener("click", () => {
   //   // let equal = "=";
