@@ -266,11 +266,21 @@ function new_array(val) {
     console.log(storeNum);
     console.log(storeOpr);
 
-    let firstOpr = storeOpr.shift();
-    console.log(firstOpr);
-    console.log(storeOpr);
+    if (storeOpr.length > 1) {
+      storeOpr.pop();
+      console.log(storeOpr);
 
-    result = operate(storeNum, firstOpr);
+      secOpr = storeOpr.shift();
+      console.log(storeOpr);
+
+      // Arr.push(secOpr);
+    }
+
+    // let firstOpr = storeOpr.shift();
+    // console.log(firstOpr);
+    // console.log(storeOpr);
+
+    result = operate(storeNum, secOpr);
     console.log(result);
     storeNum = [];
     firstOpr = [];
