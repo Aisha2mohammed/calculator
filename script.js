@@ -253,6 +253,8 @@ delete_button.addEventListener("click", () => {
 });
 
 function new_array(val) {
+  if (Arr.includes("string")) {
+  }
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
@@ -282,10 +284,10 @@ function new_array(val) {
     console.log(storeNum);
     console.log(firstOpr);
 
-    if (storeOpr.length > 0) {
-      secOpr = storeOpr.shift();
-      Arr.push(secOpr);
-    }
+    // if (storeOpr.length > 0) {
+    //   secOpr = storeOpr.shift();
+    //   Arr.push(secOpr);
+    // }
     console.log(Arr);
   }
 }
