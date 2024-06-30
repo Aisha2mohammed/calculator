@@ -96,30 +96,25 @@ container.addEventListener("click", (event) => {
   switch (Target.id) {
     case "add":
       variable = "add";
-      span.textContent = "+";
       display(variable);
       break;
     case "minus":
       variable = "minus";
-      span.textContent = "-";
       display(variable);
 
       break;
     case "mod":
       variable = "mod";
-      span.textContent = "%";
       display(variable);
       break;
 
     case "pro":
       variable = "pro";
-      span.textContent = "*";
       display(variable);
       break;
 
     case "div":
       variable = "div";
-      span.textContent = "/";
       display(variable);
       break;
 
