@@ -230,6 +230,7 @@ function display(numbers) {
           );
           concat = "";
         }
+        new_array(array[i]); // Add the operator
       } else {
         if (concat !== "") {
           new_array(
@@ -256,10 +257,12 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
-  if (Arr.length >= 3) {
+  if (Arr.length > 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
-      if (typeof Arr[m] === "string") storeOpr.push(Arr[m]);
+      if (typeof Arr[m] === "string") {
+        if (Arr[m] !== "equal") storeOpr.push(Arr[m]);
+      }
     }
     Arr = [];
     console.log(Arr);

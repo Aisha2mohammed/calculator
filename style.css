@@ -4,7 +4,7 @@
   padding: 0;
 }
 body {
-  background-color: #443d3d;
+  background-color: #0a0909;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@ body {
   font-weight: bold;
   font-size: 60px;
   font-family: sans-serif;
-  margin: 25px 20px 0 8px;
+  margin: 25px 20px 10px 8px;
   border: 3px solid grey;
   border-radius: 10px;
   background-color: rgb(181, 177, 177);
