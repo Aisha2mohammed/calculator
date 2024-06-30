@@ -265,8 +265,8 @@ function display(numbers) {
             concat = array[i];
           }
         }
-        new_array(array[i]); // Add the operator
       }
+      new_array(array[i]); // Add the operator
     }
     array = [];
     console.log(array);
