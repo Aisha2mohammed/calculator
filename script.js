@@ -95,25 +95,30 @@ container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
     case "add":
+      span.textContent = "+";
       variable = "add";
       display(variable);
       break;
     case "minus":
+      span.textContent = "-";
       variable = "minus";
       display(variable);
 
       break;
     case "mod":
+      span.textContent = "%";
       variable = "mod";
       display(variable);
       break;
 
     case "pro":
+      span.textContent = "*";
       variable = "pro";
       display(variable);
       break;
 
     case "div":
+      span.textContent = "/";
       variable = "div";
       display(variable);
       break;
@@ -237,6 +242,28 @@ function display(numbers) {
             concat.includes(".") ? parseFloat(concat) : parseInt(concat)
           );
           concat = "";
+        } else {
+          // span.textContent = array[i];
+          if (array[i] == "add") {
+            array[i] = "+";
+            concat = array[i];
+          }
+          if (array[i] == "minus") {
+            array[i] = "-";
+            concat = array[i];
+          }
+          if (array[i] == "pro") {
+            array[i] = "*";
+            concat = array[i];
+          }
+          if (array[i] == "div") {
+            array[i] = "/";
+            concat = array[i];
+          }
+          if (array[i] == "mod") {
+            array[i] = "%";
+            concat = array[i];
+          }
         }
         new_array(array[i]); // Add the operator
       }
@@ -257,7 +284,12 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
-  if (Arr.length > 3) {
+  if (Arr.length == 1) {
+    for (let k of Arr) {
+      if (k !== "number") Arr.pop();
+    }
+  }
+  if (Arr.length >= 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
       if (typeof Arr[m] === "string") {
