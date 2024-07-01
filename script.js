@@ -5,14 +5,14 @@ const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
 const input = document.querySelector(".input");
-const plus_minus = document.querySelector("plus_minus");
+const plus_minus = document.querySelector("#plus_minus");
 let array = [];
 let arr = [];
 let Arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
-let concatin, numberOfDecimal, result, secOpr, Target, last_result;
+let concatin, min, numberOfDecimal, result, secOpr, Target, last_result;
 let join = "";
 // input.addEventListener("keydown", (event) => {
 //   num = event.key;
@@ -199,11 +199,26 @@ container.addEventListener("click", (event) => {
   }
 });
 
+plus_minus.addEventListener("click", (event) => {
+  let minus = event.target;
+  let id = minus.id;
+  span.textContent = "-";
+  display(id);
+});
+
 function display(numbers) {
   array.push(numbers);
   console.log(array);
+  // for (let x of array) {
+  //   if (x == "plus_minus") min = "-";
+  // }
   for (let i = 0; i < array.length; i++) {
+    if (array[i] == "plus_minus") {
+      min = "-";
+    }
     if (typeof array[i] === "number" || array[i] === ".") {
+      concat = min;
+
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
@@ -221,50 +236,52 @@ function display(numbers) {
         if (concat.includes(".")) {
           array = [];
           span.textContent = concat;
-        }
-      } else {
-        concat += array[i].toString();
-        span.textContent = concat;
-        console.log(concat);
-        array = [];
-      }
-    } else if (typeof array[i] === "string") {
-      if (array[i] === "equal") {
-        if (concat !== "") {
-          new_array(
-            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
-          );
-          concat = "";
-        }
-        new_array(array[i]); // Add the operator
-      } else {
-        if (concat !== "") {
-          new_array(
-            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
-          );
-          concat = "";
         } else {
-          if (array[i] == "add") {
-            array[i] = "+";
-            concat = array[i];
-          }
-          if (array[i] == "minus") {
-            array[i] = "-";
-            concat = array[i];
-          }
-          if (array[i] == "pro") {
-            array[i] = "*";
-            concat = array[i];
-          }
-          if (array[i] == "div") {
-            array[i] = "/";
-            concat = array[i];
-          }
-          if (array[i] == "mod") {
-            array[i] = "%";
-            concat = array[i];
-          }
+          concat += array[i].toString();
+          span.textContent = concat;
+          console.log(concat);
+          array = [];
         }
+        min = "";
+      } else if (typeof array[i] === "string") {
+        if (array[i] === "equal") {
+          if (concat !== "") {
+            new_array(
+              concat.includes(".") ? parseFloat(concat) : parseInt(concat)
+            );
+            concat = "";
+          }
+          new_array(array[i]); // Add the operator
+        }
+      } else {
+        if (concat !== "") {
+          new_array(
+            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
+          );
+          concat = "";
+        }
+        //  else {
+        //   if (array[i] == "add") {
+        //     array[i] = "+";
+        //     concat = array[i];
+        //   }
+        //   if (array[i] == "minus") {
+        //     array[i] = "-";
+        //     concat = array[i];
+        //   }
+        //   if (array[i] == "pro") {
+        //     array[i] = "*";
+        //     concat = array[i];
+        //   }
+        //   if (array[i] == "div") {
+        //     array[i] = "/";
+        //     concat = array[i];
+        //   }
+        //   if (array[i] == "mod") {
+        //     array[i] = "%";
+        //     concat = array[i];
+        //   }
+        // }
         new_array(array[i]); // Add the operator
       }
     }
