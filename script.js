@@ -265,9 +265,9 @@ function display(numbers) {
             concat = array[i];
           }
         }
+        new_array(array[i]); // Add the operator
       }
     }
-    new_array(array[i]); // Add the operator
 
     array = [];
     console.log(array);
@@ -287,7 +287,7 @@ function new_array(val) {
   console.log(Arr.length);
   if (Arr.length == 1) {
     for (let k of Arr) {
-      if (k !== "number") Arr.pop();
+      if (typeof k !== "number") Arr.pop();
     }
   }
   if (Arr.length >= 3) {
