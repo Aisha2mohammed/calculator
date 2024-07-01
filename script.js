@@ -12,7 +12,8 @@ let Arr = [];
 let storeNum = [];
 let storeOpr = [];
 let concat = "";
-let concatin, min, numberOfDecimal, result, secOpr, Target, last_result;
+let min = "";
+let concatin, numberOfDecimal, result, secOpr, Target, last_result;
 let join = "";
 // input.addEventListener("keydown", (event) => {
 //   num = event.key;
@@ -213,46 +214,53 @@ function display(numbers) {
   //   if (x == "plus_minus") min = "-";
   // }
   for (let i = 0; i < array.length; i++) {
-    if (array[i] == "plus_minus") {
-      min = "-";
-    }
+    // if (array[i] == "plus_minus") {
+    //   min = "-";
+    // }
     if (typeof array[i] === "number" || array[i] === ".") {
+      console.log(min);
       concat = min;
+      console.log(concat);
 
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
             concat += array[i];
-            span.textContent = concat;
             array = [];
+            span.textContent = concat;
           }
           if (concat === "") {
             concat = "0";
             concat += array[i];
-            span.textContent = concat;
             array = [];
+            span.textContent = concat;
           }
         }
         if (concat.includes(".")) {
           array = [];
           span.textContent = concat;
-        } else {
-          concat += array[i].toString();
-          span.textContent = concat;
-          console.log(concat);
-          array = [];
         }
-        min = "";
-      } else if (typeof array[i] === "string") {
-        if (array[i] === "equal") {
-          if (concat !== "") {
-            new_array(
-              concat.includes(".") ? parseFloat(concat) : parseInt(concat)
-            );
-            concat = "";
-          }
-          new_array(array[i]); // Add the operator
+      }
+      if (array[i] === "number") {
+        concat += array[i].toString();
+        span.textContent = concat;
+        console.log(concat);
+        array = [];
+      }
+      min = "";
+      console.log(min);
+    } else if (typeof array[i] === "string") {
+      if (array[i] == "plus_minus") {
+        min = "-";
+      }
+      if (array[i] === "equal") {
+        if (concat !== "") {
+          new_array(
+            concat.includes(".") ? parseFloat(concat) : parseInt(concat)
+          );
+          concat = "";
         }
+        new_array(array[i]); // Add the operator
       } else {
         if (concat !== "") {
           new_array(
@@ -260,28 +268,7 @@ function display(numbers) {
           );
           concat = "";
         }
-        //  else {
-        //   if (array[i] == "add") {
-        //     array[i] = "+";
-        //     concat = array[i];
-        //   }
-        //   if (array[i] == "minus") {
-        //     array[i] = "-";
-        //     concat = array[i];
-        //   }
-        //   if (array[i] == "pro") {
-        //     array[i] = "*";
-        //     concat = array[i];
-        //   }
-        //   if (array[i] == "div") {
-        //     array[i] = "/";
-        //     concat = array[i];
-        //   }
-        //   if (array[i] == "mod") {
-        //     array[i] = "%";
-        //     concat = array[i];
-        //   }
-        // }
+
         new_array(array[i]); // Add the operator
       }
     }
@@ -306,11 +293,11 @@ function new_array(val) {
     if (a == "equal") Arr.pop();
   }
   console.log(Arr);
-  if (Arr.length == 1) {
-    for (let k of Arr) {
-      if (typeof k !== "number") Arr.pop();
-    }
-  }
+  // if (Arr.length == 1) {
+  //   for (let k of Arr) {
+  //     if (typeof k !== "number") Arr.pop();
+  //   }
+  // }
   if (Arr.length >= 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
