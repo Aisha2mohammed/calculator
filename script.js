@@ -95,30 +95,30 @@ container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
     case "add":
-      span.textContent = "+";
+      // span.textContent = "+";
       variable = "add";
       display(variable);
       break;
     case "minus":
-      span.textContent = "-";
+      // span.textContent = "-";
       variable = "minus";
       display(variable);
 
       break;
     case "mod":
-      span.textContent = "%";
+      // span.textContent = "%";
       variable = "mod";
       display(variable);
       break;
 
     case "pro":
-      span.textContent = "*";
+      // span.textContent = "*";
       variable = "pro";
       display(variable);
       break;
 
     case "div":
-      span.textContent = "/";
+      // span.textContent = "/";
       variable = "div";
       display(variable);
       break;
@@ -285,6 +285,10 @@ function new_array(val) {
   Arr.push(val);
   console.log(Arr);
   console.log(Arr.length);
+  for (let a of Arr) {
+    if (a == "equal") Arr.pop();
+  }
+  console.log(Arr);
   if (Arr.length == 1) {
     for (let k of Arr) {
       if (typeof k !== "number") Arr.pop();
@@ -372,14 +376,19 @@ function operate(storeNum, newOpr) {
 
   switch (newOpr) {
     case "add":
+    case "+":
       return num1 + num2;
     case "minus":
+    case "-":
       return num1 - num2;
     case "pro":
+    case "*":
       return num1 * num2;
     case "div":
+    case "/":
       return num1 / num2;
     case "mod":
+    case "%":
       return num1 % num2;
   }
 }
