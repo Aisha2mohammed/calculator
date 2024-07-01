@@ -25,7 +25,7 @@ body {
   font-weight: bold;
   font-size: 60px;
   font-family: sans-serif;
-  margin: 25px 20px 10px 8px;
+  margin: 25px 20px 16px 8px;
   border: 3px solid grey;
   border-radius: 10px;
   background-color: rgb(181, 177, 177);
@@ -89,7 +89,7 @@ span.highest {
 
 .sign {
   background-color: rgb(202, 200, 200);
-  width: 230px;
+  /* width: 230px; */
 }
 button.clear {
   background-color: rgb(202, 200, 200);
@@ -98,7 +98,8 @@ button.product,
 button.division,
 button.addition,
 button.subtract,
-button.module {
+button.module,
+button.plusMinus {
   background-color: rgb(202, 200, 200);
 }
 button.delete {

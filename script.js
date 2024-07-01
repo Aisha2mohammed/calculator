@@ -5,6 +5,7 @@ const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
 const input = document.querySelector(".input");
+const plus_minus = document.querySelector("plus_minus");
 let array = [];
 let arr = [];
 let Arr = [];
@@ -207,14 +208,14 @@ function display(numbers) {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
             concat += array[i];
-            array = [];
             span.textContent = concat;
+            array = [];
           }
           if (concat === "") {
             concat = "0";
             concat += array[i];
-            array = [];
             span.textContent = concat;
+            array = [];
           }
         }
         if (concat.includes(".")) {
@@ -243,7 +244,6 @@ function display(numbers) {
           );
           concat = "";
         } else {
-          // span.textContent = array[i];
           if (array[i] == "add") {
             array[i] = "+";
             concat = array[i];
