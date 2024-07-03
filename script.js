@@ -416,30 +416,30 @@ container.addEventListener("click", (event) => {
   Target = event.target;
   switch (Target.id) {
     case "add":
-      // span.textContent = "+";
+      span.textContent = "+";
       variable = "add";
       display(variable);
       break;
     case "minus":
-      // span.textContent = "-";
+      span.textContent = "-";
       variable = "minus";
       display(variable);
 
       break;
     case "mod":
-      // span.textContent = "%";
+      span.textContent = "%";
       variable = "mod";
       display(variable);
       break;
 
     case "pro":
-      // span.textContent = "*";
+      span.textContent = "*";
       variable = "pro";
       display(variable);
       break;
 
     case "div":
-      // span.textContent = "/";
+      span.textContent = "/";
       variable = "div";
       display(variable);
       break;
@@ -559,7 +559,6 @@ function display(numbers) {
           array = [];
           span.textContent = concat;
         }
-        min = "";
       } else {
         concat += array[i].toString();
         span.textContent = concat;
@@ -575,7 +574,7 @@ function display(numbers) {
           );
           concat = "";
         }
-        new_array(array[i]); // Add the operator
+        // new_array(array[i]); // Add the operator
       } else {
         if (concat !== "") {
           new_array(
@@ -613,14 +612,15 @@ function new_array(val) {
   //     if (typeof k !== "number") Arr.pop();
   //   }
   // }
-  if (Arr.length > 3) {
+  if (Arr.length >= 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
       if (typeof Arr[m] === "string")
-        if (Arr[m] == "equal") Arr.pop();
-        else storeOpr.push(Arr[m]);
+        // if (Arr[m] == "equal") Arr.pop();
+        storeOpr.push(Arr[m]);
     }
-
+    Arr = [];
+    console.log(Arr);
     console.log(storeNum);
     console.log(storeOpr);
 
@@ -633,19 +633,17 @@ function new_array(val) {
 
     //   // Arr.push(secOpr);
     // }
-
     let firstOpr = storeOpr.pop();
     console.log(firstOpr);
     console.log(storeOpr);
 
-    if (storeOpr.length == 2) {
+    if (storeNum.length == 2) {
       result = operate(storeNum, firstOpr);
       console.log(result);
 
       storeNum = [];
       firstOpr = [];
-      Arr = [];
-      console.log(Arr);
+
       last_result = checkDecimal(result);
       span.textContent = last_result;
       Arr.push(last_result);
@@ -655,6 +653,7 @@ function new_array(val) {
     }
   }
 }
+
 function checkDecimal(result) {
   numberOfDecimal = countDecimalPlaces(result);
   console.log(numberOfDecimal);
