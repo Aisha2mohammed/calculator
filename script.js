@@ -574,7 +574,7 @@ function display(numbers) {
           );
           concat = "";
         }
-        // new_array(array[i]); // Add the operator
+        new_array(array[i]); // Add the operator
       } else {
         if (concat !== "") {
           new_array(
@@ -601,23 +601,23 @@ delete_button.addEventListener("click", () => {
 
 function new_array(val) {
   Arr.push(val);
-  console.log(Arr);
-  console.log(Arr.length);
   // for (let a of Arr) {
   //   if (a == "equal") Arr.pop();
   // }
+  console.log(Arr);
+
   // console.log(Arr);
   // if (Arr.length == 1) {
   //   for (let k of Arr) {
   //     if (typeof k !== "number") Arr.pop();
   //   }
   // }
-  if (Arr.length >= 3) {
+  if (Arr.length > 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
       if (typeof Arr[m] === "string")
-        // if (Arr[m] == "equal") Arr.pop();
-        storeOpr.push(Arr[m]);
+        if (Arr[m] == "equal") Arr.pop();
+        else storeOpr.push(Arr[m]);
     }
     Arr = [];
     console.log(Arr);
