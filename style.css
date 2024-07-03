@@ -8,9 +8,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .text {
-  margin: 4rem;
+  position: absolute;
+  left: 1rem;
+  top: 2rem;
+  font-size: 1.3rem;
+  font-family: sans-serif;
 }
 .container {
   width: 520px;
