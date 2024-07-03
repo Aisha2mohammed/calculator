@@ -619,6 +619,10 @@ document.addEventListener("keydown", (e) => {
     console.log(concat);
     span.textContent = concat;
   }
+  if (e.key === "Enter" && e.shiftKey) {
+    array = [];
+    location.reload();
+  }
 });
 function display(numbers) {
   array.push(numbers);
