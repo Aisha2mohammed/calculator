@@ -4,10 +4,13 @@
   padding: 0;
 }
 body {
-  background-color: #0a0909;
+  background-color: #8799b5;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.text {
+  margin: 4rem;
 }
 .container {
   width: 520px;
