@@ -610,6 +610,10 @@ document.addEventListener("keydown", (e) => {
     variable = "equal";
     display(variable);
   }
+  if (e.key === "Enter") {
+    variable = "equal";
+    display(variable);
+  }
   if (e.key === "Backspace") {
     concat = concat.slice(0, concat.length - 1);
     console.log(concat);
