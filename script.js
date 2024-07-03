@@ -525,6 +525,97 @@ plus_minus.addEventListener("click", (event) => {
   display(id);
 });
 
+document.addEventListener("keydown", (e) => {
+  if (e.key === "1") {
+    span.textContent = "1";
+    variable = 1;
+    display(variable);
+  }
+  if (e.key === "2") {
+    span.textContent = "2";
+    variable = 2;
+    display(variable);
+  }
+  if (e.key === "3") {
+    span.textContent = "3";
+    variable = 3;
+    display(variable);
+  }
+  if (e.key === "4") {
+    span.textContent = "4";
+    variable = 4;
+    display(variable);
+  }
+  if (e.key === "5") {
+    span.textContent = "5";
+    variable = 5;
+    display(variable);
+  }
+  if (e.key === "6") {
+    span.textContent = "6";
+    variable = 6;
+    display(variable);
+  }
+  if (e.key === "7") {
+    span.textContent = "7";
+    variable = 7;
+    display(variable);
+  }
+  if (e.key === "8") {
+    span.textContent = "8";
+    variable = 8;
+    display(variable);
+  }
+  if (e.key === "9") {
+    span.textContent = "9";
+    variable = 9;
+    display(variable);
+  }
+  if (e.key === "0") {
+    span.textContent = "0";
+    variable = 0;
+    display(variable);
+  }
+  if (e.key === "+") {
+    span.textContent = "+";
+    variable = "add";
+    display(variable);
+  }
+  if (e.key === "-") {
+    span.textContent = "-";
+    variable = "minus";
+    display(variable);
+  }
+  if (e.key === "*" && e.shiftKey) {
+    span.textContent = "x";
+    variable = "pro";
+    display(variable);
+  }
+  if (e.key === "/") {
+    span.textContent = "/";
+    variable = "div";
+    display(variable);
+  }
+  if (e.key === "%") {
+    span.textContent = "%";
+    variable = "mod";
+    display(variable);
+  }
+  if (e.key === ".") {
+    span.textContent = ".";
+    variable = ".";
+    display(variable);
+  }
+  if (e.key === "=") {
+    variable = "equal";
+    display(variable);
+  }
+  if (e.key === "Backspace") {
+    concat = concat.slice(0, concat.length - 1);
+    console.log(concat);
+    span.textContent = concat;
+  }
+});
 function display(numbers) {
   array.push(numbers);
   console.log(array);
