@@ -120,14 +120,18 @@ container.addEventListener("click", (event) => {
       variable = "equal";
       display(variable);
       break;
+    case "plus_minus":
+      variable = "plus_minus";
+      span.textContent = "-";
+      display(variable);
   }
 });
-plus_minus.addEventListener("click", (event) => {
-  let minus = event.target;
-  let id = minus.id;
-  span.textContent = "-";
-  display(id);
-});
+// plus_minus.addEventListener("click", (event) => {
+//   let minus = event.target;
+//   let id = minus.id;
+//   span.textContent = "-";
+//   display(id);
+// });
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "1") {
@@ -238,11 +242,14 @@ function display(numbers) {
   // }
   for (let i = 0; i < array.length; i++) {
     // if (array[i] == "plus_minus") {
-    //   min = "-";
+    //   concat = "-";
     // }
-
+    if (array[i] === "plus_minus") {
+      // concat = "-";
+      min = "-";
+    }
     if (typeof array[i] === "number" || array[i] === ".") {
-      // concat = min;
+      concat = min;
 
       if (array[i] === ".") {
         if (!concat.includes(".")) {
@@ -268,7 +275,7 @@ function display(numbers) {
         console.log(concat);
         array = [];
       }
-      // min = "";
+      min = "";
     } else if (typeof array[i] === "string") {
       if (array[i] === "equal") {
         if (concat !== "") {
@@ -304,9 +311,9 @@ delete_button.addEventListener("click", () => {
 
 function new_array(val) {
   Arr.push(val);
-  // for (let a of Arr) {
-  //   if (a == "equal") Arr.pop();
-  // }
+  for (let a of Arr) {
+    if (a == "plus_minus") Arr.pop();
+  }
   console.log(Arr);
 
   // console.log(Arr);
