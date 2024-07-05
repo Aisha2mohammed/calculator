@@ -235,17 +235,9 @@ document.addEventListener("keydown", (e) => {
 function display(numbers) {
   array.push(numbers);
   console.log(array);
-  // for (let i of array) {
-  //   if (i === "plus_minus") {
-  //     min = "-";
-  //   }
-  // }
+
   for (let i = 0; i < array.length; i++) {
-    // if (array[i] == "plus_minus") {
-    //   concat = "-";
-    // }
-    if (array[i] === "plus_minus") {
-      // concat = "-";
+    if (array[i] == "plus_minus") {
       min = "-";
     }
     if (typeof array[i] === "number" || array[i] === ".") {
@@ -315,13 +307,6 @@ function new_array(val) {
     if (a == "plus_minus") Arr.pop();
   }
   console.log(Arr);
-
-  // console.log(Arr);
-  // if (Arr.length == 1) {
-  //   for (let k of Arr) {
-  //     if (typeof k !== "number") Arr.pop();
-  //   }
-  // }
   if (Arr.length > 3) {
     for (let m = 0; m < Arr.length; m++) {
       if (typeof Arr[m] === "number") storeNum.push(Arr[m]);
@@ -334,15 +319,6 @@ function new_array(val) {
     console.log(storeNum);
     console.log(storeOpr);
 
-    // if (storeOpr.length > 1) {
-    //   storeOpr.pop();
-    //   console.log(storeOpr);
-
-    //   secOpr = storeOpr.shift();
-    //   console.log(storeOpr);
-
-    //   // Arr.push(secOpr);
-    // }
     let firstOpr = storeOpr.pop();
     console.log(firstOpr);
     console.log(storeOpr);
