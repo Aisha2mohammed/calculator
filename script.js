@@ -120,18 +120,18 @@ container.addEventListener("click", (event) => {
       variable = "equal";
       display(variable);
       break;
-    case "plus_minus":
-      variable = "plus_minus";
-      span.textContent = "-";
-      display(variable);
+    //   case "plus_minus":
+    //     variable = "plus_minus";
+    //     span.textContent = "-";
+    //     display(variable);
   }
 });
-// plus_minus.addEventListener("click", (event) => {
-//   let minus = event.target;
-//   let id = minus.id;
-//   span.textContent = "-";
-//   display(id);
-// });
+plus_minus.addEventListener("click", (event) => {
+  let minus = event.target;
+  let id = minus.id;
+  span.textContent = "-";
+  display(id);
+});
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "1") {
