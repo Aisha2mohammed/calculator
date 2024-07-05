@@ -4,7 +4,6 @@ const span = document.querySelector(".span1");
 const span_button = document.querySelectorAll("span.uniq");
 const equal_button = document.querySelector("#equal");
 const delete_button = document.querySelector("#del");
-const input = document.querySelector(".input");
 const plus_minus = document.querySelector("#plus_minus");
 
 let array = [];
@@ -120,10 +119,9 @@ container.addEventListener("click", (event) => {
       variable = "equal";
       display(variable);
       break;
-    //   case "plus_minus":
-    //     variable = "plus_minus";
-    //     span.textContent = "-";
-    //     display(variable);
+    case "delete_button ":
+      concat = concat.slice(0, concat.length - 1);
+      span.textContent = concat;
   }
 });
 plus_minus.addEventListener("click", (event) => {
@@ -240,9 +238,10 @@ function display(numbers) {
     if (array[i] == "plus_minus") {
       min = "-";
     }
+
     if (typeof array[i] === "number" || array[i] === ".") {
       concat = min;
-
+      console.log(concat);
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
@@ -268,6 +267,7 @@ function display(numbers) {
         array = [];
       }
       min = "";
+      console.log(min);
     } else if (typeof array[i] === "string") {
       if (array[i] === "equal") {
         if (concat !== "") {
@@ -294,12 +294,12 @@ function display(numbers) {
   }
 }
 
-delete_button.addEventListener("click", () => {
-  console.log(concat);
-  concat = concat.slice(0, concat.length - 1);
-  console.log(concat);
-  span.textContent = concat;
-});
+// delete_button.addEventListener("click", () => {
+//   console.log(concat);
+//   concat = concat.slice(0, concat.length - 1);
+//   console.log(concat);
+//   span.textContent = concat;
+// });
 
 function new_array(val) {
   Arr.push(val);
