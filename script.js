@@ -243,8 +243,7 @@ function display(numbers) {
     if (typeof array[i] === "number" || array[i] === ".") {
       // concat = min;
       console.log(concat);
-      // if (min.includes("-")) {
-      // concat = min;
+
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
@@ -253,12 +252,21 @@ function display(numbers) {
             span.textContent = concat;
           }
           if (concat === "") {
-            concat = "0";
-            concat += array[i];
-            array = [];
-            span.textContent = concat;
+            if (min == "-") {
+              concat = "0";
+              concat = min + concat;
+              concat += array[i];
+              array = [];
+              span.textContent = concat;
+            } else {
+              concat = "0";
+              concat += array[i];
+              array = [];
+              span.textContent = concat;
+            }
           }
         }
+
         if (concat.includes(".")) {
           array = [];
           span.textContent = concat;
