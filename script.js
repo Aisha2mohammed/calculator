@@ -122,13 +122,13 @@ container.addEventListener("click", (event) => {
     case "delete_button ":
       concat = concat.slice(0, concat.length - 1);
       span.textContent = concat;
+
+    case "plus_minus":
+      variable = "plus_minus";
+      span.textContent = "-";
+      display(variable);
+      break;
   }
-});
-plus_minus.addEventListener("click", (event) => {
-  let minus = event.target;
-  let id = minus.id;
-  span.textContent = "-";
-  display(id);
 });
 
 document.addEventListener("keydown", (e) => {
@@ -237,11 +237,9 @@ function display(numbers) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == "plus_minus") {
       min = "-";
-      // concat = min;
     }
 
     if (typeof array[i] === "number" || array[i] === ".") {
-      // concat = min;
       console.log(concat);
 
       if (array[i] === ".") {
