@@ -237,11 +237,14 @@ function display(numbers) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == "plus_minus") {
       min = "-";
+      // concat = min;
     }
 
     if (typeof array[i] === "number" || array[i] === ".") {
-      concat = min;
+      // concat = min;
       console.log(concat);
+      // if (min.includes("-")) {
+      // concat = min;
       if (array[i] === ".") {
         if (!concat.includes(".")) {
           if (concat.length > 0) {
@@ -261,11 +264,20 @@ function display(numbers) {
           span.textContent = concat;
         }
       } else {
-        concat += array[i].toString();
-        span.textContent = concat;
-        console.log(concat);
-        array = [];
+        if (min == "-") {
+          concat += min;
+          concat += array[i].toString();
+          span.textContent = concat;
+          console.log(concat);
+          array = [];
+        } else {
+          concat += array[i].toString();
+          span.textContent = concat;
+          console.log(concat);
+          array = [];
+        }
       }
+
       min = "";
       console.log(min);
     } else if (typeof array[i] === "string") {
