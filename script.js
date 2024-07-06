@@ -119,9 +119,6 @@ container.addEventListener("click", (event) => {
       variable = "equal";
       display(variable);
       break;
-    case "delete_button ":
-      concat = concat.slice(0, concat.length - 1);
-      span.textContent = concat;
 
     case "plus_minus":
       variable = "plus_minus";
@@ -312,12 +309,12 @@ function display(numbers) {
   }
 }
 
-// delete_button.addEventListener("click", () => {
-//   console.log(concat);
-//   concat = concat.slice(0, concat.length - 1);
-//   console.log(concat);
-//   span.textContent = concat;
-// });
+delete_button.addEventListener("click", () => {
+  console.log(concat);
+  concat = concat.slice(0, concat.length - 1);
+  console.log(concat);
+  span.textContent = concat;
+});
 
 function new_array(val) {
   Arr.push(val);
