@@ -398,19 +398,15 @@ function operate(storeNum, newOpr) {
 
   switch (newOpr) {
     case "add":
-    case "+":
       return num1 + num2;
     case "minus":
-    case "-":
+    case "":
       return num1 - num2;
     case "pro":
-    case "*":
       return num1 * num2;
     case "div":
-    case "/":
       return num1 / num2;
     case "mod":
-    case "%":
       return num1 % num2;
   }
 }
