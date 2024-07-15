@@ -127,20 +127,34 @@ container.addEventListener("click", (event) => {
   }
 });
 
-let currentOperator = "-"; // Initial state
+// let currentOperator = "-"; // Initial state
+
+// plus_minus.addEventListener("click", function () {
+//   // if (currentOperator === "-") {
+//   //   currentOperator = "+";
+//   // } else {
+//   //   currentOperator = "-";
+//   // }
+//   variable = "plus_minus";
+//   span.textContent = "-";
+//   display(variable);
+
+//   // span.textContent = currentOperator;
+//   // display(currentOperator); // Assuming the 'display' function exists
+// });
+
+let clickCount = 0; // Track the number of clicks
 
 plus_minus.addEventListener("click", function () {
-  // if (currentOperator === "-") {
-  //   currentOperator = "+";
-  // } else {
-  //   currentOperator = "-";
-  // }
+  clickCount++; // Increment click count on each click
+
   variable = "plus_minus";
   span.textContent = "-";
   display(variable);
 
-  // span.textContent = currentOperator;
-  // display(currentOperator); // Assuming the 'display' function exists
+  if (clickCount === 2) {
+    plus_minus.removeEventListener("click", this); // Remove listener after 2 clicks
+  }
 });
 
 document.addEventListener("keydown", (e) => {
