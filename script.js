@@ -126,20 +126,21 @@ container.addEventListener("click", (event) => {
     //   break;
   }
 });
-const plusMinusButton = document.getElementById("plusMinusButton");
-const displaySpan = document.getElementById("displaySpan");
 
 let currentOperator = "-"; // Initial state
 
-plusMinusButton.addEventListener("click", function () {
-  if (currentOperator === "-") {
-    currentOperator = "+";
-  } else {
-    currentOperator = "-";
-  }
+plus_minus.addEventListener("click", function () {
+  // if (currentOperator === "-") {
+  //   currentOperator = "+";
+  // } else {
+  //   currentOperator = "-";
+  // }
+  variable = "plus_minus";
+  span.textContent = "-";
+  display(variable);
 
-  displaySpan.textContent = currentOperator;
-  display(currentOperator); // Assuming the 'display' function exists
+  // span.textContent = currentOperator;
+  // display(currentOperator); // Assuming the 'display' function exists
 });
 
 document.addEventListener("keydown", (e) => {
