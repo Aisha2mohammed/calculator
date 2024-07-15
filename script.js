@@ -7,7 +7,6 @@ const delete_button = document.querySelector("#del");
 const plus_minus = document.querySelector("#plus_minus");
 
 let array = [];
-let arr = [];
 let Arr = [];
 let storeNum = [];
 let storeOpr = [];
@@ -120,12 +119,27 @@ container.addEventListener("click", (event) => {
       display(variable);
       break;
 
-    case "plus_minus":
-      variable = "plus_minus";
-      span.textContent = "-";
-      display(variable);
-      break;
+    // case "plus_minus":
+    //   variable = "plus_minus";
+    //   span.textContent = "-";
+    //   display(variable);
+    //   break;
   }
+});
+const plusMinusButton = document.getElementById("plusMinusButton");
+const displaySpan = document.getElementById("displaySpan");
+
+let currentOperator = "-"; // Initial state
+
+plusMinusButton.addEventListener("click", function () {
+  if (currentOperator === "-") {
+    currentOperator = "+";
+  } else {
+    currentOperator = "-";
+  }
+
+  displaySpan.textContent = currentOperator;
+  display(currentOperator); // Assuming the 'display' function exists
 });
 
 document.addEventListener("keydown", (e) => {
