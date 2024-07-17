@@ -119,19 +119,13 @@ container.addEventListener("click", (event) => {
       variable = "equal";
       display(variable);
       break;
-
-    // case "plus_minus":
-    //   variable = "plus_minus";
-    //   span.textContent = "-";
-    //   display(variable);
-    //   break;
   }
 });
 
 plus_minus.addEventListener("click", handleClick);
 
 function handleClick() {
-  clickCount++; // Increment the click counter
+  clickCount++;
 
   if (clickCount % 2 === 1) {
     // Odd clicks
