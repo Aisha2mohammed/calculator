@@ -146,15 +146,10 @@ container.addEventListener("click", (event) => {
 let clickCount = 0; // Track the number of clicks
 
 plus_minus.addEventListener("click", function () {
-  clickCount++; // Increment click count on each click
-
   variable = "plus_minus";
   span.textContent = "-";
-  display(variable);
 
-  if (clickCount === 2) {
-    plus_minus.removeEventListener("click", this); // Remove listener after 2 clicks
-  }
+  display(variable);
 });
 
 document.addEventListener("keydown", (e) => {
