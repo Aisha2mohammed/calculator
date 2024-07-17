@@ -414,7 +414,6 @@ function operate(storeNum, newOpr) {
     case "add":
       return num1 + num2;
     case "minus":
-    case "":
       return num1 - num2;
     case "pro":
       return num1 * num2;
