@@ -13,6 +13,7 @@ let storeOpr = [];
 let concat = "";
 let min = "";
 let numberOfDecimal, result, secOpr, Target, last_result;
+let clickCount = 0; // Track the number of clicks
 
 container.addEventListener("click", (event) => {
   Target = event.target;
@@ -127,30 +128,25 @@ container.addEventListener("click", (event) => {
   }
 });
 
-// let currentOperator = "-"; // Initial state
+plus_minus.addEventListener("click", handleClick);
 
-// plus_minus.addEventListener("click", function () {
-//   // if (currentOperator === "-") {
-//   //   currentOperator = "+";
-//   // } else {
-//   //   currentOperator = "-";
-//   // }
-//   variable = "plus_minus";
-//   span.textContent = "-";
-//   display(variable);
+function handleClick() {
+  clickCount++; // Increment the click counter
 
-//   // span.textContent = currentOperator;
-//   // display(currentOperator); // Assuming the 'display' function exists
-// });
+  if (clickCount % 2 === 1) {
+    // Odd clicks
+    variable = "plus_minus";
+    span.textContent = "-";
+    display(variable);
+  } else {
+    // Even clicks
+    span.textContent = "+";
+  }
 
-let clickCount = 0; // Track the number of clicks
-
-plus_minus.addEventListener("click", function () {
-  variable = "plus_minus";
-  span.textContent = "-";
-
-  display(variable);
-});
+  // Toggle event listener on each click
+  plus_minus.removeEventListener("click", handleClick);
+  plus_minus.addEventListener("click", handleClick);
+}
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "1") {
