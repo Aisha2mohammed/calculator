@@ -314,7 +314,7 @@ function display(numbers) {
           concat = "";
         }
 
-        new_array(array[i]); // Add the operator
+        new_array(array[i]);
       }
     }
 
@@ -398,7 +398,7 @@ function checkDecimal(result) {
 function countDecimalPlaces(number) {
   const decimalString = number.toString().split(".")[1];
   if (decimalString) {
-    return decimalString.length; // coun tthe number of decimal place
+    return decimalString.length; // count the number of decimal place
   } else {
     return 0;
   }
