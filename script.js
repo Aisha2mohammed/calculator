@@ -398,7 +398,7 @@ function checkDecimal(result) {
 function countDecimalPlaces(number) {
   const decimalString = number.toString().split(".")[1];
   if (decimalString) {
-    return decimalString.length;
+    return decimalString.length; // coun tthe number of decimal place
   } else {
     return 0;
   }
